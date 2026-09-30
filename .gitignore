@@ -1,0 +1,14 @@
+# macOS metadata and Office temporary lock files
+.DS_Store
+._*
+~$*
+
+# Editor and local environment files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Local generated exports and temporary files
+*.tmp
+*.bak
