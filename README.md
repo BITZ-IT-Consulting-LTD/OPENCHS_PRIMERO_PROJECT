@@ -1,44 +1,86 @@
-# Lesotho OpenCHS Primero project
+# Lesotho OpenCHS – Primero CPIMS+ integration
 
-Start with [inception.md](inception.md) for the current inception report and outstanding decisions. This is a documentation workspace; implementation and live-environment claims require separate evidence.
+Project workspace for the electronic referral integration between **OPENCHS** (Child Helpline 116, Lesotho) and **Primero CPIMS+** (Ministry of Gender, Youth and Social Development), delivered by BITZ IT Consulting.
+
+> **This repository is public.** Contracts, meeting minutes, transcripts, attendance records, correspondence and client-internal policies are deliberately excluded (see [.gitignore](.gitignore)). Never commit real child data, credentials, tokens or contract amounts.
+
+## What is being built
+
+```
+OPENCHS  →  BITZ Integration Gateway  →  Primero CPIMS+ API (Lesotho)
+```
+
+- **OPENCHS:** an agent explicitly chooses **Refer to CPIMS+**, selects a Ministry-approved service, and confirms the referral. Saving a case never sends a referral. **Send Update** is a separate action for follow-up information.
+- **Gateway:** JWT authentication, mapping of the minimum necessary data, a persistent queue with retries (1, 5, 30 and 120 minutes), duplicate prevention, reconciliation of uncertain outcomes, and a metadata-only audit log.
+- **Primero CPIMS+:** the Ministry accepts or rejects referrals, distributes them and assigns caseworkers.
+- **Out of scope for the initial delivery:** automatic inbound status updates, attachments, case plans, direct routing to service providers, and OpenFN or X-Road. Bringing any of these in would need a contract addendum.
+
+## Deliverables and agreed dates
+
+| Deliverable | Content | Agreed date | Milestone |
+|---|---|---|---|
+| **D1** | Inception, requirements and environment set-up | 13 Nov 2026 | [D1](https://github.com/BITZ-IT-Consulting-LTD/OPENCHS_PRIMERO_PROJECT/milestone/1) |
+| **D2** | Optional ABR ID field and checks; explicit referral control | 20 Nov 2026 | [D2](https://github.com/BITZ-IT-Consulting-LTD/OPENCHS_PRIMERO_PROJECT/milestone/2) |
+| **D3** | Outbound REST API client: JWT, retry, offline queue, idempotency, audit | 11 Dec 2026 | [D3](https://github.com/BITZ-IT-Consulting-LTD/OPENCHS_PRIMERO_PROJECT/milestone/3) |
+| **D4** | Testing, Ministry-led UAT, training (Maseru), go-live and handover | 26 Feb 2027 | [D4](https://github.com/BITZ-IT-Consulting-LTD/OPENCHS_PRIMERO_PROJECT/milestone/4) |
+
+**Delivery gates:**
+- **G1:** D1 approved (13 Nov)
+- **G2:** Lesotho test environment and credentials in place (13 Nov)
+- **G3:** D3 evidence submitted (11 Dec)
+- **G4:** Lesotho integration verified (22 Jan)
+- **G5:** UAT signed off (5 Feb)
+- **Go/no-go:** written production decision before go-live (8–12 Feb)
+
+Support continues under the existing support provisions until 7 Jul 2027.
+
+The work is tracked in [GitHub Issues](https://github.com/BITZ-IT-Consulting-LTD/OPENCHS_PRIMERO_PROJECT/issues). Each issue maps to requirement IDs in Annex A of the inception report. Labels:
+- **Deliverable:** `D1`–`D4`
+- **Item type:** `gate`, `decision` (OD-01 to OD-13), `dependency`
+- **Work type:** `type-build`, `type-test`, `type-governance`
+- **Owner:** `owner-bitz`, `owner-primero`, `owner-ministry`, `owner-unicef`
+- **Status:** `critical-path`, `blocked`
+
+## Current status
+
+- **D1 Inception Report v2.9 (final draft)** has been submitted for stakeholder approval. Written approval is pending.
+- **G2 is the critical dependency:** Primero must supply the Lesotho test environment, credentials, field identifiers and service list. Until then, development runs against a mock API.
+- **Open decisions** are tracked as issues:
+  - OD-01: written UNICEF disposition of two-way updates and attachments
+  - OD-09: official ABR ID rules
+  - OD-02 to OD-04: Ministry rules for rejection feedback, corrections and anonymity
+  - OD-05 to OD-13: safeguarding decisions and production authorisation
+
+## Key documents
+
+- [D1 Inception Report v2.9 — Markdown](01_inception/D1_INCEPTION_REPORT_OPENCHS_PRIMERO_V2.9_FINAL_DRAFT.md) · [Word](01_inception/D1_INCEPTION_REPORT_OPENCHS_PRIMERO_V2.9_FINAL_DRAFT.docx)
+- [v2.9 consolidation register](01_inception/D1_V2.9_CONSOLIDATION_REGISTER.md)
+- [Outstanding decisions](01_inception/INCEPTION_OUTSTANDING_DECISIONS.md) · [D1 acceptance readiness](01_inception/D1_ACCEPTANCE_READINESS.md)
+- [Contract-aligned delivery plan](02_project_management/CONTRACT_ALIGNED_DELIVERY_PLAN.md)
+- [OpenCHS–Primero integration context](05_technical_reference/OPENCHS_PRIMERO_INTEGRATION_CONTEXT.md) · [Primero CPIMS+ context](05_technical_reference/12_PRIMERO_CPIMS_CONTEXT.md)
+- [Technical scope brief](07_source_documents/Lesotho_OpenCHS_Technical_Scope_Inception_Brief.pdf)
 
 ## Folder guide
 
 | Folder | Contents |
 |---|---|
-| [01 Inception](01_inception/README.md) | Current D1 v0.5 report in Markdown and Word, plus completion inventory |
-| [02 Project management](02_project_management/README.md) | Contract delivery plan, decision document, delivery checklist and update/validation records |
-| [03 Meetings](03_meetings/README.md) | Sessions 1–3 minutes, action tracker, reports, facilitation materials, follow-up preparation and unreviewed transcript files |
-| [04 Templates](04_templates/README.md) | Fourteen editable capture forms/registers and the consolidated Excel workbook |
-| [05 Technical reference](05_technical_reference/README.md) | OpenCHS architecture/context, integration reference and implementation prompt |
-| [06 Correspondence](06_correspondence/README.md) | Isaiah’s response, assessment and unsent follow-up drafts |
-| [07 Source documents](07_source_documents/README.md) | Original scope brief, planning presentations and historical timeline notes |
-| [08 Archive](08_archive/README.md) | Earlier versions, identical extra copies and local generated files |
+| [apps/openchs](apps/openchs/README.md) | OPENCHS application, where the D2 referral features are built. Placeholder; will be added as a git submodule |
+| [apps/gateway](apps/gateway/README.md) | BITZ Integration Gateway, the D3 outbound client to Primero CPIMS+. Planned layout only |
+| [01_inception](01_inception/README.md) | D1 inception report versions, annexes, revision records, QA and consistency audits |
+| [02_project_management](02_project_management/README.md) | Delivery plan, decision document, checklists, update and validation records |
+| [03_meetings](03_meetings/README.md) | Facilitation slides and notes, meeting reports (minutes and transcripts are kept locally, not in Git) |
+| [04_templates](04_templates/README.md) | Capture forms, registers and the Workstream 1 workbook |
+| [05_technical_reference](05_technical_reference/README.md) | OpenCHS architecture, Primero CPIMS+ context and integration reference |
+| [07_source_documents](07_source_documents/README.md) | Technical scope brief and planning presentations (contracts are held outside this repository) |
+| [08_archive](08_archive/README.md) | Superseded versions in dated folders |
 
-## Current working documents
+`06_correspondence/` and the upstream `primero/` source clone exist locally only.
 
-- [Inception report](01_inception/DRAFT_INCEPTION_REPORT_D1_OPENCHS_PRIMERO_V1.0.md) and [editable Word copy](01_inception/DRAFT_INCEPTION_REPORT_D1_OPENCHS_PRIMERO.docx)
-- [Inception completion inventory](01_inception/INCEPTION_COMPLETION_INVENTORY.md)
-- [Contract-aligned delivery plan](02_project_management/CONTRACT_ALIGNED_DELIVERY_PLAN.md)
-- [Capture forms and workbook](04_templates/README.md)
-- [Session 3 facilitation notes for 26 October 2026](03_meetings/session_3/SESSION_3_FACILITATION_NOTES_2026-10-26.md) and [editable Word copy](03_meetings/session_3/SESSION_3_FACILITATION_NOTES_2026-10-26.docx)
-- [Isaiah response assessment](06_correspondence/ISAIAH_RESPONSE_REVIEW_2026-10-26.md)
-- [Document update record](02_project_management/update_records/ISAIAH_DOCUMENT_UPDATE_LOG_2026-10-26.md)
-- [Folder reorganisation record](02_project_management/update_records/FOLDER_REORGANISATION_2026-10-26.md)
+## Working rules
 
-## Status and delivery baseline
-
-D1 v0.5 remains Draft for review after Session 3. The inventory records **19 Resolved, 44 Pending and 8 Deferred** items across inception and later delivery. Two-way referred-case updates, attachments, optional ABR and anonymous reporters are in the recorded baseline. Configured mapping, authentication, environment access, recovery details and formal approvals remain pending. Initial draft circulation is targeted for 28 October close of business.
-
-The commercial delivery baseline remains **1 July 2026 to 28 February 2027**, with milestone targets in August, October, November and February. The 14-week and two-week materials are technical planning references unless formally rebaselined.
-
-## Filing and review rules
-
-1. Maintain the current report in `01_inception/` and keep its Word copy aligned with Markdown.
-2. Use `04_templates/` for current capture forms, registers and the workbook; record owners, next actions, evidence and dates for open items.
-3. Save incoming evidence and unsent correspondence in `06_correspondence/`, and meeting records by session in `03_meetings/`.
-4. Place superseded versions in a dated folder under `08_archive/previous_versions/`; retain their original content.
-5. Treat technical context, example fields, URLs and prior implementation descriptions as references until verified in the actual source/environment.
-6. Use Draft, Proposed, Pending, Resolved and Deferred consistently. Do not mark implementation, access, testing, approval or go-live complete without supporting evidence.
-
-The folder reorganisation preserved all 100 existing files. Working Markdown and Word navigation links were repaired. Historical snapshots retain their original structure and references; paths cited as historical source attribution can be traced through the move manifest. No files were deleted, external messages sent or Git commits created.
+1. Keep the current report in `01_inception/`, and keep its Word copy aligned with the Markdown.
+2. Move superseded versions into a dated folder under `08_archive/previous_versions/`.
+3. Treat API documentation, example fields and URLs as references until they are verified on the Lesotho environment. Label evidence as Level 1 (development), Level 2 (simulated) or Level 3 (Lesotho). Only Level 3 evidence supports G4.
+4. Use synthetic data in every non-production environment.
+5. Do not mark access, testing, approval or go-live as complete without supporting evidence.
+6. Before committing, check new files against the sensitive categories in `.gitignore`.
