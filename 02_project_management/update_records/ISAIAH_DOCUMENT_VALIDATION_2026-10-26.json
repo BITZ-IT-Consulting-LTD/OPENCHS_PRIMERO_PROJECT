@@ -1,0 +1,15 @@
+{
+  "localLinks": "passed",
+  "wordWorkbooksMatched": 12,
+  "wordFilesChecked": 18,
+  "officeIntegrity": "passed",
+  "inventory": {
+    "Pending": 53,
+    "Resolved": 7,
+    "Deferred": 11
+  },
+  "spreadsheetErrors": 0,
+  "outputCopy": "identical",
+  "renderReview": "18 DOCX and 12 workbook sheets reviewed",
+  "liveIntegrationTested": false
+}

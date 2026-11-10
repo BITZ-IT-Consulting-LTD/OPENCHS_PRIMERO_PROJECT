@@ -1,0 +1,17 @@
+{
+  "report_version": "0.5",
+  "inventory_version": "0.3",
+  "inventory_counts": {
+    "Pending": 44,
+    "Resolved": 19,
+    "Deferred": 8
+  },
+  "inventory_unique_items": 71,
+  "missing_local_links": [],
+  "docx_zip_valid": true,
+  "session3_decisions_and_actions_checked": true,
+  "formal_approval": "Pending",
+  "live_access_and_tests": "Not verified",
+  "visual_review": "All 11 rendered pages inspected; pages 1\u20134 pixel-identical to reviewed first render; pages 5\u201311 reviewed in final render",
+  "rendered_pages": 11
+}

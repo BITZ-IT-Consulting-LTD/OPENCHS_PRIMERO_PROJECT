@@ -12,3 +12,49 @@
 # Local generated exports and temporary files
 *.tmp
 *.bak
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# ------------------------------------------------------------------
+# Sensitive material — NEVER commit (this repository is public)
+# ------------------------------------------------------------------
+
+# Contracts, amendments and contract extracts (held outside the repo)
+Contract */
+Contract/
+07_source_documents/contract/
+07_source_documents/*CONTRACT_PLANNING_EXTRACT*
+*Amnd0*
+*[Cc]ontract*.pdf
+*[Cc]ontract*.docx
+!04_templates/06_api_contract_capture.docx
+
+# Personal data: attendance reports and unreviewed meeting transcripts
+*[Aa]ttendance report*
+**/transcripts/*TRANSCRIPT*
+
+# Correspondence: email drafts, replies and stakeholder responses
+06_correspondence/
+*EMAIL_DRAFT*
+*REPLY_DRAFT*
+*RESPONSE_SOURCE*
+*RESPONSE_REVIEW*
+*REQUIREMENTS_EMAIL_SOURCE*
+
+# Client-internal policies, SOPs and meeting minutes
+03_meetings/session_3/data protection */
+*Data Management Policy*
+*Case Managment SOP*
+*MINUTES*.pdf
+*MINUTES*.docx
+*Minutes*.pdf
+03_meetings/session_3/Final Inception Meeting.docx
+
+# Upstream Primero source clone (separate git repo, ~300 MB)
+primero/
+
+# Obsidian local workspace state
+.obsidian/workspace*.json
+*MINUTES_REMEDIATION*

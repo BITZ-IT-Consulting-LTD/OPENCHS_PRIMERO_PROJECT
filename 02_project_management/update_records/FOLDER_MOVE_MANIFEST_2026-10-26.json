@@ -1,0 +1,802 @@
+[
+  {
+    "old_path": "Two-Week Accelerated OpenCHS\u2013Primero Implementation.pptx",
+    "new_path": "07_source_documents/planning_presentations/Two-Week Accelerated OpenCHS\u2013Primero Implementation.pptx",
+    "bytes": 266278,
+    "sha256_before": "d02fc67f1266fac8794b39b31e0bf7d0aaeec69b3c448df88096e8ceb92201f1",
+    "sha256_after": "d02fc67f1266fac8794b39b31e0bf7d0aaeec69b3c448df88096e8ceb92201f1",
+    "content_changed": false
+  },
+  {
+    "old_path": "Lesotho_OpenCHS_Technical_Scope_Inception_Brief.pdf",
+    "new_path": "07_source_documents/Lesotho_OpenCHS_Technical_Scope_Inception_Brief.pdf",
+    "bytes": 173960,
+    "sha256_before": "f9433c6bfd77a891723d99ac67410218f3e3a69e946d8f16af59b6297e55ebf5",
+    "sha256_after": "f9433c6bfd77a891723d99ac67410218f3e3a69e946d8f16af59b6297e55ebf5",
+    "content_changed": false
+  },
+  {
+    "old_path": ".DS_Store",
+    "new_path": "08_archive/local_metadata/.DS_Store",
+    "bytes": 10244,
+    "sha256_before": "d825b9ffe3aa49b755bee26d740af8fecb71a1e1f09497f33bec9f2919573341",
+    "sha256_after": "d825b9ffe3aa49b755bee26d740af8fecb71a1e1f09497f33bec9f2919573341",
+    "content_changed": false
+  },
+  {
+    "old_path": "Lesotho_OpenCHS_Implementation_Timeline_Presentation.pptx",
+    "new_path": "07_source_documents/planning_presentations/Lesotho_OpenCHS_Implementation_Timeline_Presentation.pptx",
+    "bytes": 122058,
+    "sha256_before": "523104012602de5e31fbc54378ae8fec63e8b219943c5022b203870173d6a989",
+    "sha256_after": "523104012602de5e31fbc54378ae8fec63e8b219943c5022b203870173d6a989",
+    "content_changed": false
+  },
+  {
+    "old_path": "README.md",
+    "new_path": "README.md",
+    "bytes": 3377,
+    "sha256_before": "9320db05a206a2913fa7f9cd6e6ee980e02c4dfe7fecfb8c45e10c4b86c18c54",
+    "sha256_after": "a679fd4384a524d007d80bdd9540da60b0151949f2ef36fa02ca47fe7c71da92",
+    "content_changed": true
+  },
+  {
+    "old_path": ".gitignore",
+    "new_path": ".gitignore",
+    "bytes": 192,
+    "sha256_before": "d39d168b9b1e744ed4943398b4f4ae08c19fdc69e02491b73c5e6607ad119389",
+    "sha256_after": "c6c9fd1f92fe945047c69f3a48b491aee3bee06abdb698fbec14da8b6422b538",
+    "content_changed": true
+  },
+  {
+    "old_path": "inception.md",
+    "new_path": "inception.md",
+    "bytes": 1474,
+    "sha256_before": "4d4657e01f96a694185f3cdd4ce4617cc76e9a22d9ff311afb5c66c508c09521",
+    "sha256_after": "6aaa1e39512e2f22200bb5dee327fbe832c915ef4586859a0904665cff458a25",
+    "content_changed": true
+  },
+  {
+    "old_path": "transcripts/Requirements Gathering Meeting for the Integration of the Child Help Line (CHL) and Child Protection Information Management System (CPIMS).-20261008_100432-Meeting Recording.json",
+    "new_path": "03_meetings/session_1/transcripts/SESSION_1_TRANSCRIPT_UNREVIEWED.json",
+    "bytes": 533744,
+    "sha256_before": "7d6faf2e93d75419499bb87c656a456d9e5441a1055fa5e43345d38039ee0cf6",
+    "sha256_after": "7d6faf2e93d75419499bb87c656a456d9e5441a1055fa5e43345d38039ee0cf6",
+    "content_changed": false
+  },
+  {
+    "old_path": "transcripts/Requirements Gathering Meeting for the Integration of the Child Help Line (CHL) and Child Protection Information Management System (CPIMS).-20261008_100432-Meeting Recording.srt",
+    "new_path": "03_meetings/session_1/transcripts/SESSION_1_TRANSCRIPT_UNREVIEWED.srt",
+    "bytes": 122635,
+    "sha256_before": "d44b1333539a83bebe4aa38381f56be7cf180d2ca96eb8af3003daf1b599982a",
+    "sha256_after": "d44b1333539a83bebe4aa38381f56be7cf180d2ca96eb8af3003daf1b599982a",
+    "content_changed": false
+  },
+  {
+    "old_path": "transcripts/Requirements Gathering Meeting for the Integration of the Child Help Line (CHL) and Child Protection Information Management System (CPIMS).-20261008_100432-Meeting Recording.tsv",
+    "new_path": "03_meetings/session_1/transcripts/SESSION_1_TRANSCRIPT_UNREVIEWED.tsv",
+    "bytes": 100995,
+    "sha256_before": "6adb1f41f888e95bf55aa7638d0d6b5e4e9ad14830a577ebb58d96518f5a4e1c",
+    "sha256_after": "6adb1f41f888e95bf55aa7638d0d6b5e4e9ad14830a577ebb58d96518f5a4e1c",
+    "content_changed": false
+  },
+  {
+    "old_path": "transcripts/Requirements Gathering Meeting for the Integration of the Child Help Line (CHL) and Child Protection Information Management System (CPIMS).-20261008_100432-Meeting Recording.txt",
+    "new_path": "03_meetings/session_1/transcripts/SESSION_1_TRANSCRIPT_UNREVIEWED.txt",
+    "bytes": 83170,
+    "sha256_before": "a7b303dc585c1f605701b88de3a49c4decafa53c53d4369b1df0bffb4c11540b",
+    "sha256_after": "a7b303dc585c1f605701b88de3a49c4decafa53c53d4369b1df0bffb4c11540b",
+    "content_changed": false
+  },
+  {
+    "old_path": "transcripts/Requirements Gathering Meeting for the Integration of the Child Help Line (CHL) and Child Protection Information Management System (CPIMS).-20261008_100432-Meeting Recording.vtt",
+    "new_path": "03_meetings/session_1/transcripts/SESSION_1_TRANSCRIPT_UNREVIEWED.vtt",
+    "bytes": 115370,
+    "sha256_before": "5b18240d44b59ddd405d9324d6f6f7802e8197d63325e416a5120d7b5da16ce1",
+    "sha256_after": "5b18240d44b59ddd405d9324d6f6f7802e8197d63325e416a5120d7b5da16ce1",
+    "content_changed": false
+  },
+  {
+    "old_path": "Inception Meeting /SESSION_1_MEETING_REPORT_DRAFT.pdf",
+    "new_path": "03_meetings/session_1/SESSION_1_MEETING_REPORT_DRAFT.pdf",
+    "bytes": 40932,
+    "sha256_before": "3c6e0780d0c97c50cbeb55a04cd4cb877a213d789b3eefc30c548317d4a6c988",
+    "sha256_after": "3c6e0780d0c97c50cbeb55a04cd4cb877a213d789b3eefc30c548317d4a6c988",
+    "content_changed": false
+  },
+  {
+    "old_path": "Inception Meeting /Lesotho Child Helpline 116 _ OpenCHS \u2014 Workstream 1 Inception Fa.pptx",
+    "new_path": "03_meetings/facilitation/WORKSTREAM_1_FACILITATOR_PRESENTATION.pptx",
+    "bytes": 5566998,
+    "sha256_before": "e03653c0c621174a6ce5aa42aec1fd9229987ac3f2fef3bf989f4e2508637c66",
+    "sha256_after": "e03653c0c621174a6ce5aa42aec1fd9229987ac3f2fef3bf989f4e2508637c66",
+    "content_changed": false
+  },
+  {
+    "old_path": "Inception Meeting /SESSION_1_MINUTES_REMEDIATION_RECOMMENDATIONS.docx",
+    "new_path": "03_meetings/session_1/SESSION_1_MINUTES_REMEDIATION_RECOMMENDATIONS.docx",
+    "bytes": 16743,
+    "sha256_before": "f9e8f6ae98eb5ad0055f1dfc7926eb0afbd4cf0f88f805f8e813706694f685ca",
+    "sha256_after": "f9e8f6ae98eb5ad0055f1dfc7926eb0afbd4cf0f88f805f8e813706694f685ca",
+    "content_changed": false
+  },
+  {
+    "old_path": "Inception Meeting /.DS_Store",
+    "new_path": "08_archive/local_metadata/Inception Meeting /.DS_Store",
+    "bytes": 10244,
+    "sha256_before": "4e9f52ad8dedaf245de3adfb313a583609ebf38018ba6fffdd3ae99ad05b28e9",
+    "sha256_after": "4e9f52ad8dedaf245de3adfb313a583609ebf38018ba6fffdd3ae99ad05b28e9",
+    "content_changed": false
+  },
+  {
+    "old_path": "Inception Meeting /Lesotho_OpenCHS_Workstream1_Inception_Facilitator_Workbook_UPDATED.docx",
+    "new_path": "03_meetings/facilitation/WORKSTREAM_1_FACILITATOR_WORKBOOK.docx",
+    "bytes": 50181,
+    "sha256_before": "809e2ef8328929cc64e4bf2f3f0c340167722b2873a059ac4cdfe4a2f83448a3",
+    "sha256_after": "809e2ef8328929cc64e4bf2f3f0c340167722b2873a059ac4cdfe4a2f83448a3",
+    "content_changed": false
+  },
+  {
+    "old_path": "Inception Meeting /OpenCHS & Primero CPIMS+ Integration \u2014 Session 1.pdf",
+    "new_path": "03_meetings/session_1/SESSION_1_MINUTES_ORIGINAL.pdf",
+    "bytes": 140754,
+    "sha256_before": "deb560b9e1d526c2ed929f31fb5eec5ee8d1d28eca623b4ef35c03ebfc506eb9",
+    "sha256_after": "deb560b9e1d526c2ed929f31fb5eec5ee8d1d28eca623b4ef35c03ebfc506eb9",
+    "content_changed": false
+  },
+  {
+    "old_path": "Inception Meeting /OpenCHS\u2013Primero CPIMS+ Integration \u2014 Session 1 Meeting Report (D.pptx",
+    "new_path": "03_meetings/session_1/SESSION_1_MEETING_REPORT_PRESENTATION.pptx",
+    "bytes": 5633278,
+    "sha256_before": "d9f1a544edf04d51fb95c29c357e56ab8a01334bdee27c5b0b544198a1faac39",
+    "sha256_after": "d9f1a544edf04d51fb95c29c357e56ab8a01334bdee27c5b0b544198a1faac39",
+    "content_changed": false
+  },
+  {
+    "old_path": "Inception Meeting /SESSION_1_MINUTES_REMEDIATION_RECOMMENDATIONS.md",
+    "new_path": "03_meetings/session_1/SESSION_1_MINUTES_REMEDIATION_RECOMMENDATIONS.md",
+    "bytes": 11687,
+    "sha256_before": "7be5c8d8bede30b32be1a7102774811026b01eb8496df64cf9b684af2ffb145b",
+    "sha256_after": "7be5c8d8bede30b32be1a7102774811026b01eb8496df64cf9b684af2ffb145b",
+    "content_changed": false
+  },
+  {
+    "old_path": "Inception Meeting /SESSION_1_MEETING_REPORT_DRAFT.md",
+    "new_path": "03_meetings/session_1/SESSION_1_MEETING_REPORT_DRAFT.md",
+    "bytes": 13168,
+    "sha256_before": "e7f246dab9a5fa6a7d7e7816f13e9d3a18ee7a1baf903e7aa839858efaf4d925",
+    "sha256_after": "33770fd39b90f2c80e7ff055d9ac93c835863bd58509fd0a5aae8b3c9aef36b2",
+    "content_changed": true
+  },
+  {
+    "old_path": "Inception Meeting /OpenCHS & Primero CPIMS+ Integration \u2014 Session 1 minutes draft .pdf",
+    "new_path": "08_archive/duplicate_copies/SESSION_1_MINUTES_DRAFT_COPY.pdf",
+    "bytes": 140754,
+    "sha256_before": "deb560b9e1d526c2ed929f31fb5eec5ee8d1d28eca623b4ef35c03ebfc506eb9",
+    "sha256_after": "deb560b9e1d526c2ed929f31fb5eec5ee8d1d28eca623b4ef35c03ebfc506eb9",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/OPENCHS_PRIMERO_FIRST_MEETING_DECISION_DOCUMENT.docx",
+    "new_path": "02_project_management/OPENCHS_PRIMERO_FIRST_MEETING_DECISION_DOCUMENT.docx",
+    "bytes": 19858,
+    "sha256_before": "e62b32a52ff0de05726812f2c7d6660fa649cf0dec1a3d07c1b36d0028499cd1",
+    "sha256_after": "fa42190a60cc7d52c6f0c2c01d0bd2bd9ff1d1c3a47d469396ca399bff75f4a7",
+    "content_changed": true
+  },
+  {
+    "old_path": "docs/ISAIAH_RESPONSE_REVIEW_2026-10-26.md",
+    "new_path": "06_correspondence/ISAIAH_RESPONSE_REVIEW_2026-10-26.md",
+    "bytes": 11808,
+    "sha256_before": "4f4441d68a5fde7046b4a0f9aef27218bafce43aaa0339c140e2f76279a59b71",
+    "sha256_after": "bf8b783799c26bc47a2d4a46c77cc5fef2dec0c001fd47e7077ea955171403c7",
+    "content_changed": true
+  },
+  {
+    "old_path": "docs/ISAIAH_FOLLOW_UP_REPLY_DRAFT_2026-10-26.md",
+    "new_path": "06_correspondence/ISAIAH_FOLLOW_UP_REPLY_DRAFT_2026-10-26.md",
+    "bytes": 3323,
+    "sha256_before": "6d2668edcaa1468a9900b579d5b0ab79098986deea7f05988dd766aa2b762913",
+    "sha256_after": "6d2668edcaa1468a9900b579d5b0ab79098986deea7f05988dd766aa2b762913",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/DRAFT_INCEPTION_REPORT_D1_OPENCHS_PRIMERO.docx",
+    "new_path": "01_inception/DRAFT_INCEPTION_REPORT_D1_OPENCHS_PRIMERO.docx",
+    "bytes": 35812,
+    "sha256_before": "94f1243c4bb9c18187a416843b96f1a95bf8a98151d06d428116a19767ad7369",
+    "sha256_after": "0351c1e602fd5dc48d7a05039a09017fcbf2e4de19edf648211df22fafdf27bd",
+    "content_changed": true
+  },
+  {
+    "old_path": "docs/CONTEXT.md",
+    "new_path": "05_technical_reference/CONTEXT.md",
+    "bytes": 74127,
+    "sha256_before": "6ff6c2b980a2f293202cb09bcc59aaedf6a1df0b7ffdca7de08e4eee6385f8b5",
+    "sha256_after": "64776c673297ce50d7105f41c4f796a20f40cf9061ff27e5fd70cd8c808558ae",
+    "content_changed": true
+  },
+  {
+    "old_path": "docs/ISAIAH_DOCUMENT_UPDATE_LOG_2026-10-26.md",
+    "new_path": "02_project_management/update_records/ISAIAH_DOCUMENT_UPDATE_LOG_2026-10-26.md",
+    "bytes": 6369,
+    "sha256_before": "12bea1f86009b2dfd218a648e622538594937b83929140b3e4ba33bb105e1a2a",
+    "sha256_after": "815f54b418db5351bdddf1e6085d7c6f370523ec0a80f1d6b42198fe5f958d9e",
+    "content_changed": true
+  },
+  {
+    "old_path": "docs/DRAFT_INCEPTION_REPORT_D1_OPENCHS_PRIMERO.md",
+    "new_path": "01_inception/DRAFT_INCEPTION_REPORT_D1_OPENCHS_PRIMERO.md",
+    "bytes": 40513,
+    "sha256_before": "6e981f71be204269319d6c64f91c9b748866f8fcd1f9d66e32907a9de6fc6362",
+    "sha256_after": "3aa351dd16d7bc0c45f730e82a1d722bc2eb81b2a37bef65d13ef54e20c01f43",
+    "content_changed": true
+  },
+  {
+    "old_path": "docs/INCEPTION_FOLLOW_UP_EMAIL_DRAFT.md",
+    "new_path": "06_correspondence/INCEPTION_FOLLOW_UP_EMAIL_DRAFT.md",
+    "bytes": 3855,
+    "sha256_before": "9eb910fb09a7d7bd3b049f8f73f66c8d6acc4cbf01451f6aa0c17b7235c1f3f5",
+    "sha256_after": "2f0e0a20ca307318172f2265939fd39216adc36ad633c4c047bbc1ce422626a4",
+    "content_changed": true
+  },
+  {
+    "old_path": "docs/OPENCHS_PRIMERO_TWO_WEEK_PROJECT_CHECKLIST.md",
+    "new_path": "02_project_management/OPENCHS_PRIMERO_TWO_WEEK_PROJECT_CHECKLIST.md",
+    "bytes": 15956,
+    "sha256_before": "a76a6c3c3c57565a88380af369a210257baa24342540c6852124b41a62670555",
+    "sha256_after": "bdf2a99d63d83df75f39930a42dde8d29fdc4a242d364866d6c9347651b1763e",
+    "content_changed": true
+  },
+  {
+    "old_path": "docs/INCEPTION_TOMORROW_MEETING_PREP.md",
+    "new_path": "03_meetings/FOLLOW_UP_MEETING_PREPARATION.md",
+    "bytes": 10208,
+    "sha256_before": "871acd4fcb1476cc5217793933db442ab5174376f259778703fa7eb4de7a1055",
+    "sha256_after": "7aabe8d0d5db5b61269dd57a4ee9541ab2b77039c5dbf195c417343427be6b52",
+    "content_changed": true
+  },
+  {
+    "old_path": "docs/CONTRACT_ALIGNED_DELIVERY_PLAN.md",
+    "new_path": "02_project_management/CONTRACT_ALIGNED_DELIVERY_PLAN.md",
+    "bytes": 9988,
+    "sha256_before": "96e83d1fad66934d29c4ced0322fdb5b688e4232bb5a4bf9f552a35e3ac58879",
+    "sha256_after": "3a17c44b0387cdbafcb491e50d90188a6b3de932e43fee43e129147c24831740",
+    "content_changed": true
+  },
+  {
+    "old_path": "docs/INCEPTION_COMPLETION_INVENTORY.md",
+    "new_path": "01_inception/INCEPTION_COMPLETION_INVENTORY.md",
+    "bytes": 30407,
+    "sha256_before": "a56600af7e5f7d678977e091ae0eee44e3d370277d27da8e051e824c8efdc19b",
+    "sha256_after": "c66234205aca9319854f3717a0c2235fc2f5ef76a54adaae90ab65303e2e13fd",
+    "content_changed": true
+  },
+  {
+    "old_path": "docs/OPENCHS_PRIMERO_FIRST_MEETING_DECISION_DOCUMENT.md",
+    "new_path": "02_project_management/OPENCHS_PRIMERO_FIRST_MEETING_DECISION_DOCUMENT.md",
+    "bytes": 14229,
+    "sha256_before": "87bea9974cb7263fd6ebf6daf61c972adf4ec321ad19d16f499086d67f481615",
+    "sha256_after": "5d1a265ffcde59dfb712710b226f1bcc0d189f24710f4f5577ac28e711d9d9b7",
+    "content_changed": true
+  },
+  {
+    "old_path": "docs/OPENCHS_PRIMERO_TWO_WEEK_PROJECT_CHECKLIST.docx",
+    "new_path": "02_project_management/OPENCHS_PRIMERO_TWO_WEEK_PROJECT_CHECKLIST.docx",
+    "bytes": 27318,
+    "sha256_before": "aa56a8e1620ab569dfcd6f4080fb0f610f53d7fd69b0ef644d960bc3accfb9b5",
+    "sha256_after": "2cce4e80dc40592f1f038a2d6ae10ef5543c6aad017e2f3f0f96f898c3fd5147",
+    "content_changed": true
+  },
+  {
+    "old_path": "docs/FOURTEEN_WEEK_IMPLEMENTATION_SLIDE_NOTES.md",
+    "new_path": "07_source_documents/planning_presentations/FOURTEEN_WEEK_IMPLEMENTATION_SLIDE_NOTES.md",
+    "bytes": 11363,
+    "sha256_before": "df025c4ee9a728d3dc45153b9e981afdb255021bdd4ed1905bd73b5ee87ee8fc",
+    "sha256_after": "74a88bd25ec78a3dd21f5e0e6070ee6f3ac30a8f7814236765c4f1dd7b00924b",
+    "content_changed": true
+  },
+  {
+    "old_path": "Inception Meeting /__pycache__/generate_inception_templates.cpython-310.pyc",
+    "new_path": "08_archive/local_generated_files/Inception Meeting /__pycache__/generate_inception_templates.cpython-310.pyc",
+    "bytes": 10153,
+    "sha256_before": "86167ecd39ddd923a51b33e23b413d7a481e2c518c3a0ea0a3e5c642eba25daa",
+    "sha256_after": "86167ecd39ddd923a51b33e23b413d7a481e2c518c3a0ea0a3e5c642eba25daa",
+    "content_changed": false
+  },
+  {
+    "old_path": "Inception Meeting /Minutes/OpenCHS & Primero CPIMS+ Integration \u2014 Session 1 - Copy.pdf",
+    "new_path": "03_meetings/session_1/SESSION_1_MINUTES.pdf",
+    "bytes": 141474,
+    "sha256_before": "63ea807a6a40dd8a2955ee71eeb5223932e47c794c3e195a03d5e2eaeaef2ec8",
+    "sha256_after": "63ea807a6a40dd8a2955ee71eeb5223932e47c794c3e195a03d5e2eaeaef2ec8",
+    "content_changed": false
+  },
+  {
+    "old_path": "Inception Meeting /Minutes/.DS_Store",
+    "new_path": "08_archive/local_metadata/Inception Meeting /Minutes/.DS_Store",
+    "bytes": 8196,
+    "sha256_before": "6c4c4eaa23fb7681b3728fd0cf137ff7d2fb74969ce627696628ca0b935a5a00",
+    "sha256_after": "6c4c4eaa23fb7681b3728fd0cf137ff7d2fb74969ce627696628ca0b935a5a00",
+    "content_changed": false
+  },
+  {
+    "old_path": "Inception Meeting /Minutes/OpenCHS & Primero CPIMS+ Integration \u2014 Session 2.pdf",
+    "new_path": "03_meetings/session_2/SESSION_2_MINUTES.pdf",
+    "bytes": 287551,
+    "sha256_before": "0e38ecebe9b71caf51cc30030d57984acd6eef574c2888af4fe36643b4560f3d",
+    "sha256_after": "0e38ecebe9b71caf51cc30030d57984acd6eef574c2888af4fe36643b4560f3d",
+    "content_changed": false
+  },
+  {
+    "old_path": "Inception Meeting /temeplate forms/04_field_mapping_worksheet.docx",
+    "new_path": "04_templates/04_field_mapping_worksheet.docx",
+    "bytes": 40655,
+    "sha256_before": "bea1d625605e55b7b4c3d06bce7a6000ab9dbe7dedf20064ce491c652b298eb0",
+    "sha256_after": "bea1d625605e55b7b4c3d06bce7a6000ab9dbe7dedf20064ce491c652b298eb0",
+    "content_changed": false
+  },
+  {
+    "old_path": "Inception Meeting /temeplate forms/03_abr_id_requirements.docx",
+    "new_path": "04_templates/03_abr_id_requirements.docx",
+    "bytes": 38771,
+    "sha256_before": "d7afc7c38c038c3c27cbc9c908d7fd34a5e7c90052cdc20b6be8267acd9a0d04",
+    "sha256_after": "d7afc7c38c038c3c27cbc9c908d7fd34a5e7c90052cdc20b6be8267acd9a0d04",
+    "content_changed": false
+  },
+  {
+    "old_path": "Inception Meeting /temeplate forms/14_potential_sponsor_escalation_email_primero_sandbox.docx",
+    "new_path": "04_templates/14_potential_sponsor_escalation_email_primero_sandbox.docx",
+    "bytes": 37979,
+    "sha256_before": "4a7944cad1646f670718b66bc755d5a1ddbcdb506b57fc6bbde604282c83efdc",
+    "sha256_after": "4a7944cad1646f670718b66bc755d5a1ddbcdb506b57fc6bbde604282c83efdc",
+    "content_changed": false
+  },
+  {
+    "old_path": "Inception Meeting /temeplate forms/09_decision_register.docx",
+    "new_path": "04_templates/09_decision_register.docx",
+    "bytes": 39557,
+    "sha256_before": "60caaa9958d4468380a52cf724703bc52a94e8a9f159ffa54d46c3788e6f1d91",
+    "sha256_after": "60caaa9958d4468380a52cf724703bc52a94e8a9f159ffa54d46c3788e6f1d91",
+    "content_changed": false
+  },
+  {
+    "old_path": "Inception Meeting /temeplate forms/11_open_issues_register.docx",
+    "new_path": "04_templates/11_open_issues_register.docx",
+    "bytes": 39555,
+    "sha256_before": "161fbd3e548fc9b188e95fb4956bea8f763d5d28a7eb07c918ee8be0a235eede",
+    "sha256_after": "161fbd3e548fc9b188e95fb4956bea8f763d5d28a7eb07c918ee8be0a235eede",
+    "content_changed": false
+  },
+  {
+    "old_path": "Inception Meeting /temeplate forms/10_action_register.docx",
+    "new_path": "04_templates/10_action_register.docx",
+    "bytes": 40030,
+    "sha256_before": "1cd8478982d2a3a50f36a45a60c712fd402327064f0d8200cc0b0775b7819023",
+    "sha256_after": "1cd8478982d2a3a50f36a45a60c712fd402327064f0d8200cc0b0775b7819023",
+    "content_changed": false
+  },
+  {
+    "old_path": "Inception Meeting /temeplate forms/01_stakeholder_responsibility_matrix.docx",
+    "new_path": "04_templates/01_stakeholder_responsibility_matrix.docx",
+    "bytes": 39164,
+    "sha256_before": "efeb0d4ec010580b05b6bbf60f84e37024d54f6b1b45ade27149ccea79b8df47",
+    "sha256_after": "efeb0d4ec010580b05b6bbf60f84e37024d54f6b1b45ade27149ccea79b8df47",
+    "content_changed": false
+  },
+  {
+    "old_path": "Inception Meeting /temeplate forms/Workstream_1_Inception_Capture_Workbook.xlsx",
+    "new_path": "04_templates/Workstream_1_Inception_Capture_Workbook.xlsx",
+    "bytes": 33638,
+    "sha256_before": "eb14bd6939b6722066633ec98202cb22068bc295071443c46ef91be62148207e",
+    "sha256_after": "eb14bd6939b6722066633ec98202cb22068bc295071443c46ef91be62148207e",
+    "content_changed": false
+  },
+  {
+    "old_path": "Inception Meeting /temeplate forms/README.md",
+    "new_path": "04_templates/README.md",
+    "bytes": 3330,
+    "sha256_before": "f3da2dd8de6c4f05838424791bb20cf2c241f80b7fd4e0ba1fb4fe0248d2e827",
+    "sha256_after": "603fb0f02215f558b9585e4027fd0763a83266ede442e1c08b6fd8e7dd075b1d",
+    "content_changed": true
+  },
+  {
+    "old_path": "Inception Meeting /temeplate forms/12_inception_closeout_checklist.docx",
+    "new_path": "04_templates/12_inception_closeout_checklist.docx",
+    "bytes": 39178,
+    "sha256_before": "9f6a0487d80279e63b8944c15b2fd2781f882d221db3131813593546b7d4d9e3",
+    "sha256_after": "9f6a0487d80279e63b8944c15b2fd2781f882d221db3131813593546b7d4d9e3",
+    "content_changed": false
+  },
+  {
+    "old_path": "Inception Meeting /temeplate forms/07_reliability_logging_support_controls.docx",
+    "new_path": "04_templates/07_reliability_logging_support_controls.docx",
+    "bytes": 39276,
+    "sha256_before": "03293c1a6c6ea996278ccd5d3bae215a8d26cd4f68cc3b5100c388f8a0bb5385",
+    "sha256_after": "03293c1a6c6ea996278ccd5d3bae215a8d26cd4f68cc3b5100c388f8a0bb5385",
+    "content_changed": false
+  },
+  {
+    "old_path": "Inception Meeting /temeplate forms/08_uat_acceptance_matrix.docx",
+    "new_path": "04_templates/08_uat_acceptance_matrix.docx",
+    "bytes": 27553,
+    "sha256_before": "29ff33117522c0c4d4b3015d9e2f04074c1d3f47d2bee196147534410410bb2e",
+    "sha256_after": "29ff33117522c0c4d4b3015d9e2f04074c1d3f47d2bee196147534410410bb2e",
+    "content_changed": false
+  },
+  {
+    "old_path": "Inception Meeting /temeplate forms/06_api_contract_capture.docx",
+    "new_path": "04_templates/06_api_contract_capture.docx",
+    "bytes": 39924,
+    "sha256_before": "1b2912df9d95ccad4e2dae63160d69cb2a32ff74a376edb4e300ba5f0c1463ac",
+    "sha256_after": "1b2912df9d95ccad4e2dae63160d69cb2a32ff74a376edb4e300ba5f0c1463ac",
+    "content_changed": false
+  },
+  {
+    "old_path": "Inception Meeting /temeplate forms/13_workstream_1_risk_record_primero_sandbox.docx",
+    "new_path": "04_templates/13_workstream_1_risk_record_primero_sandbox.docx",
+    "bytes": 38597,
+    "sha256_before": "bf745082f26bd07746425b96327ab443d92de65ce55c0d82ffbdfc4b198f0539",
+    "sha256_after": "bf745082f26bd07746425b96327ab443d92de65ce55c0d82ffbdfc4b198f0539",
+    "content_changed": false
+  },
+  {
+    "old_path": "Inception Meeting /temeplate forms/05_api_environment_matrix.docx",
+    "new_path": "04_templates/05_api_environment_matrix.docx",
+    "bytes": 38885,
+    "sha256_before": "77c5b7dd865c2ce22813f2d1d862a232b19edee1de8358bbcf2fe2d695f7dbfb",
+    "sha256_after": "77c5b7dd865c2ce22813f2d1d862a232b19edee1de8358bbcf2fe2d695f7dbfb",
+    "content_changed": false
+  },
+  {
+    "old_path": "Inception Meeting /temeplate forms/02_referral_lifecycle_capture.docx",
+    "new_path": "04_templates/02_referral_lifecycle_capture.docx",
+    "bytes": 28125,
+    "sha256_before": "0d952167477c1e84fdc9d1b07954bdbef663f95702d7b42c35e3cd3c0ae53067",
+    "sha256_after": "0d952167477c1e84fdc9d1b07954bdbef663f95702d7b42c35e3cd3c0ae53067",
+    "content_changed": false
+  },
+  {
+    "old_path": "Inception Meeting /Minutes/Followup /.DS_Store",
+    "new_path": "08_archive/local_metadata/Inception Meeting /Minutes/Followup /.DS_Store",
+    "bytes": 6148,
+    "sha256_before": "d65165279105ca6773180500688df4bdc69a2c7b771752f0a46ef120b7fd8ec3",
+    "sha256_after": "d65165279105ca6773180500688df4bdc69a2c7b771752f0a46ef120b7fd8ec3",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/context/12_PRIMERO_CPIMS_CONTEXT.md",
+    "new_path": "05_technical_reference/12_PRIMERO_CPIMS_CONTEXT.md",
+    "bytes": 3886,
+    "sha256_before": "a39997f6a01357fb05d3b236d3a4126ebda1efc3e0596d4162a17bd92565f803",
+    "sha256_after": "cc369ad71f544c4ebc188124422a68112f1bbe6ea2987e1e44beea22af4295f4",
+    "content_changed": true
+  },
+  {
+    "old_path": "docs/evidence/ISAIAH_RESPONSE_SOURCE_2026-10-26.md",
+    "new_path": "06_correspondence/ISAIAH_RESPONSE_SOURCE_2026-10-26.md",
+    "bytes": 3925,
+    "sha256_before": "9897aebf325ee9ba535fa2488da53d50356697d0e6ba1bb191896e35da5b0889",
+    "sha256_after": "9897aebf325ee9ba535fa2488da53d50356697d0e6ba1bb191896e35da5b0889",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/prompts/16-backend-integrations.md",
+    "new_path": "05_technical_reference/prompts/16-backend-integrations.md",
+    "bytes": 4851,
+    "sha256_before": "740b08b9deb332455999296816b93f5df01c536672932fcb468bb46917d85bf6",
+    "sha256_after": "dd52af1fd6cc5489eb2755bff0ce74e9d420692a6ee1428c61e72b5b84502754",
+    "content_changed": true
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/README.md",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/README.md",
+    "bytes": 2755,
+    "sha256_before": "d4dbf5477d19a8453aa97926bd1ff7ca45c744027258e860162d8feb79beed9d",
+    "sha256_after": "d4dbf5477d19a8453aa97926bd1ff7ca45c744027258e860162d8feb79beed9d",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/Inception Meeting /SESSION_1_MINUTES_REMEDIATION_RECOMMENDATIONS.docx",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/Inception Meeting /SESSION_1_MINUTES_REMEDIATION_RECOMMENDATIONS.docx",
+    "bytes": 16743,
+    "sha256_before": "f9e8f6ae98eb5ad0055f1dfc7926eb0afbd4cf0f88f805f8e813706694f685ca",
+    "sha256_after": "f9e8f6ae98eb5ad0055f1dfc7926eb0afbd4cf0f88f805f8e813706694f685ca",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/Inception Meeting /Lesotho_OpenCHS_Workstream1_Inception_Facilitator_Workbook_UPDATED.docx",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/Inception Meeting /Lesotho_OpenCHS_Workstream1_Inception_Facilitator_Workbook_UPDATED.docx",
+    "bytes": 49090,
+    "sha256_before": "bfa2d6e252705b72b02837482c5f09289b1985ab313b244c718e4eed1cb372b1",
+    "sha256_after": "bfa2d6e252705b72b02837482c5f09289b1985ab313b244c718e4eed1cb372b1",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/Inception Meeting /SESSION_1_MEETING_REPORT_DRAFT.md",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/Inception Meeting /SESSION_1_MEETING_REPORT_DRAFT.md",
+    "bytes": 12769,
+    "sha256_before": "1804b6b6278268fe5206cbf84b76297b20cbe2f334d812b649e5162dc4816580",
+    "sha256_after": "1804b6b6278268fe5206cbf84b76297b20cbe2f334d812b649e5162dc4816580",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/docs/OPENCHS_PRIMERO_FIRST_MEETING_DECISION_DOCUMENT.docx",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/docs/OPENCHS_PRIMERO_FIRST_MEETING_DECISION_DOCUMENT.docx",
+    "bytes": 17395,
+    "sha256_before": "2c510f250dcc555312e1be846a06d879b9bb9680317c1d1a81fd28b49ff7d627",
+    "sha256_after": "2c510f250dcc555312e1be846a06d879b9bb9680317c1d1a81fd28b49ff7d627",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/docs/ISAIAH_RESPONSE_REVIEW_2026-10-26.md",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/docs/ISAIAH_RESPONSE_REVIEW_2026-10-26.md",
+    "bytes": 11718,
+    "sha256_before": "c224c96e2d091e218fa610d67c76a4d377b0d0b16c80a078b9cee806fa57861c",
+    "sha256_after": "c224c96e2d091e218fa610d67c76a4d377b0d0b16c80a078b9cee806fa57861c",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/docs/DRAFT_INCEPTION_REPORT_D1_OPENCHS_PRIMERO.docx",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/docs/DRAFT_INCEPTION_REPORT_D1_OPENCHS_PRIMERO.docx",
+    "bytes": 23022,
+    "sha256_before": "737fd97c9359f771ba12684f1b0241b8f7734fe87d27249431582df10c6dcdb1",
+    "sha256_after": "737fd97c9359f771ba12684f1b0241b8f7734fe87d27249431582df10c6dcdb1",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/docs/CONTEXT.md",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/docs/CONTEXT.md",
+    "bytes": 72327,
+    "sha256_before": "c76448ece664629ec2546557820c12ed7656f5631c9b002cb8edde0bec34e3c1",
+    "sha256_after": "c76448ece664629ec2546557820c12ed7656f5631c9b002cb8edde0bec34e3c1",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/docs/DRAFT_INCEPTION_REPORT_D1_OPENCHS_PRIMERO.md",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/docs/DRAFT_INCEPTION_REPORT_D1_OPENCHS_PRIMERO.md",
+    "bytes": 34437,
+    "sha256_before": "a4d58d76dc4f9be376e78231e668729f01c43c2dfd410cd9730d60c3d2ce1a97",
+    "sha256_after": "a4d58d76dc4f9be376e78231e668729f01c43c2dfd410cd9730d60c3d2ce1a97",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/docs/INCEPTION_FOLLOW_UP_EMAIL_DRAFT.md",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/docs/INCEPTION_FOLLOW_UP_EMAIL_DRAFT.md",
+    "bytes": 9969,
+    "sha256_before": "67b737935b82e9388eefe8905fa7b484ad191d323acdc4957c6fbc076d5d036e",
+    "sha256_after": "67b737935b82e9388eefe8905fa7b484ad191d323acdc4957c6fbc076d5d036e",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/docs/OPENCHS_PRIMERO_TWO_WEEK_PROJECT_CHECKLIST.md",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/docs/OPENCHS_PRIMERO_TWO_WEEK_PROJECT_CHECKLIST.md",
+    "bytes": 13632,
+    "sha256_before": "65a8c00c6150005199f7ed1838399417b2e65f098438e4efeee71fa1963c6c46",
+    "sha256_after": "65a8c00c6150005199f7ed1838399417b2e65f098438e4efeee71fa1963c6c46",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/docs/INCEPTION_TOMORROW_MEETING_PREP.md",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/docs/INCEPTION_TOMORROW_MEETING_PREP.md",
+    "bytes": 9389,
+    "sha256_before": "266eebe77f8d14eb20e4dee045662e1d6076f4713983adf7257112818b4204b4",
+    "sha256_after": "266eebe77f8d14eb20e4dee045662e1d6076f4713983adf7257112818b4204b4",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/docs/CONTRACT_ALIGNED_DELIVERY_PLAN.md",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/docs/CONTRACT_ALIGNED_DELIVERY_PLAN.md",
+    "bytes": 9015,
+    "sha256_before": "408f329de6caabb75f7b561a6c5e662ce2ac8e1b325c9b021aec2f4df3fe5e92",
+    "sha256_after": "408f329de6caabb75f7b561a6c5e662ce2ac8e1b325c9b021aec2f4df3fe5e92",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/docs/INCEPTION_COMPLETION_INVENTORY.md",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/docs/INCEPTION_COMPLETION_INVENTORY.md",
+    "bytes": 28698,
+    "sha256_before": "d27cf1d68a6753841353b078ce511e6c10ab1d1a467957133c7eaaa099b905f5",
+    "sha256_after": "d27cf1d68a6753841353b078ce511e6c10ab1d1a467957133c7eaaa099b905f5",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/docs/OPENCHS_PRIMERO_FIRST_MEETING_DECISION_DOCUMENT.md",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/docs/OPENCHS_PRIMERO_FIRST_MEETING_DECISION_DOCUMENT.md",
+    "bytes": 12274,
+    "sha256_before": "3e6ed4f8fa2a8b0b66c09bd733b115fb1539922468739fe4f12eca10397a5414",
+    "sha256_after": "3e6ed4f8fa2a8b0b66c09bd733b115fb1539922468739fe4f12eca10397a5414",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/docs/OPENCHS_PRIMERO_TWO_WEEK_PROJECT_CHECKLIST.docx",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/docs/OPENCHS_PRIMERO_TWO_WEEK_PROJECT_CHECKLIST.docx",
+    "bytes": 16874,
+    "sha256_before": "73b74e94154d1fa9fc73ed0618e929354f0850fe6dce400ff75e7837debfe62b",
+    "sha256_after": "73b74e94154d1fa9fc73ed0618e929354f0850fe6dce400ff75e7837debfe62b",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/docs/FOURTEEN_WEEK_IMPLEMENTATION_SLIDE_NOTES.md",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/docs/FOURTEEN_WEEK_IMPLEMENTATION_SLIDE_NOTES.md",
+    "bytes": 10999,
+    "sha256_before": "35bfb37389b610d9431c7563ea0e4c7c54647c5175bc17e5ee1c48e9f8834dc1",
+    "sha256_after": "35bfb37389b610d9431c7563ea0e4c7c54647c5175bc17e5ee1c48e9f8834dc1",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/Inception Meeting /temeplate forms/04_field_mapping_worksheet.docx",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/Inception Meeting /temeplate forms/04_field_mapping_worksheet.docx",
+    "bytes": 38865,
+    "sha256_before": "ac9e3aba4420d2fab56198af05254a6732cd315967aaff53516a49bcc23d7670",
+    "sha256_after": "ac9e3aba4420d2fab56198af05254a6732cd315967aaff53516a49bcc23d7670",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/Inception Meeting /temeplate forms/03_abr_id_requirements.docx",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/Inception Meeting /temeplate forms/03_abr_id_requirements.docx",
+    "bytes": 37798,
+    "sha256_before": "a7cb051c11a0ae06e2a1554c30af0bb4f822daaac78fc9423a9bcfd361a60161",
+    "sha256_after": "a7cb051c11a0ae06e2a1554c30af0bb4f822daaac78fc9423a9bcfd361a60161",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/Inception Meeting /temeplate forms/14_potential_sponsor_escalation_email_primero_sandbox.docx",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/Inception Meeting /temeplate forms/14_potential_sponsor_escalation_email_primero_sandbox.docx",
+    "bytes": 37793,
+    "sha256_before": "105b6dd1c49b5325a3cd45ea4cb1eb3ff19e0ea8109fd25c3e2d5fb012887c7b",
+    "sha256_after": "105b6dd1c49b5325a3cd45ea4cb1eb3ff19e0ea8109fd25c3e2d5fb012887c7b",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/Inception Meeting /temeplate forms/09_decision_register.docx",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/Inception Meeting /temeplate forms/09_decision_register.docx",
+    "bytes": 38094,
+    "sha256_before": "c0098af5b866c8796acaf9a06c3522fb3f43e26a5ba04c05cce2167067238b9a",
+    "sha256_after": "c0098af5b866c8796acaf9a06c3522fb3f43e26a5ba04c05cce2167067238b9a",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/Inception Meeting /temeplate forms/11_open_issues_register.docx",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/Inception Meeting /temeplate forms/11_open_issues_register.docx",
+    "bytes": 38119,
+    "sha256_before": "a7ce68ba82dfbc767ada2126e550c37379b401146f990f6f61cb6bdb93639367",
+    "sha256_after": "a7ce68ba82dfbc767ada2126e550c37379b401146f990f6f61cb6bdb93639367",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/Inception Meeting /temeplate forms/10_action_register.docx",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/Inception Meeting /temeplate forms/10_action_register.docx",
+    "bytes": 38187,
+    "sha256_before": "34b98f73558da0c978603e3bd24bf80be68d9394f216d9d907741ee31704b6e6",
+    "sha256_after": "34b98f73558da0c978603e3bd24bf80be68d9394f216d9d907741ee31704b6e6",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/Inception Meeting /temeplate forms/01_stakeholder_responsibility_matrix.docx",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/Inception Meeting /temeplate forms/01_stakeholder_responsibility_matrix.docx",
+    "bytes": 38076,
+    "sha256_before": "19ecbc4897515aaf6586fe9772a9ebfaefb5e3fe2439ba22e96c9610868e045c",
+    "sha256_after": "19ecbc4897515aaf6586fe9772a9ebfaefb5e3fe2439ba22e96c9610868e045c",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/Inception Meeting /temeplate forms/Workstream_1_Inception_Capture_Workbook.xlsx",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/Inception Meeting /temeplate forms/Workstream_1_Inception_Capture_Workbook.xlsx",
+    "bytes": 26286,
+    "sha256_before": "c97a97c86357ffbf786af33dda4e33466e70571a23f4edd5763c74c9461faf2c",
+    "sha256_after": "c97a97c86357ffbf786af33dda4e33466e70571a23f4edd5763c74c9461faf2c",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/Inception Meeting /temeplate forms/README.md",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/Inception Meeting /temeplate forms/README.md",
+    "bytes": 2063,
+    "sha256_before": "87ceccc579af61016ae33d7cc4c8e1a43139692708a500bdaeeb4913ff728c3c",
+    "sha256_after": "87ceccc579af61016ae33d7cc4c8e1a43139692708a500bdaeeb4913ff728c3c",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/Inception Meeting /temeplate forms/12_inception_closeout_checklist.docx",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/Inception Meeting /temeplate forms/12_inception_closeout_checklist.docx",
+    "bytes": 38020,
+    "sha256_before": "2674eee85ab5471a0e2e0a74aa52bc3df5d0b0f29e3afa55b2c80218a52a98d9",
+    "sha256_after": "2674eee85ab5471a0e2e0a74aa52bc3df5d0b0f29e3afa55b2c80218a52a98d9",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/Inception Meeting /temeplate forms/07_reliability_logging_support_controls.docx",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/Inception Meeting /temeplate forms/07_reliability_logging_support_controls.docx",
+    "bytes": 37980,
+    "sha256_before": "58dd4c04cb69ada3f94241754d9552d4d9b6c91ad51b0bd7597f592b0cdbfcdb",
+    "sha256_after": "58dd4c04cb69ada3f94241754d9552d4d9b6c91ad51b0bd7597f592b0cdbfcdb",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/Inception Meeting /temeplate forms/08_uat_acceptance_matrix.docx",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/Inception Meeting /temeplate forms/08_uat_acceptance_matrix.docx",
+    "bytes": 29572,
+    "sha256_before": "2d54453d3832e771b45f76ba04a04afd2cf110ba5d0b168e81b5d10e0b84aff3",
+    "sha256_after": "2d54453d3832e771b45f76ba04a04afd2cf110ba5d0b168e81b5d10e0b84aff3",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/Inception Meeting /temeplate forms/06_api_contract_capture.docx",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/Inception Meeting /temeplate forms/06_api_contract_capture.docx",
+    "bytes": 38203,
+    "sha256_before": "e8befe3d74c226016e357abf51501f71e2bb467fadf52e53565a6184009022a6",
+    "sha256_after": "e8befe3d74c226016e357abf51501f71e2bb467fadf52e53565a6184009022a6",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/Inception Meeting /temeplate forms/13_workstream_1_risk_record_primero_sandbox.docx",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/Inception Meeting /temeplate forms/13_workstream_1_risk_record_primero_sandbox.docx",
+    "bytes": 37991,
+    "sha256_before": "f6cf67638cb6234ee1250fce17e4c9fd4c86a53f9f3c1c1063d68d928d84a352",
+    "sha256_after": "f6cf67638cb6234ee1250fce17e4c9fd4c86a53f9f3c1c1063d68d928d84a352",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/Inception Meeting /temeplate forms/05_api_environment_matrix.docx",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/Inception Meeting /temeplate forms/05_api_environment_matrix.docx",
+    "bytes": 37774,
+    "sha256_before": "172850640e8db1d23d69c658afaf661166a93bc559c4194a59aeb7ab2b153d5c",
+    "sha256_after": "172850640e8db1d23d69c658afaf661166a93bc559c4194a59aeb7ab2b153d5c",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/Inception Meeting /temeplate forms/02_referral_lifecycle_capture.docx",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/Inception Meeting /temeplate forms/02_referral_lifecycle_capture.docx",
+    "bytes": 30407,
+    "sha256_before": "1250f5beff8ea40b17e42d7406bec615971010729f0ffdfbddcc8e01842fd9b4",
+    "sha256_after": "1250f5beff8ea40b17e42d7406bec615971010729f0ffdfbddcc8e01842fd9b4",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/docs/context/12_PRIMERO_CPIMS_CONTEXT.md",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/docs/context/12_PRIMERO_CPIMS_CONTEXT.md",
+    "bytes": 2080,
+    "sha256_before": "0b97c3adf86ec0c8c4d77568d20564136802bb4990a464449b7a95807599f814",
+    "sha256_after": "0b97c3adf86ec0c8c4d77568d20564136802bb4990a464449b7a95807599f814",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/docs/prompts/16-backend-integrations.md",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/docs/prompts/16-backend-integrations.md",
+    "bytes": 3045,
+    "sha256_before": "f935230ff9997f8083f3dd46bcb244c966533c7252eb348ed11c52d380050a6b",
+    "sha256_after": "f935230ff9997f8083f3dd46bcb244c966533c7252eb348ed11c52d380050a6b",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/archive/2026-10-26_before_isaiah_update/docs/docs/platform/reference/OPENCHS_PRIMERO_INTEGRATION_CONTEXT.md",
+    "new_path": "08_archive/previous_versions/2026-10-26_before_isaiah_update/docs/docs/platform/reference/OPENCHS_PRIMERO_INTEGRATION_CONTEXT.md",
+    "bytes": 72341,
+    "sha256_before": "85e21328fe4f9beb2df6c3601daf6ddfc332e11cc2c702e7e5931cfc7b2f19ec",
+    "sha256_after": "85e21328fe4f9beb2df6c3601daf6ddfc332e11cc2c702e7e5931cfc7b2f19ec",
+    "content_changed": false
+  },
+  {
+    "old_path": "docs/docs/platform/reference/OPENCHS_PRIMERO_INTEGRATION_CONTEXT.md",
+    "new_path": "05_technical_reference/OPENCHS_PRIMERO_INTEGRATION_CONTEXT.md",
+    "bytes": 74159,
+    "sha256_before": "3801a55669cc0bbaf9acd0c3cded5d4bf647b5e2c354bd160dc3bc995100effc",
+    "sha256_after": "aeb3b35265832ee22c7ace5c1e2c6abf48bea8283dfac68d45a11c4198fab6fa",
+    "content_changed": true
+  },
+  {
+    "old_path": "outputs/isaiah_20261026/documentation_validation.json",
+    "new_path": "02_project_management/update_records/ISAIAH_DOCUMENT_VALIDATION_2026-10-26.json",
+    "bytes": 344,
+    "sha256_before": "94839b94b9409ab83d7072abd9f1c08488f1dfe913cf75b82e4df99c835d8430",
+    "sha256_after": "94839b94b9409ab83d7072abd9f1c08488f1dfe913cf75b82e4df99c835d8430",
+    "content_changed": false
+  },
+  {
+    "old_path": "outputs/isaiah_20261026/Workstream_1_Inception_Capture_Workbook.xlsx",
+    "new_path": "08_archive/generated_copies/isaiah_20261026/Workstream_1_Inception_Capture_Workbook.xlsx",
+    "bytes": 33638,
+    "sha256_before": "eb14bd6939b6722066633ec98202cb22068bc295071443c46ef91be62148207e",
+    "sha256_after": "eb14bd6939b6722066633ec98202cb22068bc295071443c46ef91be62148207e",
+    "content_changed": false
+  }
+]

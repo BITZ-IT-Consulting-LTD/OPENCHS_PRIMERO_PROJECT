@@ -1,0 +1,22 @@
+{
+  "main_sections": [
+    "Executive summary",
+    "Background and contract context",
+    "Inception activities and findings",
+    "Scope and boundaries",
+    "Business requirements and workflow",
+    "Proposed technical approach",
+    "Data and safeguarding requirements",
+    "Implementation plan",
+    "Governance and coordination",
+    "Testing and acceptance",
+    "Risks and outstanding decisions",
+    "Approval and next steps"
+  ],
+  "identifier_sets_preserved": true,
+  "distinct_ids": 157,
+  "mermaid_blocks_preserved": 18,
+  "subsection_references_valid": true,
+  "word_updated": false,
+  "formal_approval": false
+}

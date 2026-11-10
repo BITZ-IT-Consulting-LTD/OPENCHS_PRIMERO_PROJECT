@@ -1,0 +1,161 @@
+{
+  "date": "2026-10-26",
+  "updated_word_forms": [
+    "05_api_environment_matrix.docx",
+    "06_api_contract_capture.docx",
+    "07_reliability_logging_support_controls.docx",
+    "08_uat_acceptance_matrix.docx",
+    "10_action_register.docx",
+    "12_inception_closeout_checklist.docx"
+  ],
+  "word_workbook_alignment": [
+    {
+      "template": "01_stakeholder_responsibility_matrix.docx",
+      "sheet": "01 Stakeholder Responsibility M",
+      "rows": 12,
+      "match": true
+    },
+    {
+      "template": "02_referral_lifecycle_capture.docx",
+      "sheet": "02 Referral Lifecycle Capture",
+      "rows": 13,
+      "match": true
+    },
+    {
+      "template": "03_abr_id_requirements.docx",
+      "sheet": "03 Abr Id Requirements",
+      "rows": 11,
+      "match": true
+    },
+    {
+      "template": "04_field_mapping_worksheet.docx",
+      "sheet": "04 Field Mapping Worksheet",
+      "rows": 21,
+      "match": true
+    },
+    {
+      "template": "05_api_environment_matrix.docx",
+      "sheet": "05 Api Environment Matrix",
+      "rows": 10,
+      "match": true
+    },
+    {
+      "template": "06_api_contract_capture.docx",
+      "sheet": "06 Api Contract Capture",
+      "rows": 19,
+      "match": true
+    },
+    {
+      "template": "07_reliability_logging_support_controls.docx",
+      "sheet": "07 Reliability Logging Support ",
+      "rows": 14,
+      "match": true
+    },
+    {
+      "template": "08_uat_acceptance_matrix.docx",
+      "sheet": "08 Uat Acceptance Matrix",
+      "rows": 15,
+      "match": true
+    },
+    {
+      "template": "09_decision_register.docx",
+      "sheet": "09 Decision Register",
+      "rows": 13,
+      "match": true
+    },
+    {
+      "template": "10_action_register.docx",
+      "sheet": "10 Action Register",
+      "rows": 16,
+      "match": true
+    },
+    {
+      "template": "11_open_issues_register.docx",
+      "sheet": "11 Open Issues Register",
+      "rows": 13,
+      "match": true
+    },
+    {
+      "template": "12_inception_closeout_checklist.docx",
+      "sheet": "Close-out Checklist",
+      "rows": 16,
+      "match": true
+    }
+  ],
+  "unchanged_main_tables": [
+    "01 Stakeholder Responsibility M",
+    "02 Referral Lifecycle Capture",
+    "03 Abr Id Requirements",
+    "04 Field Mapping Worksheet",
+    "09 Decision Register",
+    "11 Open Issues Register"
+  ],
+  "workbook_features": [
+    {
+      "sheet": "01 Stakeholder Responsibility M",
+      "tables_panes_merges_widths_preserved": true
+    },
+    {
+      "sheet": "02 Referral Lifecycle Capture",
+      "tables_panes_merges_widths_preserved": true
+    },
+    {
+      "sheet": "03 Abr Id Requirements",
+      "tables_panes_merges_widths_preserved": true
+    },
+    {
+      "sheet": "04 Field Mapping Worksheet",
+      "tables_panes_merges_widths_preserved": true
+    },
+    {
+      "sheet": "05 Api Environment Matrix",
+      "tables_panes_merges_widths_preserved": true
+    },
+    {
+      "sheet": "06 Api Contract Capture",
+      "tables_panes_merges_widths_preserved": true
+    },
+    {
+      "sheet": "07 Reliability Logging Support ",
+      "tables_panes_merges_widths_preserved": true
+    },
+    {
+      "sheet": "08 Uat Acceptance Matrix",
+      "tables_panes_merges_widths_preserved": true
+    },
+    {
+      "sheet": "09 Decision Register",
+      "tables_panes_merges_widths_preserved": true
+    },
+    {
+      "sheet": "10 Action Register",
+      "tables_panes_merges_widths_preserved": true
+    },
+    {
+      "sheet": "11 Open Issues Register",
+      "tables_panes_merges_widths_preserved": true
+    },
+    {
+      "sheet": "Close-out Checklist",
+      "tables_panes_merges_widths_preserved": true
+    }
+  ],
+  "zip_integrity": "Passed for six edited DOCX files and XLSX",
+  "live_authentication_test": "Not performed",
+  "uat_execution": "Not performed",
+  "visual_qa": {
+    "word_pages_reviewed": {
+      "05_api_environment_matrix.docx": 2,
+      "06_api_contract_capture.docx": 3,
+      "07_reliability_logging_support_controls.docx": 2,
+      "08_uat_acceptance_matrix.docx": 3,
+      "10_action_register.docx": 3,
+      "12_inception_closeout_checklist.docx": 2
+    },
+    "total_word_pages": 15,
+    "workbook_sheets_reviewed": 12,
+    "result": "Passed; no clipped text or broken tables observed"
+  },
+  "workbook_error_scan": "No spreadsheet error values found by artifact-tool inspection",
+  "final_alignment": "All 12 main Word tables match corresponding workbook cells"
+}
