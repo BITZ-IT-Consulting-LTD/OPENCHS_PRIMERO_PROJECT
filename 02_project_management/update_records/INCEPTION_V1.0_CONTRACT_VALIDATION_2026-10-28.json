@@ -1,0 +1,16 @@
+{
+  "exact_twelve_sections": true,
+  "prior_identifiers_retained": true,
+  "new_discrepancies": [
+    "CD-08",
+    "CD-09",
+    "CD-10",
+    "CD-11",
+    "CD-12"
+  ],
+  "relative_links_valid": true,
+  "contract_execution_verified": false,
+  "recovery_schedule_approved": false,
+  "word_updated": false,
+  "live_tests_run": false
+}

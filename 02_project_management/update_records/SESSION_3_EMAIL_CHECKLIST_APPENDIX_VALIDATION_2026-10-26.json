@@ -1,0 +1,34 @@
+{
+  "recorded_date": "2026-10-26",
+  "request": "Update Nelson last circulated 12-item checklist from Isaiah response and append to Session 3 facilitation notes",
+  "updated_files": [
+    "03_meetings/session_3/SESSION_3_FACILITATION_NOTES_2026-10-26.md",
+    "03_meetings/session_3/SESSION_3_FACILITATION_NOTES_2026-10-26.docx",
+    "03_meetings/README.md"
+  ],
+  "source_record": "06_correspondence/NELSON_LAST_CIRCULATED_REQUIREMENTS_EMAIL_SOURCE_2026-10-26.md",
+  "preservation_archive": "08_archive/previous_versions/2026-10-26_before_email_checklist_appendix",
+  "verification": {
+    "original_markdown_preserved_as_prefix": true,
+    "original_word_paragraphs_preserved": true,
+    "original_six_tables_preserved": true,
+    "original_rendered_pages_1_to_11_pixel_identical_to_prior_review": true,
+    "appendix_rows_verified_against_updated_checklist": 12,
+    "total_pages": 14,
+    "appendix_pages": [
+      12,
+      13,
+      14
+    ],
+    "appendix_visual_review": "Passed: no clipped or overlapping text; all 12 items readable",
+    "docx_zip_integrity": "Passed",
+    "relative_links": "Passed"
+  },
+  "status_rules": [
+    "Proposed owners and priorities retained",
+    "Provided information distinguished from closure",
+    "Checklist submission and technical-team attendance not confirmed",
+    "No Session 3 decisions or acceptance inferred",
+    "Historical 14 October email context distinguished from current session date"
+  ]
+}

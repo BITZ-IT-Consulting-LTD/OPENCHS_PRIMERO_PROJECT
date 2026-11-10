@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-26",
+  "workbook": "03_meetings/session_3/SESSION_3_ACTION_TRACKER_2026-10-26.xlsx",
+  "email_draft": "03_meetings/session_3/SESSION_3_FOLLOW_UP_EMAIL_DRAFT_2026-10-26.md",
+  "rows": {
+    "recorded_new": 13,
+    "carried_over": 2,
+    "next_steps": 2,
+    "proposed": 3,
+    "contacts": 12
+  },
+  "validation": {
+    "source_ids_and_deadlines": "Passed",
+    "date_cells": "Excel dates with date display format",
+    "phone_cells": "Text with international prefix retained",
+    "filter_tables": "Present on both sheets",
+    "status_dropdown": "Present",
+    "completion_evidence": "Blank; no completion inferred",
+    "archive_integrity": "Passed",
+    "email_status": "Draft; not sent"
+  },
+  "visual_review": "Passed: both sheets reviewed, including all action rows and international telephone-number display",
+  "email_scope_revision": {
+    "date": "2026-10-26",
+    "scope": "Workstream 1 only",
+    "retained": "Requirements documents, coordination, environment readiness/access, service list, privacy materials, inception dependencies, report draft and WhatsApp contacts",
+    "removed": "API implementation/test execution, future implementation-session invitations and reference to the broader tracker as an email attachment",
+    "workbook_changed": false,
+    "email_sent": false
+  }
+}

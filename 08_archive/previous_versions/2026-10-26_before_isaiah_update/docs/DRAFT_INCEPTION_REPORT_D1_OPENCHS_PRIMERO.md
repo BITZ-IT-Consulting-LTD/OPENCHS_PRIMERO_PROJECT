@@ -1,12 +1,13 @@
 # Draft Inception Report — D1
 ## Lesotho Child Helpline 116 / OpenCHS–Primero CPIMS+ Integration
 
-**Document status:** Draft — for inception review and decision  
-**Version:** 0.1  
-**Date:** 30 September 2026  
+**Document status:** Draft — updated after Sessions 1 and 2, for inception review and decision
+**Version:** 0.3
+**Date:** 13 October 2026
 **Prepared for:** UNICEF Lesotho / MGYSD / Child Helpline 116 stakeholders  
 **Prepared by:** Project Management and Technical Delivery Team  
-**Target delivery model:** Two-week accelerated MVP implementation
+**Target delivery model:** Contract-aligned delivery from 1 July 2026 to 28 February 2027, with milestone targets in August 2026, October 2026, November 2026, and February 2027; the 14-week plan remains a technical reference unless formally rebaselined
+**Commercial planning reference:** [Contract-Aligned Delivery Plan](CONTRACT_ALIGNED_DELIVERY_PLAN.md)
 
 > This document is a working inception baseline. It does not confirm any item that has not been approved by the responsible business, technical, security, or receiving-system owner. Unconfirmed items are marked **TBD**, **Proposed**, or **To be confirmed**.
 
@@ -16,7 +17,7 @@
 
 The project will configure and integrate the Lesotho Child Helpline 116 / OpenCHS environment with Primero CPIMS+ to support a controlled outbound child-protection referral workflow.
 
-The immediate delivery objective is a safe minimum viable integration in a compressed two-week implementation window. The MVP will allow an authorised OpenCHS user to capture or validate the ABR ID, initiate a referral, queue the referral, transmit an approved case payload to Primero using JWT authentication, prevent duplicate submissions, display referral status, and retain an appropriate audit trail.
+The immediate delivery objective is a safe minimum viable integration within the agreed implementation baseline. The MVP will support an approved agent-triggered referral workflow, minimum-information emergency referrals subject to CPIMS+ identification rules, missing or unavailable ABR IDs where permitted, durable queueing, transmission of an approved case payload to Primero using JWT authentication, duplicate prevention, agreed follow-up/status handling, and an appropriate audit trail.
 
 The project cannot be considered implementation-ready until the receiving-system API contract, ABR rules, field mapping, privacy requirements, environments, credentials, and acceptance authority are confirmed. This report therefore separates the current documented baseline from decisions still required.
 
@@ -38,7 +39,7 @@ The inception phase will:
 - Define queueing, retry, offline, idempotency, and audit expectations.
 - Confirm security, consent, data-minimisation, and access-control requirements.
 - Define UAT, go-live, training, support, and handover requirements.
-- Produce a controlled two-week implementation plan.
+- Produce a controlled implementation plan and accelerated MVP work package.
 
 ## 3. Source Baseline
 
@@ -50,8 +51,23 @@ This draft is based on the following project documents:
 4. `docs/docs/platform/reference/OPENCHS_PRIMERO_INTEGRATION_CONTEXT.md`
 5. `docs/context/12_PRIMERO_CPIMS_CONTEXT.md`
 6. `docs/prompts/16-backend-integrations.md`
+7. `Inception Meeting/SESSION_1_MEETING_REPORT_DRAFT.md`
+8. `Inception Meeting/temeplate forms/README.md` and the Workstream 1 template pack
+9. `Inception Meeting/temeplate forms/Workstream_1_Inception_Capture_Workbook.xlsx`
+10. `Inception Meeting/Minutes/OpenCHS & Primero CPIMS+ Integration — Session 1 - Copy.pdf`
+11. `Inception Meeting/Minutes/OpenCHS & Primero CPIMS+ Integration — Session 2.pdf`
 
 The current workspace contains documentation and planning material only. The existence, completeness, and runtime status of the described OpenCHS source components must be verified against the actual OpenCHS repository and deployment environment.
+
+### 3.1 Cross-document reconciliation note
+
+The template pack and minutes are working materials, not themselves an approved requirements baseline. Session 2 is the latest technical evidence and supersedes earlier assumptions where it records a clear revision, while pending items remain subject to stakeholder confirmation. The following reconciliation points apply:
+
+- The referral trigger is manual and initiated by the handling agent; once the case is sent to CPIMS+, case management starts immediately. Escalation and approval rules for exceptions remain subject to confirmation.
+- The meeting report identifies Tiisetso and Isiah Ososti for workflow/form inputs, while some templates use Silepo and Isaiah/Isiah. Names and action ownership require confirmation.
+- The templates record one-way OpenCHS follow-up updates in principle, but no committed CPIMS+ to OpenCHS status write-back.
+- Session 2 revises direct district/stakeholder routing: the working assumption is that OpenCHS selects a CPIMS+ service/referral target and Ministry-side supervisors or managers distribute cases internally. Primero technical confirmation remains pending.
+- X-Road/Home Affairs integration is recorded as a separate scope boundary, and the emergency phone path remains an operational parallel path rather than a replacement for urgent response.
 
 ## 4. Current Baseline and Evidence Status
 
@@ -59,13 +75,14 @@ The current workspace contains documentation and planning material only. The exi
 |---|---|---|
 | Helpline platform | OpenCHS v5 case-management and telephony platform | Documented; live environment TBD |
 | Receiving platform | Primero CPIMS+ API v2 | Proposed/documented; exact deployment TBD |
-| Integration direction | Outbound referral from OpenCHS to Primero | Proposed by scope; final decision required |
-| ABR ID | Required referral-related identifier | Format, owner, and validation TBD |
+| Integration direction | Outbound referral from OpenCHS directly to Primero/CPIMS+ and other approved stakeholders | Agreed in principle; final routing and receiving-system contract TBD |
+| Referral trigger | The handling agent manually initiates the referral; case management starts immediately in CPIMS+ once the case is sent | Agreed; escalation and approval rules for exceptions TBD |
+| ABR ID | Referral-related identifier where available | May be blank when unavailable; official rule and validation TBD |
 | Authentication | JWT-based API authentication | Documented; live contract TBD |
 | Queueing | Offline/durable referral queue | Required by scope; live implementation unverified |
 | Idempotency | Required to prevent duplicate cases | Design and key format TBD |
 | Audit logging | Required for attempts, responses, and retries | Logging fields and redaction rules TBD |
-| UAT | MGYSD/UNICEF and receiving-system participation | Participants and sign-off authority TBD |
+| UAT | Ministry-led UAT with Child Helpline, technical, and district participation | Agreed direction; participants and sign-off authority TBD |
 | Production support | Required after go-live | Owner and operating model TBD |
 
 ## 5. Scope
@@ -73,7 +90,10 @@ The current workspace contains documentation and planning material only. The exi
 ### 5.1 In scope for the accelerated MVP
 
 - OpenCHS referral initiation workflow.
+- Manual agent-triggered referral workflow, including escalation and approval rules.
+- Minimum-information emergency referrals and follow-up capture.
 - ABR ID capture and approved validation.
+- Referral submission when the ABR ID is unavailable, subject to the approved Ministry process and CPIMS+ identification requirements.
 - Referral permissions and authorised roles.
 - Primero API authentication.
 - Primero case-creation request.
@@ -82,6 +102,9 @@ The current workspace contains documentation and planning material only. The exi
 - Retry and failure handling.
 - Idempotency and duplicate prevention.
 - Referral status visibility.
+- Closed-loop feedback/status visibility from CPIMS+/MGYSD, subject to approved privacy and access rules.
+- CPIMS+ service/referral-target selection with Ministry-side supervisor/manager distribution, subject to technical confirmation.
+- Parallel emergency phone contact with police/first responders where required by operational procedure.
 - Redacted audit logging.
 - Technical testing and UAT.
 - Operator and technical training.
@@ -94,6 +117,7 @@ The current workspace contains documentation and planning material only. The exi
 - Advanced Primero lookup administration.
 - Broad generic integration marketplace capabilities.
 - Major OpenCHS workflow redesign.
+- OpenCHS case-plan transfer or case-plan synchronisation with CPIMS+.
 - Non-essential reporting and analytics.
 - Automated production deployment pipelines.
 
@@ -108,17 +132,17 @@ The expected outcome is:
 ```text
 OpenCHS call/case
     ↓
-ABR ID and referral validation
+Minimum referral information and approved referral condition
     ↓
-Authorised referral action
+Handling agent reviews and manually triggers referral
     ↓
-Durable queue and audit record
+ABR ID validation where available, with missing-ID follow-up record
     ↓
 JWT-authenticated Primero API request
     ↓
 Primero case identifier
     ↓
-OpenCHS referral status and support trail
+OpenCHS referral status, follow-up updates and support trail
 ```
 
 ## 7. Proposed End-to-End Workflow
@@ -126,15 +150,16 @@ OpenCHS referral status and support trail
 ### 7.1 Normal workflow
 
 1. Operator records or updates the relevant OpenCHS case/call.
-2. Operator enters or confirms the ABR ID, subject to the approved rules.
-3. Operator confirms the referral decision and any required consent/legal basis.
-4. OpenCHS validates required fields and referral permissions.
+2. The handling agent reviews the case and manually triggers the referral using the approved service/referral target; whether escalation or approval is required remains to be confirmed.
+3. OpenCHS validates the minimum information required for the referral scenario and permits an emergency/partial referral where approved.
+4. OpenCHS captures or confirms the ABR ID where available; a missing ABR ID is recorded for follow-up rather than blocking an approved referral.
 5. OpenCHS creates a durable referral record before external transmission.
 6. The integration service creates an idempotency/transaction key.
 7. The integration client authenticates to Primero using the approved JWT flow.
-8. OpenCHS submits the confirmed case payload.
+8. OpenCHS submits the approved case payload to the agreed CPIMS+ service/referral target.
 9. OpenCHS stores the Primero response and case identifier where successful.
-10. OpenCHS displays the referral status to authorised users.
+10. OpenCHS records and sends agreed follow-up updates where approved; any CPIMS+/MGYSD feedback or status return remains subject to the agreed contract.
+11. OpenCHS displays referral and available follow-up/status information to authorised users.
 
 ### 7.2 Failure workflow
 
@@ -145,13 +170,26 @@ OpenCHS referral status and support trail
 5. A referral that exceeds the retry limit is escalated to the support owner.
 6. Any uncertain result after a timeout is reconciled using the transaction key before another create request is issued.
 
-### 7.3 Workflow decisions required
+### 7.3 Session 1 direction incorporated
+
+- Session 2 records the current direction as a manual referral initiated by the handling agent, with no automatic category-based rule currently assumed. Final escalation, approval, exception and validation rules remain open.
+- Emergency referrals should support minimum information and allow additional information to be collected later.
+- The workflow should support an ABR ID being blank when unavailable, subject to the approved Ministry process.
+- The workflow should support referrals to CPIMS+/MGYSD and other approved stakeholders, with OpenCHS selecting an approved service/referral target and Ministry-side distribution where required.
+- The workflow should support closed-loop follow-up and status handling. One-way OpenCHS follow-up updates are supported in principle; CPIMS+ to OpenCHS status write-back is not committed.
+
+### 7.4 Workflow decisions required
 
 - Is supervisor approval required before transmission? **TBD**
 - Is consent required in every referral scenario? **TBD**
 - Can an operator cancel a queued referral? **TBD**
 - Can a completed referral be corrected or re-submitted? **TBD**
-- Is status written back from Primero, or only returned at creation time? **TBD**
+- Which service/referral target and protection-concern selections are available to the handling agent? **TBD**
+- Is supervisor escalation or approval required in any referral scenario? **TBD**
+- Which perpetrator fields are mandatory or priority fields, and how are unknown values handled? **TBD**
+- Are follow-up updates sent one-way from OpenCHS, returned from Primero/MGYSD, or supported through a combined process? **TBD**
+- Which CPIMS+ service/referral targets and Ministry-side distribution rules apply? **TBD**
+- Can CPIMS+ expose district supervisor/manager options through the API, or does Ministry-side distribution always occur after receipt? **TBD**
 
 ## 8. Proposed Technical Architecture
 
@@ -164,14 +202,21 @@ OpenCHS referral status and support trail
 | Integration provider/client | JWT, request construction, response handling | Proposed |
 | Durable queue | Preserve referrals through outages and retries | Required |
 | Primero CPIMS+ API | Receive child-protection case referral | External dependency |
+| Emergency phone path | Preserve urgent phone contact with police/first responders alongside system referral | Agreed operational principle; procedure and evidence TBD |
+| CPIMS+ routing | Select a service/referral target; Ministry-side supervisor/manager accepts, rejects or distributes internally | Session 2 working assumption; Primero technical confirmation pending |
 | Audit log | Record safe transmission and retry evidence | Required |
-| Monitoring/support view | Surface failed and pending referrals | Required for operations; design TBD |
+| Monitoring/support view | Surface failed, pending and follow-up referrals | Required for operations; design TBD |
+| Feedback/status mechanism | Record one-way follow-up updates and agreed intermediate/acceptance/closure status where available | Intermediate statuses and direction, mechanism and status vocabulary TBD |
 
 ### 8.2 Architecture recommendation
 
 The Primero integration should be implemented as a configured integration provider rather than as an isolated special-case workflow. The provider should support credential configuration, mapping, retry policy, connection testing, lookup synchronisation where approved, and job/audit tracking.
 
 The two-week MVP may implement only the provider capabilities required for `push_referral`, while retaining an extension path for `verify_connection`, `sync_lookup`, and `pull_case_status` if those are later approved.
+
+The Session 1 template pack records the direct OpenCHS-to-CPIMS+ path. X-Road/Home Affairs integration is recorded as a separate workstream and must not be assumed to be part of this integration scope without a governance decision.
+
+Session 2 records that CPIMS+ referrals are service-type-based: the receiving party may accept or reject before opening the case file, and a supervisor/manager may later assign the case to a caseworker. The integration must distinguish technical acknowledgement, business acceptance/rejection, assignment, service completion and closure; it must not assume that OpenCHS selects an individual caseworker.
 
 ### 8.3 Architecture items to verify
 
@@ -185,7 +230,7 @@ The two-week MVP may implement only the provider capabilities required for `push
 
 ## 9. ABR ID Requirements Baseline
 
-The project documentation identifies ABR as a required field but does not provide an authoritative specification. The example pattern in the technical context is explicitly draft and must not be treated as the production rule.
+The project documentation identifies ABR as a referral-related identifier, but Session 1 recorded that a referral may need to proceed with the ABR ID blank when it is unavailable. The example pattern in the technical context is explicitly draft and must not be treated as the production rule.
 
 The following must be confirmed by the responsible authority:
 
@@ -193,6 +238,7 @@ The following must be confirmed by the responsible authority:
 - Owning authority and source system.
 - Creation or assignment point.
 - Required/optional status.
+- Missing-ID and follow-up process, including the MGYSD facilitation route.
 - Length and character set.
 - Prefix and structural components.
 - Check-digit algorithm, if applicable.
@@ -210,22 +256,31 @@ The following mapping is proposed for review only.
 |---|---|---|
 | OpenCHS case/call ID | `openchs_reference_id` | Must be unique; confirm target support |
 | ABR ID | `abr_id` | Custom-field assumption; confirm |
-| Child first name | `name_first` | Mandatory rule TBD |
+| Child first name | `name_first` | Mandatory rule TBD; identifying information may be required for CPIMS+ registration |
 | Child last name | `name_last` | Optional rule TBD |
 | Child sex | `sex` | Primero code list must be confirmed |
+| Child nationality | `nationality` | Candidate field from Session 2; target field and requiredness TBD |
 | Date of birth | `date_of_birth` | Format and partial-date handling TBD |
 | Age | `age` | Confirm whether numeric/range is accepted |
 | Estimated age | `estimated` | Confirm target field |
 | Protection concerns | `protection_concerns` | Must use current Primero lookup values |
+| Protection concerns/category | Primero protection-concern/service vocabulary | OpenCHS case category may map to multiple CPIMS+ protection concerns; standardized list pending |
 | Risk level | `risk_level` | Mapping requires business approval |
 | Location | `location_current` | Primero hierarchy/code required |
 | Case notes | `referral_notes` | Data-minimisation review required |
+| Reporter contact details | Primero reporter/contact field(s) | Candidate requirement for follow-up contact; exact field and privacy rule TBD |
 | Referral source | `referral_source` | Proposed: Child Helpline 116; confirm code |
 | Module | `module_id` | Proposed: `primeromodule-cp`; confirm |
+| Perpetrator information | Primero perpetrator-related field(s) | Important priority; exact fields and requiredness TBD |
+| Missing ABR ID | Null/blank or agreed omission | Must not block approved emergency referral; target contract and follow-up rule TBD |
+| Feedback/status | OpenCHS referral status or linked feedback fields | Closed-loop requirement agreed in principle; mechanism TBD |
+| Case plan | Not transmitted in MVP | Session 2 working direction: each system maintains its own case plan; confirm mapping exclusion |
 
 ### Mapping acceptance rule
 
 No field should be transmitted to production solely because it appears in a developer example. The final mapping must identify source field, target field, requiredness, transformation, validation, privacy classification, and approval owner.
+
+Session 2 also identified the following mapping constraints for confirmation: OpenCHS case category may map to multiple CPIMS+ protection concerns; the referral service value may be a label such as `CPIMS+` or `Child Protection Service`; attachments and follow-up updates require explicit scope decisions; and anonymous OpenCHS reports may not be referable to CPIMS+ unless the receiving-system minimum-identification and exception rules are approved.
 
 ## 11. API and Authentication Requirements
 
@@ -291,6 +346,7 @@ Required controls:
 - Redaction of sensitive payload fields in logs.
 - Role-restricted access to integration logs.
 - Audit of referral initiator and status changes.
+- Minimum audit evidence should include the case/reference ID, timestamp, transaction/result information and relevant API response, subject to redaction and retention rules.
 - Controlled access to failed payloads and retry actions.
 - Defined retention period for payloads and integration logs.
 - Documented incident and breach escalation path.
@@ -349,15 +405,20 @@ Required controls:
 ### 16.2 UAT scenarios
 
 1. Create or update a case.
-2. Enter or obtain an ABR ID.
-3. Initiate a valid referral.
-4. Confirm receipt and Primero case identifier.
-5. Submit an invalid referral.
-6. Test Primero unavailability.
-7. Confirm referral queue and retry behaviour.
-8. Repeat a request and confirm no duplicate case.
-9. Verify referral status and audit trail.
-10. Confirm operator and support procedures.
+2. Review the case and verify the manual handling-agent referral trigger behaviour.
+3. Submit a minimum-information emergency referral.
+4. Enter or obtain an ABR ID where available.
+5. Submit a referral where the ABR ID is missing and verify follow-up handling.
+6. Verify perpetrator information handling, including unknown or unavailable values.
+7. Test an anonymous or insufficiently identified report and record the approved handling outcome.
+8. Confirm service/referral-target receipt, CPIMS+ accept/reject behaviour, and case identifier where returned.
+9. Test Ministry-side distribution and district supervisor/manager handling where configured.
+10. Test Primero unavailability.
+11. Confirm referral queue and retry behaviour.
+12. Repeat a request and confirm no duplicate case.
+13. Verify intermediate/follow-up status handling and audit evidence.
+14. Verify the parallel emergency phone procedure where applicable.
+15. Confirm operator and support procedures.
 
 ### 16.3 Acceptance evidence
 
@@ -373,27 +434,29 @@ Every UAT scenario should record:
 - Retest result.
 - Business acceptance decision.
 
-## 17. Two-Week Implementation Plan
+## 17. Implementation Baseline and Accelerated MVP Plan
 
 | Period | Main activities | Gate/output |
 |---|---|---|
-| Day 1 | Decision meeting, access, scope freeze, API and ABR decisions | Approved baseline or escalated blockers |
+| Days 1–2 | Session 1 decisions, access, scope freeze, API, referral workflow, routing, and ABR decisions | Approved baseline or escalated blockers |
 | Days 2–3 | ABR/referral UI, permissions, workflow configuration | Referral surface available |
 | Days 2–5 | API client, authentication, mapping, queue, audit, idempotency | First technical integration path |
 | Days 6–7 | Technical tests, failure tests, regression testing | Test evidence and defect list |
-| Days 8–9 | UAT execution, fixes, readiness review | UAT result and acceptance recommendation |
+| Days 8–9 | Technical/UAT preparation, Ministry-led UAT, fixes, readiness review | UAT result and acceptance recommendation |
 | Day 10 | Training, handover, go/no-go, controlled release if approved | Go-live decision and D4 evidence |
+| Remaining baseline period | Operational rollout, feedback/routing refinement, support, and agreed post-MVP work | D4/D5 evidence and operational handover |
 
 ## 18. Risks and Mitigations
 
 | ID | Risk | Impact | Mitigation | Owner | Status |
 |---|---|---|---|---|---|
-| R-001 | Primero API access is delayed | Critical-path delay | Obtain sandbox access on Day 1; use contract tests only as interim evidence |  | Open |
+| R-001 | Primero sandbox/API access is delayed | Critical-path delay to configuration, testing and UAT | Complete the readiness checklist; seek written confirmation of blockers, owners and access date within 48 hours; continue mapping and mock/contract preparation | Primero/UNICEF technical coordination | Open — critical-path dependency; target about one week remains unconfirmed |
 | R-002 | ABR rules are not confirmed | Incorrect validation and rejected referrals | Assign decision owner; keep rule configurable |  | Open |
 | R-003 | Primero lookup values differ from examples | Payload rejection | Obtain live lookup values before UAT |  | Open |
 | R-004 | Idempotency is not supported as assumed | Duplicate case risk | Agree transaction/reconciliation method with receiving team |  | Open |
 | R-005 | Sensitive data is over-logged | Privacy and safeguarding risk | Redact payloads and restrict access |  | Open |
-| R-006 | Two-week scope expands | Delivery failure | Freeze MVP and maintain deferred backlog |  | Open |
+| R-006 | Accelerated MVP scope expands | Delivery failure | Freeze MVP and maintain deferred backlog against the 14-week baseline |  | Open |
+| R-008 | CPIMS+ service-based routing does not match direct district/stakeholder assumptions | Wrong recipient or delayed allocation | Confirm service targets, acceptance/rejection behaviour, district supervisor/manager distribution and API capabilities with Primero technical team | Primero/Ministry stakeholders | Open |
 | R-007 | No post-go-live support owner | Unmanaged failures | Name queue and incident owner before go-live |  | Open |
 
 ## 19. Decision and Action Register
@@ -401,15 +464,19 @@ Every UAT scenario should record:
 | ID | Decision/action | Owner | Deadline | Status | Evidence |
 |---|---|---|---|---|---|
 | D-001 | Confirm receiving system and version |  | Day 1 | Open |  |
-| D-002 | Confirm outbound-only or bi-directional scope |  | Day 1 | Open |  |
-| D-003 | Approve ABR definition and validation owner |  | Day 1 | Open |  |
-| D-004 | Provide API specification and sandbox credentials |  | Day 1 | Open |  |
-| D-005 | Approve minimum data mapping |  | Day 1 | Open |  |
-| D-006 | Approve privacy and legal-basis rules |  | Day 1 | Open |  |
-| D-007 | Agree idempotency approach |  | Day 1 | Open |  |
-| D-008 | Agree retry and escalation policy |  | Day 1 | Open |  |
-| D-009 | Confirm UAT participants and sign-off authority |  | Day 1 | Open |  |
-| D-010 | Confirm post-go-live support owner |  | Day 1 | Open |  |
+| D-002 | Confirm outbound referral and one-way follow-up update scope; decide whether inbound status write-back is included |  | Days 1–2 | Open | One-way follow-up updates supported in principle; inbound write-back not committed |
+| D-003 | Approve manual handling-agent trigger, escalation/approval rules, and authorised role |  | Days 1–2 | Open | Session 2 records manual agent trigger; final rules remain pending |
+| D-004 | Approve emergency minimum-information and partial-referral rules |  | Days 1–2 | Open | Session 1 agreed direction; field rules pending |
+| D-005 | Approve ABR definition, validation owner, and missing-ID process |  | Days 1–2 | Open | Session 1 recorded missing ABR may be allowed |
+| D-006 | Provide API specification and sandbox credentials |  | Days 1–2 | Open | Checklist and access dependency |
+| D-007 | Approve minimum data mapping, including perpetrator information |  | Days 1–3 | Open |  |
+| D-008 | Approve privacy and legal-basis rules |  | Days 1–3 | Open |  |
+| D-009 | Agree CPIMS+ service/referral targets, acceptance/rejection, Ministry distribution, and district-handling rules |  | Days 1–3 | Open | Session 2 revised the direct-routing assumption; technical confirmation pending |
+| D-010 | Agree idempotency, retry, and escalation policy |  | Days 1–3 | Open |  |
+| D-011 | Confirm Ministry-led UAT participants and sign-off authority |  | Before UAT | Open | Session 1 agreed direction |
+| D-012 | Confirm post-go-live support owner |  | Before go-live | Open |  |
+| D-013 | Confirm that X-Road/Home Affairs integration is outside this direct OpenCHS-to-CPIMS+ scope |  | Days 1–2 | Open | Template pack records it as a separate workstream |
+| D-014 | Define minimum identifying information, anonymous-report handling, and CPIMS+ accept/reject rules |  | Before UAT | Open | Session 2 identified this as unresolved |
 
 ## 20. D1 Acceptance Criteria
 
@@ -418,15 +485,21 @@ D1 will be considered ready for approval when:
 - ☐ Project stakeholders and decision owners are named.
 - ☐ MVP scope is approved.
 - ☐ Referral workflow is approved or has assigned decisions.
+- ☐ Authorised referral role and referral-trigger rules are approved or assigned.
+- ☐ Manual handling-agent trigger, escalation and approval rules are resolved.
+- ☐ CPIMS+ service/referral targets, acceptance/rejection and Ministry-side distribution rules are resolved.
+- ☐ Anonymous/insufficient-identification referral handling is resolved.
+- ☐ Emergency minimum-information and missing-ABR referral rules are approved or assigned.
 - ☐ ABR ownership and rules are approved or formally blocked.
 - ☐ API and authentication requirements are documented.
 - ☐ Environment and access requirements are documented.
 - ☐ Field-mapping baseline is approved or assigned for closure.
 - ☐ Retry, offline, idempotency, and audit requirements are documented.
 - ☐ Security and data-sharing requirements have an owner and review date.
-- ☐ UAT participants, scenarios, and sign-off authority are confirmed.
-- ☐ Two-week plan and delivery gates are accepted.
+- ☐ Ministry-led UAT participants, scenarios, and sign-off authority are confirmed.
+- ☐ Implementation baseline and delivery gates are accepted.
 - ☐ Risks and unresolved actions have owners and deadlines.
+- ☐ Primero sandbox readiness, escalation owner, and fallback test approach are recorded.
 
 ## 21. Approval and Sign-Off
 
@@ -454,18 +527,24 @@ The following must not be described as implemented or production-ready until ver
 - Production authentication and secret-management arrangements.
 - Network connectivity and firewall configuration.
 - Production monitoring and support procedures.
+- Final referral-trigger mode and category rules.
+- CPIMS+ service/referral target vocabulary and acceptance/rejection contract.
+- Minimum identifying information and anonymous-report exception handling.
+- Whether CPIMS+ status write-back is included in the accepted scope.
+- X-Road/Home Affairs scope boundary and any related funding/governance decision.
 
 ## Appendix B — Immediate Day-1 Meeting Agenda
 
 1. Confirm participants and decision authority.
 2. Confirm systems, versions, and environments.
-3. Approve two-week MVP scope.
+3. Approve the accelerated MVP work package and implementation baseline.
 4. Confirm outbound or bi-directional integration direction.
-5. Resolve ABR ownership and rules.
+5. Resolve referral trigger, emergency minimum-information, and ABR rules.
 6. Review API documentation, endpoints, and credentials.
-7. Approve minimum field mapping.
-8. Approve privacy, consent, and data-minimisation rules.
-9. Approve retry, offline, idempotency, and audit approach.
-10. Confirm UAT, training, go-live, and support owners.
-11. Review risks and blockers.
-12. Sign the D1 baseline and issue the action register.
+7. Approve minimum field mapping, including perpetrator information.
+8. Approve routing, Ministry distribution, district handling, and closed-loop feedback.
+9. Approve privacy, consent, and data-minimisation rules.
+10. Approve retry, offline, idempotency, and audit approach.
+11. Confirm Ministry-led UAT, training, go-live, and support owners.
+12. Review risks and blockers.
+13. Sign the D1 baseline and issue the action register.

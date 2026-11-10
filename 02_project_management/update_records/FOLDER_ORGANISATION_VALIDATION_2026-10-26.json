@@ -1,0 +1,17 @@
+{
+  "existing_files_preserved": 100,
+  "files_moved": 97,
+  "current_markdown_local_links_checked": 162,
+  "office_local_links_checked": 12,
+  "missing_links": [],
+  "office_packages_readable": 24,
+  "word_body_formatting_unchanged": true,
+  "source_binary_and_transcript_hashes_unchanged": true,
+  "archived_snapshot_hashes_unchanged": true,
+  "inventory": {
+    "Pending": 53,
+    "Resolved": 7,
+    "Deferred": 11
+  },
+  "files_deleted": 0
+}

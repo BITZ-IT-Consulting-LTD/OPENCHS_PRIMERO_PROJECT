@@ -1,42 +1,44 @@
-# Lesotho OpenCHS–Primero Project
+# Lesotho OpenCHS Primero project
 
-Documentation-only repository for planning and delivering the integration of the Lesotho Child Helpline 116 / OpenCHS environment with Primero CPIMS+.
+Start with [inception.md](inception.md) for the current inception report and outstanding decisions. This is a documentation workspace; implementation and live-environment claims require separate evidence.
 
-## Repository purpose
+## Folder guide
 
-This repository is the controlled documentation baseline for:
+| Folder | Contents |
+|---|---|
+| [01 Inception](01_inception/README.md) | Current D1 v0.5 report in Markdown and Word, plus completion inventory |
+| [02 Project management](02_project_management/README.md) | Contract delivery plan, decision document, delivery checklist and update/validation records |
+| [03 Meetings](03_meetings/README.md) | Sessions 1–3 minutes, action tracker, reports, facilitation materials, follow-up preparation and unreviewed transcript files |
+| [04 Templates](04_templates/README.md) | Fourteen editable capture forms/registers and the consolidated Excel workbook |
+| [05 Technical reference](05_technical_reference/README.md) | OpenCHS architecture/context, integration reference and implementation prompt |
+| [06 Correspondence](06_correspondence/README.md) | Isaiah’s response, assessment and unsent follow-up drafts |
+| [07 Source documents](07_source_documents/README.md) | Original scope brief, planning presentations and historical timeline notes |
+| [08 Archive](08_archive/README.md) | Earlier versions, identical extra copies and local generated files |
 
-- Inception and requirements
-- Integration decisions
-- OpenCHS-to-Primero data mapping
-- ABR ID and referral workflow definition
-- API, authentication, retry, offline queue, idempotency, and audit requirements
-- Testing, UAT, training, handover, and go-live planning
+## Current working documents
 
-The repository does not currently contain the OpenCHS application source code. Statements describing implementation must be verified against the actual OpenCHS and Primero environments before being treated as completed work.
+- [Inception report](01_inception/DRAFT_INCEPTION_REPORT_D1_OPENCHS_PRIMERO_V1.0.md) and [editable Word copy](01_inception/DRAFT_INCEPTION_REPORT_D1_OPENCHS_PRIMERO.docx)
+- [Inception completion inventory](01_inception/INCEPTION_COMPLETION_INVENTORY.md)
+- [Contract-aligned delivery plan](02_project_management/CONTRACT_ALIGNED_DELIVERY_PLAN.md)
+- [Capture forms and workbook](04_templates/README.md)
+- [Session 3 facilitation notes for 26 October 2026](03_meetings/session_3/SESSION_3_FACILITATION_NOTES_2026-10-26.md) and [editable Word copy](03_meetings/session_3/SESSION_3_FACILITATION_NOTES_2026-10-26.docx)
+- [Isaiah response assessment](06_correspondence/ISAIAH_RESPONSE_REVIEW_2026-10-26.md)
+- [Document update record](02_project_management/update_records/ISAIAH_DOCUMENT_UPDATE_LOG_2026-10-26.md)
+- [Folder reorganisation record](02_project_management/update_records/FOLDER_REORGANISATION_2026-10-26.md)
 
-## Key documents
+## Status and delivery baseline
 
-- `Lesotho_OpenCHS_Technical_Scope_Inception_Brief.pdf` — source technical scope and contractual workstreams
-- `Lesotho_OpenCHS_Implementation_Timeline_Presentation.pptx` — original 14-week implementation timeline
-- `docs/DRAFT_INCEPTION_REPORT_D1_OPENCHS_PRIMERO.md` — D1 inception baseline
-- `docs/OPENCHS_PRIMERO_FIRST_MEETING_DECISION_DOCUMENT.md` — first-meeting decisions and questions
-- `docs/OPENCHS_PRIMERO_TWO_WEEK_PROJECT_CHECKLIST.md` — delivery checklist
-- `docs/FOURTEEN_WEEK_IMPLEMENTATION_SLIDE_NOTES.md` — slide notes for the original 14-week plan
-- `docs/docs/platform/reference/OPENCHS_PRIMERO_INTEGRATION_CONTEXT.md` — technical integration context
-- `docs/context/12_PRIMERO_CPIMS_CONTEXT.md` — integration architecture context
+D1 v0.5 remains Draft for review after Session 3. The inventory records **19 Resolved, 44 Pending and 8 Deferred** items across inception and later delivery. Two-way referred-case updates, attachments, optional ABR and anonymous reporters are in the recorded baseline. Configured mapping, authentication, environment access, recovery details and formal approvals remain pending. Initial draft circulation is targeted for 28 October close of business.
 
-## Documentation status rules
+The commercial delivery baseline remains **1 July 2026 to 28 February 2027**, with milestone targets in August, October, November and February. The 14-week and two-week materials are technical planning references unless formally rebaselined.
 
-- `Draft` means the content requires review or approval.
-- `Proposed` means a design option has been suggested but not approved.
-- `TBD` means the required information is not yet available.
-- `Implemented` must only be used after verification in the relevant source or environment.
+## Filing and review rules
 
-## Working approach
+1. Maintain the current report in `01_inception/` and keep its Word copy aligned with Markdown.
+2. Use `04_templates/` for current capture forms, registers and the workbook; record owners, next actions, evidence and dates for open items.
+3. Save incoming evidence and unsent correspondence in `06_correspondence/`, and meeting records by session in `03_meetings/`.
+4. Place superseded versions in a dated folder under `08_archive/previous_versions/`; retain their original content.
+5. Treat technical context, example fields, URLs and prior implementation descriptions as references until verified in the actual source/environment.
+6. Use Draft, Proposed, Pending, Resolved and Deferred consistently. Do not mark implementation, access, testing, approval or go-live complete without supporting evidence.
 
-1. Record decisions in the decision document and action register.
-2. Keep the requirements and field mapping under version control.
-3. Mark unresolved external dependencies as blockers.
-4. Do not promote draft assumptions into production requirements without owner approval.
-5. Update the README when the repository structure or delivery baseline changes.
+The folder reorganisation preserved all 100 existing files. Working Markdown and Word navigation links were repaired. Historical snapshots retain their original structure and references; paths cited as historical source attribution can be traced through the move manifest. No files were deleted, external messages sent or Git commits created.
