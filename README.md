@@ -64,6 +64,8 @@ The work is tracked in [GitHub Issues](https://github.com/BITZ-IT-Consulting-LTD
 
 | Folder | Contents |
 |---|---|
+| [apps/openchs](apps/openchs/README.md) | OPENCHS application, where the D2 referral features are built. Placeholder; will be added as a git submodule |
+| [apps/gateway](apps/gateway/README.md) | BITZ Integration Gateway, the D3 outbound client to Primero CPIMS+. Planned layout only |
 | [01_inception](01_inception/README.md) | D1 inception report versions, annexes, revision records, QA and consistency audits |
 | [02_project_management](02_project_management/README.md) | Delivery plan, decision document, checklists, update and validation records |
 | [03_meetings](03_meetings/README.md) | Facilitation slides and notes, meeting reports (minutes and transcripts are kept locally, not in Git) |
