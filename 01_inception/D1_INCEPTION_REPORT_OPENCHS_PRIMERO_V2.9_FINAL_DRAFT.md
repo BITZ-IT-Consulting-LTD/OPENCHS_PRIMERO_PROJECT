@@ -51,7 +51,7 @@ This report records four different kinds of position, and the distinction matter
 
 The record of the 4 November meeting [M4] is a draft. A technical design choice, or agreement in a meeting, is not a variation of the signed contract; any variation requires a written amendment signed by UNICEF [CT2 general terms, article 11.9].
 
-Items still awaiting a decision or evidence are **highlighted** in this report and listed together in Section 11.3.
+Items still awaiting evidence from a stakeholder are **highlighted** in this report. Where the inception meetings did not reach a final decision, BITZ sets out its recommended position as **our proposal** (Section 11.3). Each proposal is the working basis on approval of this report, and any stakeholder may ask BITZ to amend it.
 
 ### Contents
 
@@ -65,7 +65,7 @@ Items still awaiting a decision or evidence are **highlighted** in this report a
 - [8 Implementation plan and milestones](#8-implementation-plan-and-milestones)
 - [9 Governance and responsibilities](#9-governance-and-responsibilities)
 - [10 Testing, acceptance and handover](#10-testing-acceptance-and-handover)
-- [11 Risks, dependencies and outstanding decisions](#11-risks-dependencies-and-outstanding-decisions)
+- [11 Risks, dependencies and BITZ proposals](#11-risks-dependencies-and-bitz-proposals)
 - [12 Conclusions and approval](#12-conclusions-and-approval)
 - [Annexes](#annexes)
 
@@ -86,12 +86,12 @@ Between 24 September and 4 November 2026 the project held an inception meeting, 
 - Child Helpline agents currently refer cases to the Ministry through manual channels and generally see only "referred" and "closed". An electronic referral link is needed to remove re-keying, make delivery traceable and support follow-up.
 - The stakeholders agreed that referrals must be initiated manually and deliberately by an agent; saving a case must never send it.
 - The Ministry controls distribution, acceptance, assignment and case management inside CPIMS+; the helpline selects only the CPIMS+ service.
-- The signed contract describes an **outbound** API client (item 70). Session 3 also recorded a business wish for two-way updates and attachments (D-007, D-012). The initial design delivers outbound referral and explicit outbound updates only; the two-way and attachment requests require a written contractual decision (Section 4.5).
-- Country readiness depends on the Lesotho Primero test environment, integration credentials, the CPIMS+ service list and the configured field identifiers, all due from Primero by 13 November 2026 (Section 8).
+- The signed contract describes an **outbound** API client (item 70). Session 3 also recorded a business wish for two-way updates and attachments (D-007, D-012). The initial design delivers outbound referral and explicit outbound updates only; BITZ proposes that two-way updates and attachments are a future phase delivered only through a contract variation (Section 4.5; BP-01).
+- Country readiness depends on the Lesotho Primero test environment, integration credentials, the CPIMS+ service list and the configured field identifiers, now due from Primero in the week of 23 November 2026 (revised by Primero at the 10 November technical meeting [S5]) (Section 8).
 
 ### 1.4 Selected architecture and initial scope
 
-The integration uses BITZ's own gateway: **OPENCHS → BITZ Integration Gateway → Primero CPIMS+ API**. OpenFN and X-Road are not used.
+The integration uses an integration gateway built by BITZ and installed on the Ministry's server [S5]: **OPENCHS → Integration Gateway → Primero CPIMS+ API**. OpenFN and X-Road are not used.
 
 An authorised agent creates a referral in OPENCHS, selects the CPIMS+ service and confirms. The gateway validates and maps the approved data, sends it to Primero (**Create Referral**) and stores the CPIMS+ case identifier (UUID). Later information is sent through a separate, explicit **Send Update** against that UUID. The gateway handles JWT authentication, the persistent queue, duplicate prevention, retries, reconciliation of uncertain outcomes and audit logging. A technical acknowledgement from Primero is never shown as Ministry acceptance.
 
@@ -99,7 +99,7 @@ The initial scope excludes automatic inbound status or intervention updates, att
 
 ### 1.5 Safeguarding approach
 
-Only the minimum necessary child-protection information is sent. Consent is captured during the call; where it cannot be obtained or is refused, a referral may proceed on the child-protection (vital interest) basis with supervisor authorisation. Emergency referrals carry the child's details and a narrative, kept to the minimum, and urgent cases are still telephoned to police or first responders in parallel. The Ministry is data controller and BITZ is processor. Testing uses synthetic data only, and real child data is exchanged only after the Ministry's written production authorisation (Section 7).
+Only the minimum necessary child-protection information is sent. Consent is captured during the call; where it cannot be obtained or is refused, a referral may proceed on the child-protection (vital interest) basis with supervisor authorisation. Emergency referrals carry the child's details and a narrative, kept to the minimum, and urgent cases are still telephoned to police or first responders in parallel. The Ministry is data controller and BITZ is processor. Testing uses synthetic data only, and real child data is exchanged only in production, under the Ministry's existing internal data-handling processes (Section 7; BP-13).
 
 ### 1.6 Milestones and key dependencies
 
@@ -110,23 +110,23 @@ Only the minimum necessary child-protection information is sent. Consent is capt
 | D3 — Outbound REST API client | 11 December 2026 |
 | D4 — Testing, UAT, training and go-live | 26 February 2027 |
 
-These dates were agreed at the D1 validation meeting [M4]. The contract itself states no due dates and ends on 7 July 2027. The critical dependency is Primero's delivery of the Lesotho test environment, credentials, service list and field identifiers by 13 November 2026 (gate G2); D3 cannot be verified without them.
+These dates were agreed at the D1 validation meeting [M4]. The contract itself states no due dates and ends on 7 July 2027. The critical dependency is Primero's delivery of the Lesotho test environment, credentials, service list and field identifiers (gate G2). G2 was set for 13 November 2026; Primero now expects to provide access in the week of 23 November 2026 [S5], which leaves less time for Lesotho verification before D3. D3 cannot be verified without them.
 
-### 1.7 Decisions requiring stakeholder action
+### 1.7 BITZ proposals for stakeholder review
 
-The decisions that most affect delivery are:
+So that delivery is not held up waiting for decisions, BITZ has made a recommendation on every matter the inception meetings left open. These are recorded in Section 11.3 as our proposals. Each proposal becomes the working basis for design, build and testing when this report is approved. Any stakeholder may ask us to amend a proposal at any time; amendments are handled under change control (Section 9.5). The proposals that most affect delivery are:
 
-1. **UNICEF:** written contractual disposition of the historical two-way update and attachment requirements against the outbound-only initial design.
-2. **Ministry:** the operational route by which a Ministry rejection in CPIMS+ is communicated back to the helpline.
-3. **Ministry:** rules for correction, cancellation, withdrawal and re-referral, and the reporter-anonymity disclosure rules.
-4. **Ministry:** confirmation of the proposed 24-month retention period and the security-incident notification procedure.
-5. **Ministry / relevant authority:** the official ABR ID validation rules.
+1. **Scope (UNICEF):** the initial release is outbound only; two-way updates and attachments are a future phase requiring a contract variation (BP-01).
+2. **Rejection feedback (Ministry):** the receiving Ministry officer informs the Child Helpline supervisor, who records the rejection in OPENCHS (BP-02).
+3. **Lifecycle and anonymity rules (Ministry):** rules for correction, cancellation, withdrawal and re-referral, and for reporter anonymity (BP-03, BP-04).
+4. **Retention and incidents (Ministry):** 24-month retention and a defined incident-notification procedure (BP-05, BP-06).
+5. **ABR ID (Ministry):** optional, with structural checks only, until official rules are supplied (BP-09).
 
-The full register is in Section 11.3.
+The full set of proposals is in Section 11.3.
 
 ### 1.8 D1 approval status
 
-The report is ready for stakeholder approval. Approvers are confirmed for UNICEF, the Ministry, OPENCHS and Primero (Section 12.4). D1 is submitted for full acceptance; the remaining open items are owned and tracked to closure through Section 11.3 and Annex E and are not conditions of D1 acceptance. No written approval has yet been received.
+The report is ready for stakeholder approval. Approvers are confirmed for UNICEF, the Ministry, OPENCHS and Primero (Section 12.4). D1 is submitted for full acceptance; the remaining evidence items are owned and tracked through Section 8.4 and Annex E, and the BITZ proposals in Section 11.3 stand unless a stakeholder asks us to amend them; neither is a condition of D1 acceptance. No written approval has yet been received.
 
 ## 2 Project background and objectives
 
@@ -141,7 +141,7 @@ For urgent cases, such as active abuse or an abandoned child, agents telephone t
 | **System** | **Owner / operator** | **Role in the integration** |
 |----|----|----|
 | OPENCHS | Child Helpline 116; maintained by BITZ under the existing support-and-maintenance contract | Records cases; captures the referral information and optional ABR ID; provides the explicit "Refer to CPIMS+" control and the Send Update action; shows technical delivery status |
-| BITZ Integration Gateway | BITZ | Authenticates to Primero; maps approved data; queues, retries and de-duplicates operations; stores the CPIMS+ UUID; reconciles uncertain outcomes; keeps the audit record |
+| Integration Gateway | BITZ | Authenticates to Primero; maps approved data; queues, retries and de-duplicates operations; stores the CPIMS+ UUID; reconciles uncertain outcomes; keeps the audit record |
 | Primero CPIMS+ | Ministry; Primero technical coordination by Isaiah Amutavi Osotsi | Receives referrals; Ministry users accept or reject, distribute, assign and manage cases within the Ministry workflow |
 
 The referral connection is separate from any Home Affairs identity-verification work; X-Road is not part of the referral path.
@@ -188,9 +188,9 @@ The full register of contractual discrepancies (CD-01 to CD-17) is in Annex E. T
 
 | **Ref.** | **Matter** | **Position** |
 |----|----|----|
-| CD-01, CD-04 | The signed scope is an outbound client; Session 3 recorded two-way updates and attachments as business needs (D-007, D-012) | Outbound-only initial design adopted. [Pending: written UNICEF disposition]{.mark} of the two-way and attachment requirements before D3 acceptance (Section 11.3, OD-01) |
-| CD-03 | The signed D2 wording refers to a "referral checkbox"; the agreed rule is an explicit referral action | [Pending: UNICEF confirmation]{.mark} that the explicit action satisfies the D2 and D4 wording (OD-12) |
-| CD-05 | The official ABR validation specification has not been supplied | Optional ABR with structural checks only; [official rules pending]{.mark} (OD-09) |
+| CD-01, CD-04 | The signed scope is an outbound client; Session 3 recorded two-way updates and attachments as business needs (D-007, D-012) | Outbound-only initial design adopted. BITZ proposal: two-way updates and attachments are a future phase delivered only through a contract variation; D3 and D4 are assessed against the outbound scope (Section 11.3, BP-01) |
+| CD-03 | The signed D2 wording refers to a "referral checkbox"; the agreed rule is an explicit referral action | BITZ proposal: the explicit, confirmed referral action fulfils the "referral checkbox" wording in D2 and D4 (BP-12) |
+| CD-05 | The official ABR validation specification has not been supplied | Optional ABR with structural checks only; BITZ proposal applies until official rules are supplied (BP-09) |
 | CD-12 | Proposed fault thresholds and UNICEF's contractual acceptance authority | Thresholds agreed (Section 10.4); UNICEF retains its right under the contract to withhold payment for unsatisfactory or incomplete work [CT2 section 4] |
 | CD-15, CD-17 | No due dates are stated in the signed activity descriptions; the contract has a late-submission clause (10% reduction at 20 days, 20% at one month, 30% at two months, withholding beyond two months) | Delivery dates agreed at the validation meeting (Table 2.1). The clause applies to those dates; dependency delays are recorded and handled through change control (Section 9.5) |
 
@@ -261,7 +261,7 @@ The five addendum-dependent requirements — FN-010, RT-007, SEC-008, AUD-003 an
 
 ### 3.4 Information still required
 
-The inputs still needed for implementation are listed with their owners in Section 8.4 and Annex E. In summary: the integration credentials, CPIMS+ service list, configured field identifiers and protection-concern list (Primero, by 13 November 2026); the national referral pathways (A-013); the official ABR validation rules (A-007); and the Ministry decisions in Section 11.3.
+The inputs still needed for implementation are listed with their owners in Section 8.4 and Annex E. In summary: the integration credentials, CPIMS+ service list, configured field identifiers and protection-concern list (Primero, week of 23 November 2026 [S5]); the national referral pathways (A-013); the official ABR validation rules (A-007). Matters not decided during inception are covered by the BITZ proposals in Section 11.3.
 
 ## 4 Agreed scope and deliverables
 
@@ -273,8 +273,8 @@ The inputs still needed for implementation are listed with their owners in Secti
 |----|----|----|
 | **Included** | Manual, agent-initiated referral with confirmation; CPIMS+ destination and Ministry-approved service selection; validation of the approved referral data; optional ABR ID with structural checks; secure outbound **Create Referral**; storage of the CPIMS+ UUID; explicit outbound **Send Update** against the UUID; technical acknowledgement and status display; persistent queue, retries, duplicate prevention and reconciliation; security controls and metadata-only audit; restricted monitoring and alerts; integration, security, regression and Ministry-led user acceptance testing; training, deployment and handover | [CT2 items 50–80]; D-005, D-006, D-008, D-010–D-016; SCOPE-001, SCOPE-005, SCOPE-006 |
 | **Excluded** | Automatic inbound status or intervention updates (including polling and webhooks); electronic transfer of attachments, documents, photographs or call recordings; transfer of the helpline case plan; direct electronic routing to external service providers; selection of Ministry caseworkers by helpline agents; automatic closure of CPIMS+ cases by OPENCHS; live NICR / Home Affairs identity verification; OpenFN and X-Road | SCOPE-002–SCOPE-005; D-012 (case plan) |
-| **Requiring written disposition** | The historical two-way update requirement (D-007) and the attachment requirement (D-012), against the outbound-only design | CD-01, CD-04; P-01; R-010 — [pending UNICEF]{.mark} (OD-01) |
-| **External dependencies** | Lesotho test environment and credentials; CPIMS+ service list and field identifiers; protection-concern list; national pathways; official ABR rules; Ministry decisions in Section 11.3 | Section 8.4 |
+| **Future phase (BP-01)** | The historical two-way update requirement (D-007) and the attachment requirement (D-012), against the outbound-only design | CD-01, CD-04; P-01; R-010 — BITZ proposal BP-01 |
+| **External dependencies** | Lesotho test environment and credentials; CPIMS+ service list and field identifiers; protection-concern list; national pathways; official ABR rules (BITZ proposals in Section 11.3 apply meanwhile) | Section 8.4 |
 
 A limited, non-sensitive indication that supporting material exists may be sent only if the Ministry approves the disclosure, it is necessary for the referral, Primero supports the field, no sensitive file detail is exposed, and the mapping and security controls are validated (SCOPE-003). Until all five conditions are evidenced, the field is omitted.
 
@@ -288,7 +288,7 @@ The excluded items are not presented as a committed future phase. Any of them wo
 |----|----|
 | D1 (item 50) | Requirements and scope baseline; design and mapping approach; environment assessment; plan; registers |
 | D2 (item 60) | Optional ABR ID with structural checks; explicit "Refer to CPIMS+" control with destination, service selection and confirmation; validation and status display |
-| D3 (item 70) | Outbound REST API client through the BITZ gateway: JWT authentication, retry logic, offline queue, idempotency, audit logging, Create Referral and Send Update |
+| D3 (item 70) | Outbound REST API client through the integration gateway: JWT authentication, retry logic, offline queue, idempotency, audit logging, Create Referral and Send Update |
 | D4 (item 80) | Testing, Ministry-led UAT, operator and technical training, deployment, go-live and handover |
 
 ### 4.3 Responsibilities
@@ -297,21 +297,21 @@ The excluded items are not presented as a committed future phase. Any of them wo
 
 | **Party** | **Responsibilities** |
 |----|----|
-| BITZ | OPENCHS referral functionality; the BITZ Integration Gateway; mapping and transaction processing; gateway reliability, monitoring and technical support under the existing contract; technical test evidence; training and handover; change-impact assessments |
+| BITZ | OPENCHS referral functionality; the Integration Gateway; mapping and transaction processing; gateway reliability, monitoring and technical support under the existing contract; technical test evidence; training and handover; change-impact assessments |
 | Primero technical team | Primero API and platform; Lesotho test and production environments; integration-account credentials and permissions; configured field identifiers and service codes; platform-side verification and support |
-| Ministry (MGYSD) | Service catalogue; referral, safeguarding and disclosure rules; routing, acceptance and caseworker assignment in CPIMS+; Ministry-led UAT and its sign-off; production authorisation for real data; operational support and escalation (Hopolang Mosena responsible) |
+| Ministry (MGYSD) | Service catalogue; referral, safeguarding and disclosure rules; routing, acceptance and caseworker assignment in CPIMS+; Ministry-led UAT and its sign-off; production use under its existing internal data-handling processes; operational support and escalation (Hopolang Mosena responsible) |
 | Child Helpline 116 | Validation of the agent workflow; participation in UAT, including a Child Helpline supervisor; operational monitoring of referrals; first-line escalation |
 | UNICEF Lesotho | Contract administration; coordination; contractual acceptance of D1–D4; approval of any contract variation |
 
 ### 4.4 Boundaries within the included scope
 
 - **ABR ID.** Optional; a blank value never blocks a referral. An entered value is checked for 12 digits, a first digit of 0 or 1, and a seventh digit of 1 (male) or 2 (female); a sex-digit mismatch produces a warning that an authorised user can override, with the override audited. These checks do not verify that the identifier exists.
-- **Send Update.** Covers supplementary information, completion of partial referrals, corrections and permitted lifecycle requests. Primero has confirmed the operation sequence [PR1]; the Ministry rules for corrections, cancellations, withdrawals and re-referrals are [still to be confirmed]{.mark} (OD-03).
+- **Send Update.** Covers supplementary information, completion of partial referrals, corrections and permitted lifecycle requests. Primero has confirmed the operation sequence [PR1]; the rules for corrections, cancellations, withdrawals and re-referrals follow BITZ proposal BP-03.
 - **Reconciliation.** Where the gateway must establish the outcome of its own operation, a narrowly authorised check is permitted. This is not case reading or status synchronisation.
 
-### 4.5 Scope requiring written disposition
+### 4.5 Two-way updates and attachments
 
-The outbound-only design is the selected technical approach. It has not been recorded as a contract variation. UNICEF's written disposition is needed on how the historical two-way update requirement (D-007) and attachment requirement (D-012) are treated — for example, recorded as outside the current contract, or deferred to a future addendum with agreed effort, phase and acceptance evidence. Until then, these requirements are retained for traceability and are not acceptance criteria for the initial delivery. The initial delivery is not rejected for lacking them, and their exclusion does not waive any signed obligation.
+The outbound-only design is the selected technical approach. It has not been recorded as a contract variation. BITZ proposes that the historical two-way update requirement (D-007) and attachment requirement (D-012) are treated as a future phase, delivered only through a contract addendum with agreed effort, phase and acceptance evidence (BP-01); UNICEF may ask us to amend this proposal. These requirements are retained for traceability and are not acceptance criteria for the initial delivery. The initial delivery is not rejected for lacking them, and their exclusion does not waive any signed obligation.
 
 ## 5 Business requirements and referral workflow
 
@@ -326,7 +326,7 @@ flowchart TB
     B -->|"Yes"| C["Agent selects Refer to CPIMS+,<br/>then a Ministry-approved service"]
     C --> D["OPENCHS validates: narrative, child details,<br/>consent or approved basis, optional ABR ID"]
     D --> E["Agent reviews and confirms"]
-    E --> F["BITZ Integration Gateway:<br/>map, queue, Create Referral, store UUID"]
+    E --> F["Integration Gateway:<br/>map, queue, Create Referral, store UUID"]
     F --> G["Technical status shown in OPENCHS:<br/>Queued · Sending · Delivered · Failed · Needs Action"]
     F --> H["Primero CPIMS+ — Ministry receives,<br/>accepts or rejects, distributes and assigns"]
     H -.-> R["Ministry decision recorded in CPIMS+;<br/>rejection communicated to the helpline<br/>(operational route to be confirmed)"]
@@ -351,14 +351,14 @@ The workflow, from referral preparation to Ministry case handling, is:
 | **Rule** | **Agreed position** | **Status** | **Reference** |
 |----|----|----|----|
 | Manual initiation | Submission requires an explicit referral action and confirmation; cancelling sends nothing | Confirmed | D-006; WF-002; FN-003 |
-| Service selection | The agent chooses from the Ministry-approved CPIMS+ services; an inactive or invalid service blocks submission with a clear message | Confirmed; service list confirmed by Primero, delivery by 13 Nov 2026 (A-018) | D-008; RT-001, RT-002; FN-006 |
+| Service selection | The agent chooses from the Ministry-approved CPIMS+ services; an inactive or invalid service blocks submission with a clear message | Confirmed; service list confirmed by Primero, delivery week of 23 Nov 2026 [S5] (A-018) | D-008; RT-001, RT-002; FN-006 |
 | Narrative | Required at referral, not at first save | Confirmed | D-013; FN-004 |
 | Child identification | The child's details are required; available details are recorded and none is fabricated | Confirmed | D-011; FN-005; DATA-005 |
 | Minimum information | The child's details and the narrative | Confirmed [M4; PR1] | DSR-06 |
 | Emergency referral | The child's details and a narrative, limited to the minimum emergency information; other fields are optional and may follow by Send Update; each exception is recorded | Confirmed [PR1]; Primero mandatory-field check during mapping | D-003; WF-004 |
 | Partial referral | An authorised incomplete referral is allowed; missing information is recorded and completed later by Send Update | Confirmed | WF-005 |
-| Reporter anonymity | The reporter may remain anonymous; reporter identifiers are then not sent | Rule confirmed; [disclosure rules Pending Confirmation]{.mark} (DSR-07) | D-010; WF-009; DATA-008 |
-| ABR ID | Optional; structural checks only (Section 4.4) | Confirmed; [official rules pending]{.mark} (A-007) | D-005, D-014; FN-001, FN-002 |
+| Reporter anonymity | The reporter may remain anonymous; reporter identifiers are then not sent | Rule confirmed; disclosure per BITZ proposal BP-04 (DSR-07) | D-010; WF-009; DATA-008 |
+| ABR ID | Optional; structural checks only (Section 4.4) | Confirmed; BITZ proposal BP-09 until official rules are supplied (A-007) | D-005, D-014; FN-001, FN-002 |
 | Consent | Captured during the call and recorded; otherwise the child-protection basis with supervisor authorisation (Section 7.3) | Confirmed [PR1] | DATA-012; SEC-001 |
 | Supervisor consultation | Optional by default and recorded when used | Confirmed | WF-003 |
 | Emergency telephone route | Continues independently of the electronic referral | Confirmed | WF-007 |
@@ -372,7 +372,7 @@ OPENCHS shows two separate kinds of status, so that technical delivery is never 
 
 | **Category** | **Values** | **Source** |
 |----|----|----|
-| Gateway technical status | **Queued** (stored, awaiting transmission or retry); **Sending**; **Delivered** (acknowledged by Primero, UUID recorded); **Failed** (retries exhausted or permanent failure; administrators alerted); **Needs Action** (validation error or uncertain outcome awaiting reconciliation) | The BITZ gateway |
+| Gateway technical status | **Queued** (stored, awaiting transmission or retry); **Sending**; **Delivered** (acknowledged by Primero, UUID recorded); **Failed** (retries exhausted or permanent failure; administrators alerted); **Needs Action** (validation error or uncertain outcome awaiting reconciliation) | The integration gateway |
 | Ministry business status | **Pending**, **Accepted**, **Rejected**, **Ongoing**, **Closed** | Shown only where it comes from an authorised, verified source; otherwise OPENCHS shows that the business status is not confirmed |
 
 "Delivered" never produces "Accepted". The mapping of these helpline labels to Primero's native status values is verified during integration testing (RT-006).
@@ -380,14 +380,14 @@ OPENCHS shows two separate kinds of status, so that technical delivery is never 
 ### 5.4 Follow-up, corrections and rejection feedback
 
 - **Send Update** covers supplementary information, completion of partial referrals, corrections and permitted lifecycle requests. Each update references the stored UUID, has its own operation identifier and audit record, and never overwrites a Ministry decision.
-- **Corrections, cancellations, withdrawals and re-referrals** preserve the link to the original case and its history. A re-referral needs a recorded reason and a new referral reference linked to the earlier one. A later finding that a call was a prank is sent as corrective information; it never closes the Ministry case automatically. The Ministry rules for each of these actions are [to be confirmed]{.mark} (OD-03).
-- **Rejection feedback.** The validation meeting recorded that a rejection in CPIMS+ must reach the helpline [M4]. The initial design has no automatic inbound feed, so the Ministry's operational route for communicating a rejection to the helpline (for example, notification by the receiving officer through an agreed channel) is [to be confirmed]{.mark} by the Ministry (OD-02). Until then, OPENCHS shows the business status as not confirmed.
+- **Corrections, cancellations, withdrawals and re-referrals** preserve the link to the original case and its history. A re-referral needs a recorded reason and a new referral reference linked to the earlier one. A later finding that a call was a prank is sent as corrective information; it never closes the Ministry case automatically. The rules for each action are set out in BITZ proposal BP-03.
+- **Rejection feedback.** The validation meeting recorded that a rejection in CPIMS+ must reach the helpline [M4]. The initial design has no automatic inbound feed, so BITZ proposes that the receiving Ministry officer informs the Child Helpline supervisor, who records the rejection in OPENCHS (BP-02). Until a rejection is recorded, OPENCHS shows the business status as not confirmed.
 
-### 5.5 Summary of confirmed rules and Ministry decisions
+### 5.5 Summary of confirmed rules and BITZ proposals
 
-| **Confirmed business rules** | **Matters for Ministry confirmation** |
+| **Confirmed business rules** | **Covered by BITZ proposals (Section 11.3)** |
 |----|----|
-| Manual initiation; service selection; Ministry distribution and assignment; narrative at referral; child identification; minimum and emergency information; partial referrals; optional ABR; consent and child-protection basis; optional supervisor consultation; parallel emergency telephone route; separate technical and business status; explicit Send Update | Operational route for rejection feedback (OD-02); correction, cancellation, withdrawal and re-referral rules (OD-03); reporter-anonymity disclosure rules (OD-04); recipient roles and routing configuration in CPIMS+ (OD-08) |
+| Manual initiation; service selection; Ministry distribution and assignment; narrative at referral; child identification; minimum and emergency information; partial referrals; optional ABR; consent and child-protection basis; optional supervisor consultation; parallel emergency telephone route; separate technical and business status; explicit Send Update | Rejection feedback (BP-02); correction, cancellation, withdrawal and re-referral (BP-03); reporter-anonymity disclosure (BP-04); recipient roles and routing in CPIMS+ (BP-08) |
 
 The detailed requirements are in Annex A.1–A.3.
 
@@ -395,14 +395,14 @@ The detailed requirements are in Annex A.1–A.3.
 
 ### 6.1 Architecture
 
-The integration uses a single architecture (TECH-001): **OPENCHS → BITZ Integration Gateway → Primero CPIMS+ API**. The gateway calls the Primero API directly. OpenFN is not used, and X-Road is not part of the referral path.
+The integration uses a single architecture (TECH-001): **OPENCHS → Integration Gateway → Primero CPIMS+ API**. The gateway is built by BITZ and installed on the Ministry's server [S5]; it calls the Primero API directly. OpenFN is not used, and X-Road is not part of the referral path.
 
 **Figure 6.1 — Integration architecture**
 
 ```mermaid
 flowchart TB
     O["OPENCHS<br/>explicit referral · Send Update · technical status"]
-    G["BITZ Integration Gateway<br/>JWT authentication · mapping · queue and retries ·<br/>idempotency · UUID linkage · reconciliation · audit"]
+    G["Integration Gateway<br/>JWT authentication · mapping · queue and retries ·<br/>idempotency · UUID linkage · reconciliation · audit"]
     P["Primero CPIMS+ API (Lesotho deployment)"]
     M["Ministry workflow in CPIMS+<br/>accept / reject · distribute · assign · manage"]
     O -- "Create Referral / Send Update" --> G
@@ -416,7 +416,7 @@ Every arrow towards OPENCHS carries only the technical response to an operation 
 
 ### 6.2 Gateway responsibilities
 
-The BITZ Integration Gateway is responsible for:
+The Integration Gateway is responsible for:
 
 - **Authentication:** JWT bearer tokens issued to a dedicated, least-privilege integration service account, as required by the contract [CT2 item 70] and confirmed by Primero [PR1]; token renewal is handled automatically; credentials are held in a secret store and never logged.
 - **Data mapping:** transformation of the approved referral data to the configured CPIMS+ fields and service codes, enforcing the disclosure rules.
@@ -434,7 +434,7 @@ The BITZ Integration Gateway is responsible for:
 sequenceDiagram
     participant A as Authorised agent
     participant O as OPENCHS
-    participant G as BITZ gateway
+    participant G as Integration gateway
     participant P as Primero CPIMS+
     A->>O: Refer to CPIMS+ (or Send Update) and confirm
     O->>G: Approved data and authorised operation
@@ -475,7 +475,7 @@ Monitoring covers gateway availability, queue processing, failed operations, ret
 | Lesotho CPIMS+ test | Country-specific integration verification: connectivity, credentials, authentication, service codes, field mappings, Create Referral, Send Update, UUID handling, permissions, errors and reconciliation | Access confirmed by Primero; delivery due by 13 November 2026 (G2) |
 | Primero global demonstration | Preliminary technical tests only, if Lesotho access is delayed | Not a substitute for Lesotho verification or acceptance |
 | Joint UAT | Ministry-led business validation with approved synthetic cases | Critical and High defects resolved before go-live |
-| Production | Live operation | Requires Lesotho verification, security and safeguarding approvals, UAT sign-off, training and a written go/no-go decision |
+| Production | Live operation | Requires Lesotho verification, security approval, UAT sign-off, training and a go/no-go readiness record |
 
 Synthetic data is used in every non-production environment. Real child data is never used in testing.
 
@@ -497,7 +497,7 @@ The following are verified on the Lesotho test environment before D3 is accepted
 
 The Data Protection Act, 2011 (Act No. 5 of 2012) [DPA1] applies. The provisions most relevant to the integration, as read by BITZ for planning purposes, are those on children's and sensitive information (sections 29, 34 and 36), lawful grounds (section 15), minimal information and compatible purpose (sections 16 and 18), retention (section 19), security safeguards (section 20), processing on behalf of a controller (sections 21–22), notification of security compromises (section 23), notification of processing (sections 25(5) and 53) and transfers outside Lesotho (section 52). The draft Data Management Policy [DMP1] adds direction on government hosting, cross-border sharing and data classification; it awaits Cabinet approval and is treated as policy direction, not law. The signed contract assigns data ownership to UNICEF and the designated government ministries and requires confidentiality [CT2 sections 3.1–3.2].
 
-This is a planning analysis, not legal advice. [Legal confirmation of the applicable requirements by the Ministry and UNICEF legal advisers is Pending Confirmation]{.mark} (DSR-01).
+This is a planning analysis, not legal advice. BITZ proposes that this analysis is the working legal basis; Ministry or UNICEF legal advisers may ask us to amend it at any time before the production go/no-go (BP-07; DSR-01).
 
 ### 7.2 Roles
 
@@ -522,7 +522,7 @@ flowchart LR
         A["Authorised agent: Create Referral / Send Update"]
     end
     subgraph TB2["2 — Gateway processing and storage"]
-        B["BITZ Integration Gateway: mapping, disclosure rules, idempotency, UUID linkage"]
+        B["Integration Gateway: mapping, disclosure rules, idempotency, UUID linkage"]
         L["Transaction ledger and sanitised audit (no narratives or full payloads)"]
     end
     subgraph TB3["3 — Primero and Ministry case management"]
@@ -547,22 +547,22 @@ flowchart LR
 
 | **Area** | **Control or decision** | **Status** | **Ref.** |
 |----|----|----|----|
-| Legal framework | Data Protection Act, 2011 applies; legal confirmation by Ministry and UNICEF advisers | [Pending Confirmation]{.mark} | DSR-01 |
+| Legal framework | Data Protection Act, 2011 applies; Section 7.1 analysis is the working basis | BITZ proposal (BP-07) | DSR-01 |
 | Lawful basis and consent | Consent during the call; otherwise child-protection basis with supervisor authorisation; withdrawal stops further updates | Confirmed [PR1] | DSR-02, DSR-03 |
 | Controller and processor | Ministry controller; BITZ processor under the existing contract | Confirmed [PR1] | DSR-04, DSR-05 |
 | Minimum and emergency data | Child's details and narrative; minimum emergency information in emergencies | Confirmed [PR1]; Primero mandatory-field check during mapping | DSR-06 |
-| Reporter anonymity and child identity | Disclosure rules and representation of anonymous reporters in CPIMS+ | [Pending Confirmation]{.mark} | DSR-07 |
-| Retention | Proposed: metadata logs and transaction ledger kept for 24 months; queued payloads deleted once delivery succeeds | Proposed — [Ministry to confirm]{.mark} | DSR-08 |
+| Reporter anonymity and child identity | Reporter identifiers withheld; anonymous reporter shown as such in CPIMS+; child's identity sent | BITZ proposal (BP-04) | DSR-07 |
+| Retention | Proposed: metadata logs and transaction ledger kept for 24 months; queued payloads deleted once delivery succeeds | BITZ proposal (BP-05) | DSR-08 |
 | Hosting and remote support | Existing hosting unchanged; remote support under the existing support contract | Confirmed [PR1] | DSR-09 |
-| Incident notification | Procedure and recipients, including while the Data Protection Commission is not established | [Pending Confirmation]{.mark} | DSR-10 |
+| Incident notification | BITZ notifies the Ministry and UNICEF within 24 hours; Ministry decides on further notification | BITZ proposal (BP-06) | DSR-10 |
 | Test data | Synthetic data prepared by BITZ and approved by the Ministry (Tiisetso Mohlabi) before use; no real data in testing | Confirmed [PR1] | DSR-11 |
 | Approver | Ministry data-protection and security authority: Tiisetso Mohlabi | Confirmed [PR1] | DSR-12 |
-| Classification | Government classification policy and security documentation | [Pending Confirmation]{.mark} | DSR-13 |
+| Classification | All referral data treated as confidential child-protection data until a government policy is supplied | BITZ proposal (BP-07) | DSR-13 |
 | Transport and authentication | HTTPS with TLS 1.2 or higher (proposed); JWT service account; least privilege | Confirmed (mechanism); verified in testing | SEC-003–SEC-005; API-002 |
 | Encryption at rest and secrets | Sensitive gateway records and backups encrypted; secrets in a secret store with rotation; separate credentials per environment | Design requirement | SEC-004 |
 | Audit and access | Sanitised, access-controlled, tamper-evident audit; restricted administrative access with recorded reasons | Design requirement | OPS-004; SEC-006; AUD-001 |
 | Operational support and escalation | Responsible person: Hopolang Mosena; runbook and contacts before go-live | Confirmed (responsible person) | DSR-17 |
-| Production authorisation | Written Ministry authorisation before any real child data is exchanged | [Pending —]{.mark} depends on the items above | DSR-18 |
+| Production data exchange | Data moves between two Ministry-controlled systems under the Ministry's existing internal processes; no separate project authorisation | BITZ proposal (BP-13) | DSR-18 |
 
 Security evidence — authentication, authorisation, transport security, data protection, log redaction, secrets management, environment isolation and recovery permissions — is produced during testing (Section 10) and reviewed by the Ministry's security authority before go-live.
 
@@ -595,7 +595,8 @@ The deliverable dates were agreed at the D1 validation meeting as the delivery b
 
 | **Period** | **Activity** | **Owner** |
 |----|----|----|
-| By Fri 13 Nov 2026 | **D1 final submitted (G1).** Lesotho test access, credentials, field identifiers and service list supplied (G2) | BITZ (G1); Primero (G2) |
+| By Fri 13 Nov 2026 | **D1 final submitted (G1)** | BITZ |
+| Week of 23 Nov 2026 | Lesotho test access, credentials, field identifiers and service list supplied (G2); originally 13 Nov, revised by Primero [S5] | Primero |
 | By Fri 20 Nov 2026 | **D2 submitted:** referral interface, service list, confirmation, optional ABR, status display, unit tests | BITZ |
 | Mon 16 Nov – Fri 11 Dec 2026 | D3 build against mocks, then the Lesotho test environment; **D3 evidence by 11 Dec (G3)** | BITZ; Primero |
 | Mon 14 – Fri 18 Dec 2026 | Component tests; synthetic test cases approved; UAT plan agreed | BITZ; Ministry |
@@ -621,7 +622,7 @@ gantt
     section D1
     D1 review and approval                     :active, d1a, 2026-10-30, 2026-11-13
     G1 D1 final                                :milestone, g1, 2026-11-13, 0d
-    G2 Lesotho readiness                       :milestone, crit, g2, 2026-11-13, 0d
+    G2 Lesotho readiness                       :milestone, crit, g2, 2026-11-27, 0d
     section D2
     D2 submission                              :milestone, d2, 2026-11-20, 0d
     section D3
@@ -650,7 +651,7 @@ gantt
 | G3 — D3 development evidence | Gateway implemented; unit and contract tests; Create Referral and Send Update; idempotency; retries; reconciliation; audit | Test reports, with simulated and Lesotho evidence identified separately |
 | G4 — Lesotho integration verified | Approved Annex D scenarios pass on the Lesotho environment, including failure, duplicate, retry, uncertain-outcome, security and update scenarios | Test evidence; Critical and High defects resolved |
 | G5 — UAT sign-off | Approved UAT evidence; defect disposition; Ministry sign-off; Child Helpline endorsement | Signed UAT report |
-| Production go/no-go | Ministry safeguarding and production authorisation (DSR-18); security approval; production credentials and configuration; monitoring and alerting; rollback; incident escalation; support ownership | Written go/no-go record |
+| Production go/no-go | Security approval; production credentials and configuration; monitoring and alerting; rollback; incident escalation; support ownership | Go/no-go readiness record |
 
 Development against mocks continues while G2 is outstanding. Progress evidence is reported at three levels — development (Level 1), simulated integration (Level 2) and verified Lesotho integration (Level 3) — and only Level 3 supports G4.
 
@@ -660,22 +661,22 @@ Development against mocks continues while G2 is outstanding. Progress evidence i
 
 | **Ref.** | **Input** | **Responsible** | **Needed for** | **Status** |
 |----|----|----|----|----|
-| A-015, A-016 | Lesotho test-environment access | Primero (Isaiah); UNICEF (checklist, Rantsala) | G2; D3 | Confirmed by Primero; due 13 Nov 2026 |
+| A-015, A-016 | Lesotho test-environment access | Primero (Isaiah); UNICEF (checklist, Rantsala) | G2; D3 | Revised by Primero to the week of 23 Nov 2026 [S5]; demo-instance accounts for BITZ developers agreed |
 | A-023 | Integration credentials; first authenticated test call | Primero; BITZ (Peter, Marlon) | G2; D3 | After A-016 |
-| A-018 | CPIMS+ service list and codes | Primero (Isaiah); Ministry | D2 list; G2 | Confirmed by Primero; due 13 Nov 2026 |
+| A-018 | CPIMS+ service list and codes | Primero (Isaiah); Ministry | D2 list; G2 | Week of 23 Nov 2026 [S5]; Primero to check whether the list can be retrieved by API |
 | P-02 | Field mapping verified on the Lesotho environment | Primero; Ministry; BITZ | D3; G4 | After A-016 and A-018 |
 | — | Protection-concern list | Primero | D3 mapping | [Pending —]{.mark} not yet received |
 | A-013 | National referral pathways | Hopolang Mosena (responsible) | UAT scenarios | [Pending —]{.mark} not yet received |
 | A-007 | Official ABR validation rules | Ministry / relevant authority | D2 acceptance of checks | [Pending —]{.mark} not yet received |
 | A-021 | Primero-side behaviour during outages | BITZ (Nelson, Peter); Primero (Isaiah) | G4 | Verified by RC-01 to RC-04 tests |
 | A-002, A-024 | Child Helpline focal person and leave cover | Hopolang Mosena (responsible) | Go-live | [Pending —]{.mark} names to be confirmed |
-| DSR register | Outstanding safeguarding decisions (Table 7.1) | Ministry | Production go/no-go | See Table 7.1 |
+| DSR register | Safeguarding proposals (Table 7.1; BP-04 to BP-07) | Ministry | Production go/no-go | Proposals stand unless amended |
 
 The full dependency and action register is in Annex E. The recorded dependency chains are: A-015 → A-016 → A-023 (access, then authentication and test calls); A-016 + A-018 → P-02 (environment and service list, then mapping); A-017 → A-022 (privacy materials, then desk research); and A-007 for the ABR rules.
 
 ### 8.5 Conditions for schedule change
 
-Dates do not move automatically. If a dependency is late — in particular if G2 is not met by 13 November 2026 — BITZ notifies UNICEF in writing with an impact assessment, mitigation and proposed revised dates. No agreed date changes until that proposal is approved through change control (Section 9.5). A missed dependency does not by itself entitle BITZ to more time or payment, and it does not waive any acceptance requirement.
+Dates do not move automatically. If a dependency is late — in particular G2, which Primero has moved from 13 November to the week of 23 November 2026 [S5] — BITZ notifies UNICEF in writing with an impact assessment, mitigation and proposed revised dates. No agreed date changes until that proposal is approved through change control (Section 9.5). A missed dependency does not by itself entitle BITZ to more time or payment, and it does not waive any acceptance requirement.
 
 ## 9 Governance and responsibilities
 
@@ -695,7 +696,7 @@ flowchart TB
         CH["Child Helpline 116 — operational endorsement"]
     end
     subgraph T["Technical delivery"]
-        BZ["BITZ — OPENCHS and BITZ Integration Gateway"]
+        BZ["BITZ — OPENCHS and Integration Gateway"]
         PR["Primero — platform and API"]
     end
     U --- M
@@ -717,7 +718,7 @@ flowchart TB
 | Programme and governance owner; D1 approver | Rantsala Sanaha | UNICEF Lesotho | Programme governance; D1 approval; coordination | Confirmed [M4 C2] |
 | Contractual acceptance and variation | Authorised UNICEF representative | UNICEF Lesotho | Acceptance of D1–D4; contract variations; schedule changes [CT2] | Under the contract |
 | Ministry business owner | Tiisetso Mohlabi | Ministry (MGYSD) | Business rules, service catalogue, routing and operational baseline | Confirmed [PR1] |
-| Data-protection and security authority | Tiisetso Mohlabi | Ministry (MGYSD) | Disclosure, safeguarding and security approvals; production authorisation | Confirmed [PR1] |
+| Data-protection and security authority | Tiisetso Mohlabi | Ministry (MGYSD) | Disclosure, safeguarding and security approvals | Confirmed [PR1] |
 | UAT signatory | Tiisetso Mohlabi | Ministry (MGYSD) | Sign-off of Ministry-led UAT (CD-09) | Confirmed [PR1] |
 | D1 sign-off (Ministry) | Lerato Mokuena | Ministry (MGYSD) | Joint Ministry sign-off of D1, as recorded at the validation meeting [M4 C3] | Confirmed [PR1]; [department and role to be confirmed]{.mark} |
 | Operational support and escalation | Hopolang Mosena | Ministry (MGYSD), IT | Operational support and incident escalation; pathways and focal-person actions | Confirmed (responsible person) [PR1] |
@@ -733,7 +734,7 @@ BITZ developers: Peter Rogendo and Marlon Amunga. BITZ chief executive: James Ng
 |----|----|
 | Requirements and design baseline (D1) | Ministry business owner and UNICEF |
 | Technical interface | BITZ and Primero technical authorities, each for its own side |
-| Safeguarding and data protection; production authorisation | Ministry data-protection and security authority |
+| Safeguarding and data protection | Ministry data-protection and security authority |
 | Lesotho integration verification (G4) | BITZ evidence, verified by Primero |
 | UAT sign-off (G5) | Ministry UAT signatory, with Child Helpline endorsement |
 | Contract variation or schedule change | UNICEF authorised representative |
@@ -865,24 +866,23 @@ Training is delivered in Maseru during Trip 2 (planned for 15–19 February 2027
 | 2 | Supervisors and Ministry business administrators | Roles and permissions; referral oversight; safeguarding authorisation; routing; exceptions; incident escalation; monitoring |
 | 3 | Ministry IT and technical support | Architecture; the gateway; Primero API configuration; authentication and credentials; UUID linkage; queue, retry and reconciliation; logging and monitoring; troubleshooting |
 
-Practical exercises use approved synthetic cases. The training dates, languages and competency threshold are [to be confirmed]{.mark} with the Ministry (OD-11).
+Practical exercises use approved synthetic cases. The competency threshold follows BITZ proposal BP-11.
 
 The **handover package** contains the technical report, architecture and configuration guidance, the mapping reference, user manuals, the administrator guide, the support runbook, monitoring and alert procedures, queue and retry procedures, incident escalation, known limitations and a handover checklist.
 
-### 10.6 Readiness, endorsement, authorisation and acceptance
+### 10.6 Readiness, endorsement and acceptance
 
-Four separate decisions govern go-live and acceptance:
+Three separate decisions govern go-live and acceptance:
 
 | **Decision** | **Meaning** | **Authority** |
 |----|----|----|
 | Technical readiness | The integration works on the Lesotho environment (G3, G4) | BITZ, verified by Primero |
 | UAT endorsement | Ministry users accept that it meets their working needs (G5) | Ministry UAT signatory, with Child Helpline endorsement |
-| Safeguarding authorisation | Real child data may be exchanged in production (DSR-18) | Ministry data-protection authority |
 | Contractual acceptance | The deliverable is accepted under the contract | UNICEF authorised representative |
 
-None implies another. The written production go/no-go decision is taken after G5, when the safeguarding authorisation, security approval, production configuration, monitoring, rollback, incident escalation and support arrangements are all evidenced.
+None implies another. Because referral data moves between the helpline and CPIMS+, both under Ministry control (Section 7.2), production use follows the Ministry's existing internal data-handling processes and needs no separate project authorisation (BP-13). The go/no-go readiness record is completed after G5, when security approval, production configuration, monitoring, rollback, incident escalation and support arrangements are all evidenced.
 
-## 11 Risks, dependencies and outstanding decisions
+## 11 Risks, dependencies and BITZ proposals
 
 ### 11.1 Priority risks
 
@@ -892,69 +892,77 @@ The full register of 17 risks, with their original ratings, is in Annex F. All r
 
 | **Risk** | **Impact** | **P / I** | **Owner** | **Mitigation or action** | **Evidence needed** | **Status** | **Gate** |
 |----|----|----|----|----|----|----|----|
-| R-001 Lesotho environment and API access delayed | D3 cannot be verified; schedule slips | H / H | Primero (Isaiah); UNICEF (Rantsala) | Access confirmed by Primero for 13 Nov; mock-based development continues; escalate if missed | One authenticated test exchange | Open | G2 |
+| R-001 Lesotho environment and API access delayed | D3 cannot be verified; schedule slips | H / H | Primero (Isaiah); UNICEF (Rantsala) | Access revised by Primero to the week of 23 Nov [S5]; written impact note to UNICEF (Section 8.5); mock-based development continues | One authenticated test exchange | Open | G2 |
 | R-003 Service list and mapping incomplete | Referrals cannot be routed or mapped | H / H | Primero; Ministry | Service list confirmed by Primero; configurable list; versioned mapping | Service list loaded; mapping verified | Open | G2, G4 |
 | R-009 Milestone slippage | Late submission under the contract clause | H / H | UNICEF; BITZ | Agreed dates; dependency notice and change control (Section 8.5) | Delivery records against agreed dates | Open | All |
-| R-010 Contract scope (two-way, attachments) | Dispute over D3 and D4 acceptance | H / H | UNICEF | Written disposition (OD-01) | Written UNICEF decision | Open | D3, D4 |
-| R-007 Privacy and authority gaps | Production blocked | H / H | Ministry; UNICEF | Roles and lawful basis confirmed; legal confirmation, retention and incident procedure outstanding (Table 7.1) | DSR-01, DSR-08, DSR-10, DSR-18 | Open | Go/no-go |
+| R-010 Contract scope (two-way, attachments) | Dispute over D3 and D4 acceptance | H / H | UNICEF | BITZ proposal BP-01: outbound scope; future phase by variation | Proposal not amended by UNICEF before D3 | Open | D3, D4 |
+| R-007 Privacy and authority gaps | Production blocked | H / H | Ministry; UNICEF | Roles and lawful basis confirmed; legal basis, retention and incident procedure covered by BITZ proposals BP-05 to BP-07 (Table 7.1) | DSR-01, DSR-08, DSR-10 | Open | Go/no-go |
 | R-004 Service interruption and duplicates | Lost or duplicate referrals | M / H | BITZ; Primero | Persistent queue; idempotency; retries at 1, 5, 30 and 120 minutes; reconciliation | RC-01 to RC-04 results | Open | G4 |
 | R-013 Credentials and token renewal | Integration cannot authenticate | M / H | Primero; BITZ | JWT service account confirmed; credentials due with G2 | Authenticated test call | Open | G2 |
 | R-005 ABR verification rules | D2 checks incomplete | M / M | Ministry | ABR optional and non-blocking; structural checks only | Official specification | Open | D2 |
 | R-011 Consent requirement in CPIMS+ | Referrals rejected or unlawful | M / H | Ministry; Primero | Consent and child-protection basis confirmed; Primero configuration checked in testing | Consent scenarios pass | Open | G4, G5 |
-| R-017 Hosting, contracts and cross-border access | Unlawful transfer or delay | M / H | Ministry | Controller, processor and hosting confirmed [PR1] | Production authorisation | Open | Go/no-go |
+| R-017 Hosting, contracts and cross-border access | Unlawful transfer or delay | M / H | Ministry | Controller, processor and hosting confirmed [PR1] | Go-live readiness | Open | Go/no-go |
 
 ### 11.2 Realised issues
 
 | **ID** | **Issue** | **Effect** | **Action** |
 |----|----|----|----|
 | IS-01 | The original D1 target month passed without approval (R-009) | Later dates depend on D1 | Submit final D1; obtain written approval |
-| IS-02 | The test-system checklist made no progress between Sessions 2 and 3 (R-001) | No Lesotho evidence yet | Access confirmed for 13 Nov 2026 |
+| IS-02 | The test-system checklist made no progress between Sessions 2 and 3 (R-001) | No Lesotho evidence yet | Access revised to the week of 23 Nov 2026 [S5]; impact note to UNICEF |
 | IS-03 | Country-document actions due on 26 October were outstanding (R-002) | Pathway alignment pending | SOP received and confirmed; pathways outstanding (A-013) |
 | IS-04 | Privacy actions due on 26 October were outstanding (R-007) | Production blocked until approvals | Act and draft policy received; decisions in Table 7.1 |
 | IS-05 | UNICEF-facilitated inputs planned for weeks 2–4 were unavailable when due (R-009) | Schedule pressure | Recorded for change-control assessment |
 
-### 11.3 Outstanding decisions
+### 11.3 Our proposals
 
-**Table 11.2 — Decision register.** Each decision has one owner; none is a condition of D1 acceptance.
+Agreement on every matter was not reached during inception, and waiting for each decision would delay delivery. For each such matter BITZ therefore sets out its recommendation below as **our proposal**. There are no outstanding decisions in this report:
 
-| **ID** | **Decision required** | **Owner** | **Needed by** | **Ref.** | **Status** |
+- **On approval of this report**, each proposal becomes the working basis for design, build and testing.
+- **Any stakeholder may ask us to amend a proposal** at any time, by writing to the BITZ project manager (Nelson Adagi). Amendments are assessed and recorded under change control (Section 9.5).
+- **Requests made before the point shown** in the "Amend before" column avoid rework.
+- **The proposals do not replace the decisions in Section 10.6:** technical readiness, UAT endorsement and contractual acceptance.
+
+**Table 11.2 — BITZ proposals**
+
+| **ID** | **Matter** | **Our proposal** | **Lead reviewer** | **Amend before** | **Ref.** |
 |----|----|----|----|----|----|
-| OD-01 | Written contractual disposition of the two-way update (D-007) and attachment (D-012) requirements against the outbound-only design | UNICEF | Before D3 acceptance | CD-01, CD-04; P-01; R-010 | [Pending —]{.mark} |
-| OD-02 | Operational route by which a Ministry rejection in CPIMS+ is communicated to the helpline | Ministry | Before UAT | [M4 section 5]; RT-005 | [Pending —]{.mark} |
-| OD-03 | Rules for correction, cancellation, withdrawal and re-referral | Ministry | Before UAT | WF-006; DATA-004 | [Pending —]{.mark} |
-| OD-04 | Reporter-anonymity and child-identity disclosure rules | Ministry | Before UAT | DSR-07; DATA-008 | [Pending —]{.mark} |
-| OD-05 | Confirmation of the proposed 24-month retention period | Ministry | Before go/no-go | DSR-08; SEC-006 | [Pending —]{.mark} |
-| OD-06 | Security-incident notification procedure and contacts | Ministry; UNICEF | Before go/no-go | DSR-10; OPS-007 | [Pending —]{.mark} |
-| OD-07 | Legal confirmation of the applicable requirements; government classification policy | Ministry; UNICEF legal advisers | Before go/no-go | DSR-01, DSR-13 | [Pending —]{.mark} |
-| OD-08 | Recipient roles, rejection reasons and routing configuration in CPIMS+ | Ministry; Primero | Before G4 | RT-003 | [Pending —]{.mark} |
-| OD-09 | Official ABR ID validation rules and examples | Ministry / relevant authority | Before D2 acceptance of checks | A-007; CD-05 | [Pending —]{.mark} |
-| OD-10 | Named UAT testers and the Child Helpline endorsement arrangement | Ministry; Child Helpline | Before UAT | UAT-002 | [Pending —]{.mark} |
-| OD-11 | Training dates, languages and competency threshold | Ministry; UNICEF; BITZ | Before training | Item 80 | [Pending —]{.mark} |
-| OD-12 | Confirmation that the explicit referral action satisfies the signed D2 and D4 wording | UNICEF | Before D2 acceptance | CD-03; R-015 | [Pending —]{.mark} |
-| OD-13 | Production authorisation for real child data | Ministry | Go/no-go | DSR-18 | [Pending —]{.mark} depends on OD-04 to OD-07 |
+| BP-01 | Two-way updates (D-007) and attachments (D-012) against the outbound-only design | The initial release delivers outbound Create Referral and Send Update only, as in the signed scope. Automatic inbound updates and attachments are recorded as a future phase, delivered only through a contract variation (RT-007). D3 and D4 are assessed against the outbound scope. | UNICEF | D3 acceptance | CD-01, CD-04; P-01; R-010 |
+| BP-02 | How a Ministry rejection in CPIMS+ reaches the helpline | The receiving Ministry officer informs the Child Helpline supervisor by telephone or email within one working day (immediately for emergencies), quoting the OPENCHS referral reference and the reason. The supervisor records the rejection in OPENCHS as the business status, with the reason and the source. | Ministry | UAT | [M4 section 5]; RT-005 |
+| BP-03 | Correction, cancellation, withdrawal and re-referral | Corrections and supplementary information are sent by Send Update to the linked CPIMS+ case. Cancellation and withdrawal are sent by Send Update with a recorded reason and supervisor approval; they never delete or close the Ministry case. A re-referral is a new referral with a recorded reason, linked to the earlier one. History is preserved in every case. | Ministry | UAT | WF-006; DATA-004 |
+| BP-04 | Reporter anonymity and child identity | When a reporter asks to remain anonymous, no reporter identifiers are sent and CPIMS+ records the reporter as anonymous, via Child Helpline 116. The reporter's details stay in OPENCHS and are released only where the law requires it or, for the child's protection, with the supervisor's recorded approval. The child's identity is sent as needed for protection. | Ministry | UAT | DSR-07; DATA-008 |
+| BP-05 | Retention period | Metadata logs and the transaction ledger are kept for 24 months and then securely deleted, with a deletion record. Queued payloads are deleted once delivery succeeds. | Ministry | Go/no-go | DSR-08; SEC-006 |
+| BP-06 | Security-incident notification | BITZ notifies the Ministry data-protection authority (Tiisetso Mohlabi) and UNICEF (Rantsala Sanaha) within 24 hours of detecting a suspected breach, and gives a written report within 72 hours. The Ministry decides on notification of affected people and, once it is established, the Data Protection Commission. Contacts are recorded in the support runbook. | Ministry; UNICEF | Go/no-go | DSR-10; OPS-007 |
+| BP-07 | Legal basis and data classification | The Section 7.1 analysis of the Data Protection Act, 2011 is the working legal basis. Until a government classification policy is supplied, all referral data is treated as confidential child-protection data, with the controls in Table 7.1. | Ministry; UNICEF legal advisers | Go/no-go | DSR-01, DSR-13 |
+| BP-08 | Recipient roles, rejection reasons and routing in CPIMS+ | Each CPIMS+ service in the list Primero supplies maps to one receiving user or agency focal point, who assigns the case onward in CPIMS+. The integration account can set only the approved fields. CPIMS+ requires a reason for every rejection, entered by the receiving officer as free text; Primero confirmed this is deliberate, so that the officer can explain what is missing or what should be done [S5]. | Ministry; Primero | G4 | RT-003 |
+| BP-09 | ABR ID validation | The ABR ID stays optional with structural checks only (Section 4.4). No checksum, uniqueness or live verification is applied until the official rules are supplied, and D2 is accepted on this basis. When the rules arrive, they are added as a change. | Ministry / relevant authority | D2 acceptance | A-007; CD-05 |
+| BP-10 | UAT testers and Child Helpline endorsement | Ministry: the UAT signatory (Tiisetso Mohlabi) and two case officers the Ministry nominates. Child Helpline: the supervisor and two agents. Primero: Isaiah Amutavi Osotsi for technical checks. BITZ facilitates. The Child Helpline supervisor co-signs the UAT scenario results; the Ministry gives the UAT acceptance. | Ministry; Child Helpline | UAT | UAT-002 |
+| BP-11 | Training competency threshold | Training runs in Maseru during Trip 2, in English and Sesotho (Section 10.5). Each trainee completes the synthetic-case exercises and must score at least 80% on the practical assessment. A trainee below the threshold repeats the exercises before receiving production access. | Ministry; UNICEF | Training | Item 80 |
+| BP-12 | "Referral checkbox" in the signed D2 and D4 wording | The explicit "refer to Ministry" action, which the agent must select and then confirm, fulfils the referral-checkbox wording. Acceptance tests verify that nothing is sent without it. | UNICEF | D2 acceptance | CD-03; R-015 |
+| BP-13 | Production data exchange | Referral data moves between the helpline and CPIMS+, both under Ministry control (Section 7.2). Production use follows the Ministry's existing internal data-handling processes, so this project does not require a separate written authorisation. Go-live proceeds on the readiness record after G5. | Ministry | Go-live | DSR-18 |
 
 ## 12 Conclusions and approval
 
 ### 12.1 Conclusions
 
-The inception phase has established a clear, agreed basis for the integration. The business workflow is confirmed: manual, deliberate referral; Ministry-controlled distribution; minimum necessary information with defined emergency handling; and separate technical and business status. The architecture is settled on the BITZ Integration Gateway, with explicit Create Referral and Send Update operations and the reliability, security and audit controls required by the contract. Primero has confirmed the technical approach, and the Ministry roles and principal safeguarding positions are confirmed. The remaining decisions (Section 11.3) are owned and do not prevent D1 approval.
+The inception phase has established a clear, agreed basis for the integration. The business workflow is confirmed: manual, deliberate referral; Ministry-controlled distribution; minimum necessary information with defined emergency handling; and separate technical and business status. The architecture is settled on the Integration Gateway, with explicit Create Referral and Send Update operations and the reliability, security and audit controls required by the contract. Primero has confirmed the technical approach, and the Ministry roles and principal safeguarding positions are confirmed. Where inception did not reach a decision, BITZ has made a proposal (Section 11.3); these stand unless a stakeholder asks us to amend them, and they do not prevent D1 approval.
 
 ### 12.2 Readiness
 
-The report is ready for stakeholder approval. D1 is submitted for full acceptance; the open items in Section 11.3 are tracked to closure and are not acceptance conditions. Formal D1 acceptance requires the written approval of the signatories below. No written approval has yet been received.
+The report is ready for stakeholder approval. D1 is submitted for full acceptance; the BITZ proposals in Section 11.3 stand unless a stakeholder asks us to amend them and are not acceptance conditions. Formal D1 acceptance requires the written approval of the signatories below. No written approval has yet been received.
 
 ### 12.3 Priority actions
 
 | **Action** | **Owner** | **Target** |
 |----|----|----|
 | Approve D1 | Signatories in Table 12.1 | 13 November 2026 |
-| Provide Lesotho test access, credentials, field identifiers and service list (G2) | Primero (Isaiah Amutavi Osotsi) | 13 November 2026 |
+| Provide Lesotho test access, credentials, field identifiers and service list (G2) | Primero (Isaiah Amutavi Osotsi) | Week of 23 November 2026 |
+| Written impact note to UNICEF on the revised G2 date (Section 8.5) | BITZ (Nelson Adagi) | 13 November 2026 |
 | First authenticated test call | BITZ (Peter Rogendo, Marlon Amunga) | After access |
 | Submit D2 | BITZ | 20 November 2026 |
-| Written disposition of the two-way and attachment requirements (OD-01) | UNICEF | Before D3 acceptance |
-| Rejection-feedback route, correction rules and anonymity rules (OD-02 to OD-04) | Ministry | Before UAT |
+| Review BITZ proposals BP-01, BP-11 and BP-12; request any amendment | UNICEF | Before D2 / D3 acceptance |
+| Review BITZ proposals BP-02 to BP-10 and BP-13; request any amendment | Ministry | Before UAT |
 | National referral pathways; focal person and leave cover | Hopolang Mosena | Before UAT |
-| Full-group coordination meeting | UNICEF; Ministry; BITZ | 17 November 2026 |
+| Full-group coordination meeting | UNICEF; Ministry; BITZ | 20 November 2026 (with D2 submission) |
 
 ### 12.4 Approval
 
@@ -1003,7 +1011,7 @@ The baseline contains **68 requirements** in eight categories. Each row gives th
 | WF-003 | Supervisor escalation is optional; authorised agents may refer directly unless a separately approved business rule requires escalation. | [M1 section 6]; Should | Confirmed — Requirements Validation<br>**Scope:** Initial — dependencies apply | Ministry endorsement of role permissions and any mandatory exception. | Ministry / Child Helpline | Role-based tests demonstrate direct referral and only approved mandatory escalation rules. |
 | WF-004 | Emergency referrals may use an approved reduced dataset; urgent telephone escalation remains independent. | D-003; Must | Confirmed — Requirements Validation<br>**Scope:** Initial — dependencies apply | Emergency dataset confirmed [PR1] (DSR-06); Primero mandatory-field check during mapping. | Ministry; Primero validates feasibility | Approved emergency scenarios pass with reduced data; unapproved omissions are rejected without blocking emergency phone response. |
 | WF-005 | Permit appropriate partial referrals; subsequent completion requires an explicit authorised outbound update. | [M2 section 3]; Should | Confirmed — Requirements Validation<br>**Scope:** Initial — dependencies apply | Ministry completion rules and Primero update semantics; no automatic save-triggered update. | Ministry; Primero; BITZ | Partial referral and later Send Update action preserve linkage and history; saving alone sends nothing. |
-| WF-006 | Allow authorised corrections, cancellations, withdrawals and re-referrals with preserved history, subject to Primero API support. Specific outbound update operations remain subject to written contractual confirmation where [CT2] is not explicit (SCOPE-001); validation does not independently amend the contract. | [TB section 4] Q6–Q7; Must | Pending Ministry Business or Legal Approval<br>**Scope:** Initial — dependencies apply | Operations confirmed by Primero [PR1]; Ministry rules for each action outstanding (OD-03). | Primero; Ministry | Demonstrate each supported operation against the linked case with authorised actor, reason and audit; do not infer deletion or closure. |
+| WF-006 | Allow authorised corrections, cancellations, withdrawals and re-referrals with preserved history, subject to Primero API support. Specific outbound update operations remain subject to written contractual confirmation where [CT2] is not explicit (SCOPE-001); validation does not independently amend the contract. | [TB section 4] Q6–Q7; Must | Pending Ministry Business or Legal Approval<br>**Scope:** Initial — dependencies apply | Operations confirmed by Primero [PR1]; rules for each action per BITZ proposal BP-03. | Primero; Ministry | Demonstrate each supported operation against the linked case with authorised actor, reason and audit; do not infer deletion or closure. |
 | WF-007 | Urgent telephone contact with police or first responders continues independently of electronic referral and outages. | [M1 section 8]; Must | Confirmed — Requirements Validation<br>**Scope:** Initial — dependencies apply | Ministry-approved escalation contacts and training. | Ministry / Child Helpline | Emergency exercise demonstrates phone escalation while the electronic queue is unavailable. |
 | WF-009 | Permit anonymous reporters; require sufficient child-identifying information subject to approved emergency exceptions. | D-010; D-011; Must | Confirmed — Requirements Validation<br>**Scope:** Initial — dependencies apply | Approved child minimums and disclosure rules; see DATA-005 and DATA-008. | Ministry; BITZ | Anonymous referral excludes reporter identifiers; child minimums and emergency exceptions are tested. |
 | RT-002 | Agent selects a Ministry-approved CPIMS+ service; Ministry users control distribution and caseworker assignment. | D-008; Must | Confirmed — Requirements Validation<br>**Scope:** Initial — dependencies apply | Service list A-018, receiving configuration and permissions. | Ministry; Primero | Configured service selection enters Ministry-controlled distribution; agent does not select an individual caseworker. |
@@ -1020,7 +1028,7 @@ The baseline contains **68 requirements** in eight categories. Each row gives th
 | FN-003 | Provide an explicit Refer to CPIMS+ action with confirmation summary and duplicate prevention; saving or editing never initiates referral. | D-006; [TB section 4]; Must | Confirmed — Requirements Validation<br>**Scope:** Initial — dependencies apply | Role confirmation and tested UI / gateway behaviour. | Ministry / Child Helpline; BITZ | Confirmation shows authorised referral data; cancel sends nothing; repeated clicks create one operation. |
 | FN-004 | Require the case narrative at referral, not initial save, subject only to an approved emergency exception. | D-013; Must | Confirmed — Requirements Validation<br>**Scope:** Initial — dependencies apply | Ministry emergency narrative rule and API mandatory-field compatibility. | Ministry; Primero; BITZ | Save without narrative; ordinary referral requires it; only approved emergency exceptions pass and are audited. |
 | FN-005 | Require sufficient child-identifying details using flexible Ministry-approved minimums and documented emergency exceptions. | D-011; WF-004; Must | Confirmed — Requirements Validation<br>**Scope:** Initial — dependencies apply | Minimum dataset confirmed [PR1] (DSR-06); Primero mandatory-field check during mapping. | Ministry; Primero | Test normal minimum combinations and each approved emergency exception against the agreed mapping. |
-| FN-006 | Provide a maintained selectable list of Ministry-approved CPIMS+ services. | D-008; Must | Confirmed — Requirements Validation<br>**Scope:** Initial — dependencies apply | Service list confirmed by Primero [PR1]; delivery under A-018 by 13 November 2026. | Ministry; Primero | Approved list and version recorded; retired or unknown services cannot silently route referrals. |
+| FN-006 | Provide a maintained selectable list of Ministry-approved CPIMS+ services. | D-008; Must | Confirmed — Requirements Validation<br>**Scope:** Initial — dependencies apply | Service list confirmed by Primero [PR1]; delivery under A-018 in the week of 23 November 2026 [S5]. | Ministry; Primero | Approved list and version recorded; retired or unknown services cannot silently route referrals. |
 | FN-007 | Use business statuses Pending, Accepted, Rejected, Ongoing and Closed; display technical transmission states separately. Never display a Ministry decision not actually received or reliably recorded. | [TB section 4]; Must | Confirmed — Requirements Validation<br>**Scope:** Initial — dependencies apply | Ministry vocabulary endorsement and reliable provenance; automatic inbound updates excluded initially. | Ministry / Child Helpline; BITZ | Receipt alone does not produce Accepted; case status shows provenance; transmission failures remain separate. |
 | FN-008 | Record technical acknowledgement separately from human acceptance or rejection; use the five business statuses in FN-007 only when reliably evidenced. | D-016; RT-005; Must | Confirmed — Requirements Validation<br>**Scope:** Initial — dependencies apply | Ministry decision-recording rules; future automated receipt of decisions requires addendum. | Ministry; Primero; BITZ | Technical success and a separately evidenced human decision have distinct events, actors and times. |
 | FN-009 | Provide explicit Send Update to CPIMS+ for authorised outbound follow-up; store the CPIMS+ case UUID and use verified linkage for each update. Specific outbound update operations remain subject to written contractual confirmation where [CT2] is not explicit (SCOPE-001); validation does not independently amend the contract. | D-012; [M1 section 7]; Must | Confirmed — Requirements Validation<br>**Scope:** Initial — dependencies apply | Update operations confirmed by Primero [PR1]; each permitted update type verified in testing. | Primero; Ministry; BITZ | Create, establish UUID linkage, then explicitly update the same case; saving alone sends nothing and no duplicate case is created. |
@@ -1035,7 +1043,7 @@ The baseline contains **68 requirements** in eight categories. Each row gives th
 | DATA-001 | Retain NICR, Ministry of Home Affairs, as the recorded ABR issuing authority; do not infer verification rules. | D-014; Must | Confirmed — Requirements Validation<br>**Scope:** Initial — dependencies apply | Authoritative specification needed for verification beyond agreed structure. | Ministry / NICR | Provenance references D-014; no unsupported checksum, uniqueness or live-verification claim. |
 | DATA-002 | ABR remains optional; where absent, receiving caseworkers may obtain it later in their workflow. | D-005; Must | Confirmed — Requirements Validation<br>**Scope:** Initial — dependencies apply | Ministry follow-up process; any later electronic correction uses explicit authorised update. | Ministry; BITZ | Blank ABR passes valid referral; later values do not automatically trigger transmission. |
 | DATA-003 | Apply the agreed structural checks in FN-002; checksum, uniqueness and live NICR verification require authoritative specification and separate confirmed arrangements. | A-007; Should | Confirmed — Requirements Validation<br>**Scope:** Initial — dependencies apply | A-007 official specification, examples and invalid-value policy; no invented NICR checks. | Ministry / NICR; BITZ | Structural test cases pass; unverified official checks remain disabled and clearly documented as pending. |
-| DATA-004 | Allow authorised ABR correction with preserved history and an explicit outbound update to the linked CPIMS+ case. Specific outbound update operations remain subject to written contractual confirmation where [CT2] is not explicit (SCOPE-001); validation does not independently amend the contract. | D-005; Should | Pending Ministry Business or Legal Approval<br>**Scope:** Initial — dependencies apply | Update operations confirmed by Primero [PR1]; Ministry correction rules outstanding (OD-03). | Primero; Ministry; BITZ | Corrected ABR reaches the existing UUID only after authorised action; old and new values are protected in case history, not operational logs. |
+| DATA-004 | Allow authorised ABR correction with preserved history and an explicit outbound update to the linked CPIMS+ case. Specific outbound update operations remain subject to written contractual confirmation where [CT2] is not explicit (SCOPE-001); validation does not independently amend the contract. | D-005; Should | Pending Ministry Business or Legal Approval<br>**Scope:** Initial — dependencies apply | Update operations confirmed by Primero [PR1]; correction rules per BITZ proposal BP-03. | Primero; Ministry; BITZ | Corrected ABR reaches the existing UUID only after authorised action; old and new values are protected in case history, not operational logs. |
 | DATA-005 | Use flexible approved child-identification minimums with documented emergency exceptions. | D-011; D-012; Must | Confirmed — Requirements Validation<br>**Scope:** Initial — dependencies apply | Minimum and emergency dataset confirmed [PR1] (DSR-06); Primero mandatory-field check during mapping. | Ministry; Primero | Approved mapping and minimum combinations verified, including reduced emergency dataset. |
 | DATA-006 | Transmit available and authorised age, sex, nationality, location and contact information; never fabricate missing values. | D-012; Must | Pending Primero Technical Validation<br>**Scope:** Initial — dependencies apply | Approved disclosure and deployed field names, types, codes and null handling. | Primero; Ministry | Mapping tests preserve genuine values and permitted absence; no placeholder is sent as a factual value. |
 | DATA-007 | Maintain a version-controlled gateway mapping from OPENCHS categories to Ministry-approved CPIMS+ protection concerns, supporting multiple concerns and flagging unmapped values. | [M2 section 11]; Must | Pending Primero Technical Validation<br>**Scope:** Initial — dependencies apply | Approved concern list, actual CPIMS+ codes and ownership of mapping changes. | Ministry; Primero; BITZ | Multi-concern examples map correctly; unmapped values flag an actionable exception without invented codes. |
@@ -1051,8 +1059,8 @@ The baseline contains **68 requirements** in eight categories. Each row gives th
 | **ID** | **Requirement** | **Source; priority** | **Classification; scope** | **Remaining dependency** | **Validating party** | **Acceptance evidence** |
 |----|----|----|----|----|----|----|
 | API-001 | Use supplied API v2 material as a discovery reference; confirm compatibility with the deployed Lesotho version before finalising the build specification. | D-017; Must | Confirmed — Requirements Validation<br>**Scope:** Initial — dependencies apply | Deployed API behaviour confirmed by Primero (Isaiah Amutavi Osotsi) [PR1]; verified on the Lesotho environment (G4). | Primero | Versioned deployed API contract and authenticated sandbox evidence recorded. |
-| API-009 | Integrate through the BITZ Integration Gateway calling the Primero API directly (final architecture position, TECH-001). OpenFN is not used. Exclude X-Road from this path. | D-015; Must | Confirmed — Requirements Validation<br>**Scope:** Initial — dependencies apply | Primero architecture review; documented decision and approved network / security arrangements. | Primero; BITZ; Ministry | Reviewed architecture confirms the BITZ gateway path with no OpenFN component; no X-Road intermediary or separate Home Affairs work is assumed. |
-| GOV-004 | Record deployed release, sandbox and production base URLs, credentials, network restrictions and technical documentation as pending until verified. | —; Must | Confirmed — Requirements Validation<br>**Scope:** Initial — dependencies apply | Test-environment access confirmed by Primero [PR1]; delivery due 13 November 2026 (G2). | Primero; BITZ verifies connectivity | Securely issued access, version record, role checks and authenticated non-production call demonstrate readiness. |
+| API-009 | Integrate through the Integration Gateway calling the Primero API directly (final architecture position, TECH-001). OpenFN is not used. Exclude X-Road from this path. | D-015; Must | Confirmed — Requirements Validation<br>**Scope:** Initial — dependencies apply | Primero architecture review; documented decision and approved network / security arrangements. | Primero; BITZ; Ministry | Reviewed architecture confirms the integration gateway path with no OpenFN component; no X-Road intermediary or separate Home Affairs work is assumed. |
+| GOV-004 | Record deployed release, sandbox and production base URLs, credentials, network restrictions and technical documentation as pending until verified. | —; Must | Confirmed — Requirements Validation<br>**Scope:** Initial — dependencies apply | Test-environment access confirmed by Primero [PR1]; delivery due in the week of 23 November 2026 (G2) [S5]. | Primero; BITZ verifies connectivity | Securely issued access, version record, role checks and authenticated non-production call demonstrate readiness. |
 | API-002 | Use a dedicated least-privilege integration service account, secure credential management and token renewal; JWT remains the contractual authentication requirement. | [TR1 section 3]; [TB section 5B]; Must | Confirmed — Requirements Validation<br>**Scope:** Initial — dependencies apply | JWT service-account authentication confirmed by Primero [PR1]; credentials issued under A-023; renewal verified in testing. | Primero; BITZ | Authenticated create / update and expiry / renewal tests with restricted account; no interactive SSO assumption. |
 | API-003 | Initial operations are referral creation, CPIMS+ UUID retrieval / linkage and explicit authorised outbound follow-up updates, subject to verified API semantics; no attachment operation is assumed. Specific outbound update operations remain subject to written contractual confirmation where [CT2] is not explicit (SCOPE-001); validation does not independently amend the contract. | Annex B; Must | Confirmed — Requirements Validation<br>**Scope:** Initial — dependencies apply | Operation sequence confirmed by Primero [PR1]; request/response formats and UUID method verified in testing. | Primero; BITZ; Ministry approves fields | Captured non-production request / response evidence proves sequence and linkage, including empty-body and ambiguous outcomes where applicable. |
 | API-004 | Distinguish validation, authentication, authorisation, rate-limit, server and network failures; retry only recoverable failures under controlled policy. | [TR1 section 8]; Must | Confirmed — Requirements Validation<br>**Scope:** Initial — dependencies apply | Deployed behaviour confirmed by Primero [PR1]; error schemas, timeouts and retry signals verified in testing. | Primero; BITZ | Failure-injection evidence proves permanent errors require correction and ambiguous creation triggers reconciliation. |
@@ -1097,7 +1105,7 @@ The baseline contains **68 requirements** in eight categories. Each row gives th
 |----|----|----|----|----|----|----|
 | UAT-001 | Ministry leads UAT; Child Helpline supervisors and agents validate workflows, BITZ supplies scenarios / data / evidence, and Primero validates platform and API behaviour. | D-009; Must | Confirmed — Requirements Validation<br>**Scope:** Initial — dependencies apply | Named coordinator, testers and authorised signatory. | Ministry; Child Helpline; BITZ; Primero | Approved UAT plan records each party's role; participation does not imply signatory authority. |
 | UAT-002 | Ministry appoints the coordinator and authorised UAT acceptance signatory; name testers and account permissions for each participating party. | —; Must | Pending Operational or UAT Governance Confirmation<br>**Scope:** Initial — dependencies apply | Written nominations and authority; role-based test accounts. | Ministry; Primero; BITZ | Signed nominations and access roster exist before formal UAT execution. |
-| UAT-003 | Use a dedicated non-production OPENCHS–gateway–Primero environment with synthetic data by default; verify access, credentials, roles, connectivity and readiness before formal UAT. | [TR1 section 9]; Must | Confirmed — Requirements Validation<br>**Scope:** Initial — dependencies apply | Test-environment access confirmed by Primero [PR1]; delivery due 13 November 2026 (G2); synthetic dataset approved before use (DSR-11). | Primero; BITZ; Ministry | Recorded readiness check demonstrates all three components and permitted roles using synthetic records. |
+| UAT-003 | Use a dedicated non-production OPENCHS–gateway–Primero environment with synthetic data by default; verify access, credentials, roles, connectivity and readiness before formal UAT. | [TR1 section 9]; Must | Confirmed — Requirements Validation<br>**Scope:** Initial — dependencies apply | Test-environment access confirmed by Primero [PR1]; delivery due in the week of 23 November 2026 (G2) [S5]; synthetic dataset approved before use (DSR-11). | Primero; BITZ; Ministry | Recorded readiness check demonstrates all three components and permitted roles using synthetic records. |
 | UAT-004 | Prepare a requirements-to-test matrix covering workflows, positive / negative cases, mapping / consent, anonymity / emergencies, UUID / outbound updates, queues / retries, duplicates, security, administration and regression. | S2 UAT scope; [M3 section 10]; Must | Confirmed — Requirements Validation<br>**Scope:** Initial — dependencies apply | Detailed test cases and prerequisites; Ministry review; Annex D needs scoped alignment before execution. | BITZ; Ministry / Child Helpline; Primero | Each test records requirement, prerequisites, steps, expected and actual results, evidence, defects and outcome; all initial requirements covered. |
 | UAT-007 | Use Critical, High, Medium and Low severities. Fix and retest initial-scope Critical / High defects before go-live. Medium / Low need mitigation, owner, resolution plan and explicit Ministry approval. Routine conditional acceptance cannot waive mandatory child-safety, privacy or security controls. | —; Must | Confirmed — Requirements Validation<br>**Scope:** Initial — dependencies apply | Defect rules and thresholds agreed [M4; PR1]. | Ministry; BITZ; Primero | Defect register proves no open initial-scope Critical / High defects and documents any permitted Medium / Low exceptions without waiving mandatory controls. |
 | UAT-010 | BITZ prepares scenarios, synthetic data and technical evidence; helpline representatives endorse business results; Primero verifies technical behaviour; authorised Ministry signatory accepts UAT. Document UAT acceptance, UNICEF contractual acceptance and production go-live authorisation separately. | Annotated checklist; Must | Confirmed — Requirements Validation<br>**Scope:** Initial — dependencies apply | Signatories confirmed: Tiisetso Mohlabi (UAT), with Child Helpline endorsement [PR1]. | Ministry; UNICEF; Primero; BITZ | Distinct dated records and supporting evidence establish each governance gate; none is inferred from participation or requirements validation. |
@@ -1118,7 +1126,7 @@ These 11 records (WF-008, RT-001, RT-005, RT-006, RT-008, API-005, API-006, API-
 | API-005 | OPENCHS test/UAT environment<br>**Current:** Verify dedicated non-production OPENCHS and gateway components linked to the Primero test environment; synthetic data by default. | [M1 section 9] | Must | Pending Confirmation<br>**Current:** Pending Primero Technical Validation<br>**Scope:** Initial | E: access evidence<br>**Current criterion:** End-to-end readiness evidence and restricted test accounts (UAT-003).<br>**Dependency:** Confirmation and evidence stated in the current criterion; earlier evidence is not completion.<br>**Validating party:** BITZ; Primero; Ministry |
 | API-006 | Sandbox checklist closed<br>**Current:** Close the sandbox checklist with demonstrated access and configuration; a checklist request is not readiness. | A-015 | Must | Dependency<br>**Current:** Pending Primero Technical Validation<br>**Scope:** Initial | E: completed checklist<br>**Current criterion:** Completed A-015 checklist with authenticated connectivity and role evidence.<br>**Dependency:** Confirmation and evidence stated in the current criterion; earlier evidence is not completion.<br>**Validating party:** Primero; BITZ |
 | API-007 | Sandbox or playground access<br>**Current:** Primero sandbox / playground access remains pending; 13 November is a target, not evidence of availability. | D-018; A-016 | Must | Dependency<br>**Current:** Pending Primero Technical Validation<br>**Scope:** Initial | E: authenticated test call<br>**Current criterion:** A-016 authenticated test call and environment confirmation.<br>**Dependency:** Confirmation and evidence stated in the current criterion; earlier evidence is not completion.<br>**Validating party:** Primero; BITZ |
-| API-008 | Production environment and secrets<br>**Current:** Confirm production environment, restricted account, securely managed credentials and approved network controls. |  | Must | Pending Confirmation<br>**Current:** Pending Primero Technical Validation<br>**Scope:** Initial; production authorisation separate | E: readiness checklist<br>**Current criterion:** Readiness and security evidence; secrets never included in report; separate go-live approval.<br>**Dependency:** Confirmation and evidence stated in the current criterion; earlier evidence is not completion.<br>**Validating party:** Primero; BITZ; Ministry |
+| API-008 | Production environment and secrets<br>**Current:** Confirm production environment, restricted account, securely managed credentials and approved network controls. |  | Must | Pending Confirmation<br>**Current:** Pending Primero Technical Validation<br>**Scope:** Initial; go-live readiness separate | E: readiness checklist<br>**Current criterion:** Readiness and security evidence; secrets never included in report; separate go-live approval.<br>**Dependency:** Confirmation and evidence stated in the current criterion; earlier evidence is not completion.<br>**Validating party:** Primero; BITZ; Ministry |
 | API-010 | Upstream API documentation received<br>**Current:** Retain received upstream API documentation as reference material, not proof of deployed Lesotho capabilities. | D-017 | Must | Confirmed<br>**Current:** Confirmed — Requirements Validation<br>**Scope:** Initial reference | R: reference retained<br>**Current criterion:** Reference provenance retained; deployed compatibility separately verified under API-001 / GOV-004.<br>**Dependency:** Confirmation and evidence stated in the current criterion; earlier evidence is not completion.<br>**Validating party:** Primero; BITZ |
 | OPS-005 | Masking and log access<br>**Current:** Use metadata-only redacted logs with restricted audited access and approved retention; exclude payloads, tokens and credentials. |  | Must | Pending Confirmation<br>**Current:** Pending Ministry Business or Legal Approval<br>**Scope:** Initial | T: S-03<br>**Current criterion:** Approved retention / access rules and S-03 log inspection, aligned with SEC-006 / OPS-004.<br>**Dependency:** Confirmation and evidence stated in the current criterion; earlier evidence is not completion.<br>**Validating party:** Ministry; BITZ |
 
@@ -1211,7 +1219,7 @@ Primero configures the Lesotho demo from SOPs, paper referral forms, approved ch
 
 3.  OPENCHS validates the narrative and required child-identifying information, allowing an anonymous reporter and absent ABR ID (D-010, D-011, D-005).
 
-4.  The BITZ gateway persists the operation / idempotency key, submits authorised mapped data and records technical outcome and verified UUID linkage, or an ambiguity / failure needing reconciliation (D-016; DATA-013).
+4.  The integration gateway persists the operation / idempotency key, submits authorised mapped data and records technical outcome and verified UUID linkage, or an ambiguity / failure needing reconciliation (D-016; DATA-013).
 
 5.  The receiving party accepts or rejects the referral through the CPIMS+ workflow. System receipt does not prove human acceptance (D-016).
 
@@ -1260,7 +1268,7 @@ Earlier repeated / out-of-order return-update controls are retained as future RT
 
 ### B.13 Connection design
 
-**All current diagrams are validated design positions subject to deployed technical verification, not approval or implementation evidence.** The BITZ Integration Gateway is the final architecture position; OpenFN is not used (TECH-001); X-Road is excluded from this referral path. Webhooks / polling and attachment transfer are future addendum scope. Historical diagram files remain linked for traceability.
+**All current diagrams are validated design positions subject to deployed technical verification, not approval or implementation evidence.** The Integration Gateway is the final architecture position; OpenFN is not used (TECH-001); X-Road is excluded from this referral path. Webhooks / polling and attachment transfer are future addendum scope. Historical diagram files remain linked for traceability.
 
 #### B.13.1 Design principles
 
@@ -1282,7 +1290,7 @@ Earlier repeated / out-of-order return-update controls are retained as future RT
 
 ```mermaid
 flowchart LR
-    A["OPENCHS / authorised agent"] --> B["BITZ Integration Gateway"] --> C["Primero CPIMS+"]
+    A["OPENCHS / authorised agent"] --> B["Integration Gateway"] --> C["Primero CPIMS+"]
     C --> D["Ministry distribution / assignment / case management"]
     C -. "technical response / verified UUID" .-> B
     E["Future only: automatic inbound / attachments after addendum"]
@@ -1297,7 +1305,7 @@ flowchart LR
 sequenceDiagram
     participant A as Authorised agent
     participant O as OPENCHS
-    participant G as BITZ gateway
+    participant G as Integration gateway
     participant P as Primero CPIMS+
     A->>O: Explicit Refer / Send Update and confirmation
     O->>G: Approved data and authorised operation
@@ -1331,7 +1339,7 @@ flowchart TB
 | **Layer** | **Proposed component** | **Evidence status** |
 |----|----|----|
 | Intake | OPENCHS case form with ABR field and referral control | D2 build; form engine to verify |
-| Outbound | BITZ Integration Gateway with approved transformation, persistent state, queue, operation idempotency, retry, UUID linkage and reconciliation | Validated initial design; implementation framework / deployed API evidence pending |
+| Outbound | Integration Gateway with approved transformation, persistent state, queue, operation idempotency, retry, UUID linkage and reconciliation | Validated initial design; implementation framework / deployed API evidence pending |
 | Authentication | Primero JWT bearer tokens; integration account | Confirmed (JWT); credentials issued by Primero (A-023) |
 | Receiving system | Authorised create / referral, verified UUID linkage and explicit outbound update operations | Deployed sequence / schemas / permissions unverified; particular updates need contractual confirmation; attachment operations excluded initially |
 | Return channel | Future webhook / polling / inbound reconciliation only | Pending Validation — Contract Addendum (RT-007); not an initial component or acceptance gate |
@@ -1488,24 +1496,24 @@ Milestone codes: DEV development; TIT technical integration testing; UAT joint u
 
 | **ID** | **Description** | **Accountable organisation** | **Named person (where confirmed)** | **Required evidence** | **Status** | **Affected requirement** | **Milestone blocked** | **Acceptance impact** | **Target date** | **Related reference** |
 |----|----|----|----|----|----|----|----|----|----|----|
-| DSR-01 | Applicable data-protection legislation and its current status, including amendments, regulations, codes and child-protection legislation | Ministry; UNICEF legal advisers | — | Written legal confirmation | Under Review (A-022 desk research; [DPA1] received) | SEC-001 | PROD, GL | Production authorisation | — | A-017, A-022; R-007 |
+| DSR-01 | Applicable data-protection legislation and its current status, including amendments, regulations, codes and child-protection legislation | Ministry; UNICEF legal advisers | — | Written legal confirmation | Under Review (A-022 desk research; [DPA1] received) | SEC-001 | PROD, GL | Go-live readiness | — | A-017, A-022; R-007 |
 | DSR-02 | Approved lawful bases and disclosure purposes for each scenario in section 7 | Ministry | — | Consent during the call; otherwise child-protection (vital interest) basis with supervisor authorisation | Confirmed | SEC-001; DATA-012 | UAT (rules), PROD | Mapping and UAT scenarios | — | A-022; R-007 |
 | DSR-03 | Consent and safeguarding-exception authority, evidence and withdrawal handling | Ministry | — | Where consent cannot be obtained or is refused, a referral may proceed on the child-protection (vital interest) basis with supervisor authorisation. Withdrawal stops further updates but does not recall referrals already sent | Confirmed | DATA-012; WF-004 | UAT, PROD | Consent scenarios | — | R-011 |
 | DSR-04 | Data-sharing agreements and the organisations taking part in the approved flow | Ministry; UNICEF | — | Ministry (controller) and BITZ (processor) under the existing contract | Confirmed | SEC-001 | PROD | Real-data exchange | — | Section 7; R-007 |
-| DSR-05 | Data-controller and processor responsibilities and written processing contracts | Ministry; UNICEF | — | The Ministry is data controller for CPIMS+ and the helpline data; BITZ is processor for OPENCHS and the gateway under the existing contract. Existing hosting is unchanged, and remote support follows the existing support contract | Confirmed | SEC-001 | PROD | Production authorisation | — | R-017 |
+| DSR-05 | Data-controller and processor responsibilities and written processing contracts | Ministry; UNICEF | — | The Ministry is data controller for CPIMS+ and the helpline data; BITZ is processor for OPENCHS and the gateway under the existing contract. Existing hosting is unchanged, and remote support follows the existing support contract | Confirmed | SEC-001 | PROD | Go-live readiness | — | R-017 |
 | DSR-06 | Approved routine, partial and emergency minimum datasets | Ministry; Primero (feasibility) | — | Child's details and narrative; minimum emergency information in emergencies. Primero mandatory-field check remains | Confirmed | DATA-005; WF-004, WF-005; FN-005 | TIT (mapping), UAT | Validation build and UAT | — | Annex C; Section 5 |
 | DSR-07 | Reporter anonymity and child identity rules | Ministry | — | Approved disclosure rules and anonymous representation | Pending Confirmation | DATA-008; SEC-002; D-010, D-011 | UAT | Anonymity scenarios | — | Annex C.1 |
-| DSR-08 | Retention and secure deletion of ledger, logs and queued data (no periods prescribed under section 19) | Ministry | — | Proposed: metadata logs and the transaction ledger kept for 24 months; queued payloads deleted once delivery succeeds; Ministry to confirm | Proposed | SEC-006; OPS-005 | PROD | Production authorisation | — | Section 6 |
-| DSR-09 | Hosting location and cross-border support access | Ministry; Primero; BITZ | — | Existing hosting unchanged; remote support under the existing support contract | Confirmed | GOV-004 | TIT (network), PROD | Production authorisation | — | R-017 |
+| DSR-08 | Retention and secure deletion of ledger, logs and queued data (no periods prescribed under section 19) | Ministry | — | Proposed: metadata logs and the transaction ledger kept for 24 months; queued payloads deleted once delivery succeeds; Ministry to confirm | Proposed | SEC-006; OPS-005 | PROD | Go-live readiness | — | Section 6 |
+| DSR-09 | Hosting location and cross-border support access | Ministry; Primero; BITZ | — | Existing hosting unchanged; remote support under the existing support contract | Confirmed | GOV-004 | TIT (network), PROD | Go-live readiness | — | R-017 |
 | DSR-10 | Security-incident notification procedure, including recipients while the Commission is not established (section 23) | Ministry; UNICEF | — | Approved procedure and contacts | Pending Confirmation | OPS-007 | PROD | Go-live readiness | — | R-017 |
 | DSR-11 | Approved synthetic test dataset | Ministry (privacy owner); BITZ prepares | Tiisetso Mohlabi (approval) | Dataset approved before use | Confirmed | SEC-007; UAT-003 | TIT, UAT | All testing | — | Annex D S-08 |
 | DSR-12 | Named data-protection and security approvers | Ministry | Tiisetso Mohlabi | Written nomination | Confirmed | GOV-001 | UAT, GL | Approval of security evidence | — | R-014 |
 | DSR-13 | Government information-classification and security documentation (DMP sections 5 and 5.6.8); UNICEF asked to supply the classification policy | Ministry; UNICEF | — | Classification policy; required security documents | Pending Confirmation | SEC-006 | PROD | Final classification labels | — | Section 7 |
 | DSR-14 | Primero integration-account permissions and technical capabilities | Primero | Isaiah Amutavi Osotsi | Operations and permissions confirmed by Primero | Confirmed | SEC-003; API-002, API-003 | TIT | Implementation | — | Section 6 register; Annex B |
-| DSR-15 | Readiness of the Lesotho test environment | Primero; UNICEF (checklist) | Isaiah Amutavi Osotsi; Rantsala Sanaha | Access confirmed by Primero | Confirmed | UAT-003 | TIT, UAT | Lesotho verification | 13 Nov 2026 target recorded at [M4]; not guaranteed | A-015, A-016 |
+| DSR-15 | Readiness of the Lesotho test environment | Primero; UNICEF (checklist) | Isaiah Amutavi Osotsi; Rantsala Sanaha | Access confirmed by Primero | Confirmed | UAT-003 | TIT, UAT | Lesotho verification | 13 Nov 2026 target recorded at [M4], revised by Primero to the week of 23 Nov 2026 [S5] | A-015, A-016 |
 | DSR-16 | Approval of the safeguarding SOP, including current applicability of the 2019 SOP | Ministry | — | 2019 SOP confirmed as applicable | Confirmed | WF-001, WF-003 | UAT | Safeguarding scenarios | — | Section 3; A-013 |
 | DSR-17 | Operational support and incident escalation | BITZ; Primero; Ministry; Child Helpline | Hopolang Mosena (responsible) | Named contacts; approved runbook | Confirmed (responsible person) | OPS-006, OPS-007 | GL | Go-live readiness | — | Section 6 |
-| DSR-18 | Final authorisation of production data exchange | Ministry | — | Written authorisation | Blocked (depends on DSR-01 to DSR-17) | SEC-001 | PROD, GL | Go-live | — | Section 4 stage 4 |
+| DSR-18 | Production data exchange | Ministry | — | Ministry's existing internal data-handling processes; no separate project authorisation (BP-13) | Confirmed — BITZ proposal | SEC-001 | PROD, GL | Go-live | — | Section 4 stage 4 |
 
 ## Annex D — Testing and acceptance matrix
 
@@ -1634,11 +1642,11 @@ Thresholds are agreed [M4 section 10; PR1]. AC-08 applies only to a future inbou
 | EV-04 | Ministry UAT | Approved scenarios; named testers; execution evidence; defect disposition; signed UAT report | D4; G5 | Ministry, with BITZ support | Authorised Ministry signatory (CD-09) | Lesotho | Planned | CD-09; DSR-11 | — |
 | EV-05 | Training and handover | Training plan; attendance; exercises; manuals; technical handover; training report | D4 | BITZ | Ministry (operational); UNICEF (contractual) | — | Planned | Section 8, decision 8 | — |
 | EV-06 | Contractual acceptance | Deliverable submission; review comments; revised submission; written acceptance decision; conditions where applicable | D1–D4 | BITZ (submission) | Authorised UNICEF representative | — | D1: Produced, under review; D2–D4: Planned | AP-08 | — |
-| EV-07 | Production readiness | Security approval; safeguarding approval; environment readiness; monitoring; support; incident response; rollback; written go/no-go | Go-live | BITZ; Primero | Go/no-go authorities (AP-07) | Production | Planned | AP-03, AP-05 | — |
+| EV-07 | Production readiness | Security approval; environment readiness; monitoring; support; incident response; rollback; go/no-go readiness record | Go-live | BITZ; Primero | Go/no-go authorities (AP-07) | Production | Planned | AP-03, AP-05 | — |
 
 ## Annex E — Decisions, actions and dependencies
 
-This annex keeps every historical identifier and owner. Action statuses are as last recorded in the action register, with later treatment noted; the current position of open items is in Sections 8 and 11.3.
+This annex keeps every historical identifier and owner. Action statuses are as last recorded in the action register, with later treatment noted; the current position of open items is in Sections 8 and 11.3 (BITZ proposals).
 
 
 Identifiers continue the Session 1–2 register; where Session 3 updated an earlier decision it kept the earlier ID. Earlier v0.4 report-local numbering is not equivalent.
@@ -1663,7 +1671,7 @@ The decision wording and sources below preserve the recorded Session 1–3 busin
 | D-012 | Field set as presented; case plan not sent | Session 3 | Confirmed<br>**Current scope treatment:** Historical field-set agreement retained; initial electronic attachments excluded, non-sensitive existence metadata conditional under SCOPE-003; case plan still excluded | Session 3 facilitation-deck proposal to defer attachments |
 | D-013 | Narrative mandatory at referral, not first save | Session 3 | Confirmed | — |
 | D-014 | NICR ABR format for initial validation | Session 3 | Confirmed | Session 1 “validation deferred” |
-| D-015 | Direct API or OpenFN; X-Road only for Home Affairs checks | Session 3 | Confirmed; API vs OpenFN choice Pending (Ministry)<br>**Current scope treatment:** Historical choice unresolved at Session 3 and [M4]; SCOPE-006 then preferred the gateway with conditional OpenFN. **Final position:** BITZ Integration Gateway; OpenFN is not used (TECH-001) | — |
+| D-015 | Direct API or OpenFN; X-Road only for Home Affairs checks | Session 3 | Confirmed; API vs OpenFN choice Pending (Ministry)<br>**Current scope treatment:** Historical choice unresolved at Session 3 and [M4]; SCOPE-006 then preferred the gateway with conditional OpenFN. **Final position:** Integration Gateway; OpenFN is not used (TECH-001) | — |
 | D-016 | Two acknowledgements: system and human | Session 3 | Confirmed | — |
 | D-017 | Primero API documentation is the build basis unless it changes | Session 3 | Confirmed<br>**Current scope treatment:** Generic API material remains reference evidence; deployed version / capability verification still required (GOV-004) | — |
 | D-018 | Global playground if Lesotho sandbox not ready by draft report | Session 3 | Confirmed | — |
@@ -1689,12 +1697,12 @@ Source: user-supplied scope-validation instructions, defined in section 4. These
 
 | Validation reference | Validated position | Affected sections / existing requirements | Remaining authority / dependency |
 |---|---|---|---|
-| SCOPE-001 | Initial outbound creation and explicit authorised follow-up through BITZ gateway | 4.1, 4.3; FN-009, API-003, DATA-013 | Specific update operations require contractual confirmation where not explicit; Primero verifies support |
+| SCOPE-001 | Initial outbound creation and explicit authorised follow-up through the integration gateway | 4.1, 4.3; FN-009, API-003, DATA-013 | Specific update operations require contractual confirmation where not explicit; Primero verifies support |
 | SCOPE-002 | Retain D-007 history; automatic inbound / related mechanisms deferred | 4.2; FN-010, RT-007, SEC-008, AUD-003 | Formal addendum, Ministry sharing approval and Primero validation |
 | SCOPE-003 | Exclude all electronic files; narrowly conditional existence metadata only | 4.4; DATA-010; Annex C.1 | All five metadata conditions evidenced; actual file transfer requires addendum |
 | SCOPE-004 | Explicit exclusions with essential UI / security / deployment-readiness exception | 4.1, 4.4; D-012; DEF-002, DEF-004–DEF-009 | Material expansion requires approved change control; signed obligations not waived |
 | SCOPE-005 | Optional structural ABR checks; external registry integration excluded | 4.3; FN-001–FN-002, DATA-003–DATA-004; DEF-009 | Official specification and override roles; additional integration requires variation |
-| SCOPE-006 | BITZ gateway / direct API baseline; no X-Road referral path. (The conditional OpenFN element is superseded by TECH-001: OpenFN is not used) | 4.3; API-009, GOV-004; Section 6 / Annex B | Deployed version, API, authentication, UUID, permissions and environments unverified |
+| SCOPE-006 | Integration gateway / direct API baseline; no X-Road referral path. (The conditional OpenFN element is superseded by TECH-001: OpenFN is not used) | 4.3; API-009, GOV-004; Section 6 / Annex B | Deployed version, API, authentication, UUID, permissions and environments unverified |
 | SCOPE-007 | Shared technical / business responsibility without new SLA | 4.5; OPS-006–OPS-007; UAT-002 | Named owners, support escalation and authorised UAT signatory |
 | SCOPE-008 | Formal documented impact assessment and change control | 4.6; CD-01, CD-04; existing change register | Required contracting-party approval before out-of-scope implementation |
 | SCOPE-009 | Initial-scope evidence and four separate acceptance / go-live stages | 4.7; UAT-002–UAT-004, UAT-007, UAT-010 | Verified results, named authority and separate acceptance records; no deferred gate |
@@ -1904,6 +1912,7 @@ The bracketed codes are used for citations throughout the report. Where a source
 | [RC1] | CHL Integration with Primero Requirement Checklist (annotated); item numbers follow the checklist | 03_meetings/CHL intergration with Primero Requirement Checklist.docx | Author and date not recorded | NICR format (item 6); UAT participants and sign-off (item 10); data protection reference (item 11) |
 | [TB] | Technical Scope / TOR Brief — Lesotho Child Helpline 116 / OPENCHS, Amendment 3 | 07_source_documents/Lesotho_OPENCHS_Technical_Scope_Inception_Brief.pdf | 24 Sep 2026 | Contract scope; workstreams; inception questions |
 | [DP] | Contract-Aligned Delivery Plan v0.3 | 02_project_management/CONTRACT_ALIGNED_DELIVERY_PLAN.md | 14 Oct 2026; updated 26 Oct 2026 | Milestones; payment gates |
+| [S5] | Technical kick-off meeting minutes — 10 November 2026 (Draft) | 03_meetings/Session 5 /SESSION_5_TECHNICAL_KICKOFF_MINUTES_2026-11-10_DRAFT.docx | 10 Nov 2026 | Revised G2 date; free-text rejection reason in CPIMS+; field-mapping approval approach; gateway installed on the Ministry's server; Primero rollout and training timeline |
 | [PR1] | BITZ project record of confirmations, 9 November 2026 (report owner, recording the responsible parties' confirmations) | BITZ project files | 9 Nov 2026 | Primero technical confirmations; Ministry roles; safeguarding positions; agreed thresholds |
 | [SOP1] | HIV-Sensitive Case Management Manual — Standard Operating Procedures (Ministry, September 2019), including Form 4 | 03_meetings/session_3 | Received 28 Oct 2026 | Referral workflow; Form 4 mapping; confidentiality guidance |
 | [TX3] | Session 3 meeting transcript (automated) | 03_meetings/session_3 | 26 Oct 2026 | Corroboration of Session 3 decisions |

@@ -34,6 +34,8 @@ Contract/
 # Personal data: attendance reports and unreviewed meeting transcripts
 *[Aa]ttendance report*
 **/transcripts/*TRANSCRIPT*
+*[Tt]ranscript*.txt
+*[Tt]ranscript*.docx
 
 # Correspondence: email drafts, replies and stakeholder responses
 06_correspondence/
@@ -58,3 +60,6 @@ primero/
 # Obsidian local workspace state
 .obsidian/workspace*.json
 *MINUTES_REMEDIATION*
+
+# Local Word conversion experiments
+01_inception/_word_tests/
